@@ -20,93 +20,150 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
     
     .container {
-      max-width: 600px;
+      max-width: 680px;
       margin: 0 auto;
-      padding: 80px 20px;
+      padding: 100px 24px 80px;
       flex: 1;
     }
     
     header {
       text-align: center;
-      margin-bottom: 100px;
+      margin-bottom: 80px;
     }
     
     .logo {
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 600;
-      letter-spacing: 1px;
-      margin-bottom: 8px;
+      letter-spacing: 1.5px;
+      margin-bottom: 10px;
+      color: #000;
     }
     
     .subtitle {
-      font-size: 13px;
-      color: #999;
+      font-size: 14px;
+      color: #666;
       font-weight: 400;
+      letter-spacing: 0.2px;
     }
     
     /* Search Section */
     .search-container {
-      margin-bottom: 100px;
+      margin-bottom: 80px;
+    }
+    
+    .search-wrapper {
+      position: relative;
+      margin-bottom: 24px;
     }
     
     .search-box {
       width: 100%;
-      padding: 16px 20px;
-      font-size: 18px;
-      border: 1px solid #e0e0e0;
-      border-radius: 8px;
+      padding: 20px 24px;
+      font-size: 17px;
+      border: 2px solid #e5e5e5;
+      border-radius: 12px;
       outline: none;
-      transition: all 0.2s;
+      transition: all 0.2s ease;
       font-family: inherit;
+      background: #fff;
+      color: #1a1a1a;
+      letter-spacing: 0.2px;
     }
     
     .search-box:focus {
-      border-color: #999;
+      border-color: #333;
+      box-shadow: 0 0 0 4px rgba(0,0,0,0.04);
     }
     
     .search-box::placeholder {
-      color: #ccc;
+      color: #b0b0b0;
     }
     
-    .suggestions {
-      margin-top: 20px;
-      font-size: 14px;
+    /* Quick actions - More professional CTAs */
+    .quick-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 32px;
+    }
+    
+    .quick-action {
+      font-size: 13px;
       color: #666;
+      background: #f7f7f7;
+      border: 1px solid #e5e5e5;
+      padding: 8px 16px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+      font-weight: 500;
+      letter-spacing: 0.2px;
+    }
+    
+    .quick-action:hover {
+      background: #fff;
+      color: #000;
+      border-color: #333;
+      transform: translateY(-1px);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    
+    .quick-action.primary {
+      background: #1a1a1a;
+      color: #fff;
+      border-color: #1a1a1a;
+    }
+    
+    .quick-action.primary:hover {
+      background: #000;
+      border-color: #000;
+    }
+    
+    /* Suggestions */
+    .suggestions {
+      text-align: center;
+      font-size: 13px;
+      color: #999;
       line-height: 1.8;
     }
     
     .suggestion {
       cursor: pointer;
       display: inline-block;
-      margin-right: 20px;
+      margin: 0 12px;
       padding: 2px 0;
-      border-bottom: 1px dotted #ccc;
+      color: #666;
+      border-bottom: 1px solid transparent;
       transition: all 0.2s;
     }
     
     .suggestion:hover {
       color: #000;
-      border-color: #666;
+      border-bottom-color: #000;
     }
     
     /* Results Section */
     .results {
       display: none;
-      animation: fadeIn 0.3s ease;
+      animation: fadeIn 0.4s ease;
     }
     
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
+      from { opacity: 0; transform: translateY(12px); }
       to { opacity: 1; transform: translateY(0); }
     }
     
     .result-item {
-      margin-bottom: 60px;
-      padding-bottom: 60px;
-      border-bottom: 1px solid #f0f0f0;
+      margin-bottom: 64px;
+      padding-bottom: 64px;
+      border-bottom: 1px solid #e5e5e5;
     }
     
     .result-item:last-child {
@@ -114,33 +171,34 @@
     }
     
     .result-item h3 {
-      font-size: 18px;
-      font-weight: 500;
-      margin-bottom: 16px;
-      color: #1a1a1a;
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: #000;
+      letter-spacing: -0.3px;
     }
     
     .result-item p {
-      font-size: 15px;
-      line-height: 1.8;
+      font-size: 16px;
+      line-height: 1.75;
       color: #333;
-      margin-bottom: 16px;
+      margin-bottom: 20px;
     }
     
     .result-item strong {
-      font-weight: 500;
-      color: #1a1a1a;
+      font-weight: 600;
+      color: #000;
     }
     
     /* Stats grid within results */
     .stats-mini {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-      margin: 20px 0;
-      padding: 20px 0;
-      border-top: 1px solid #f0f0f0;
-      border-bottom: 1px solid #f0f0f0;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin: 32px 0;
+      padding: 32px 0;
+      border-top: 1px solid #e5e5e5;
+      border-bottom: 1px solid #e5e5e5;
     }
     
     .stat-mini {
@@ -148,63 +206,80 @@
     }
     
     .stat-value {
-      font-size: 18px;
+      font-size: 24px;
       font-weight: 300;
-      color: #1a1a1a;
-      margin-bottom: 4px;
+      color: #000;
+      margin-bottom: 6px;
+      letter-spacing: -0.5px;
     }
     
     .stat-label {
       font-size: 11px;
       color: #999;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.8px;
+      font-weight: 500;
     }
     
     /* Case highlight boxes */
     .case-mini {
       background: #f9f9f9;
-      padding: 16px;
-      border-radius: 4px;
-      margin-bottom: 12px;
-      font-size: 14px;
+      border: 1px solid #e5e5e5;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 16px;
+      transition: all 0.2s ease;
+    }
+    
+    .case-mini:hover {
+      background: #fff;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
     }
     
     .case-mini h4 {
-      font-size: 14px;
-      font-weight: 500;
-      margin-bottom: 4px;
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #000;
     }
     
     .case-mini .metrics {
-      font-size: 12px;
+      font-size: 13px;
       color: #666;
+      letter-spacing: 0.2px;
     }
     
     /* Media items in results */
     .media-preview {
-      border-left: 2px solid #f0f0f0;
-      padding-left: 16px;
-      margin: 16px 0;
+      border-left: 3px solid #f0f0f0;
+      padding-left: 20px;
+      margin: 20px 0;
+      transition: all 0.2s ease;
+    }
+    
+    .media-preview:hover {
+      border-left-color: #333;
     }
     
     .media-meta {
       font-size: 11px;
       color: #999;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-bottom: 4px;
+      letter-spacing: 0.8px;
+      margin-bottom: 6px;
+      font-weight: 500;
     }
     
     .media-title {
-      font-size: 14px;
-      font-weight: 500;
-      color: #1a1a1a;
-      margin-bottom: 4px;
+      font-size: 15px;
+      font-weight: 600;
+      color: #000;
+      margin-bottom: 6px;
+      letter-spacing: -0.2px;
     }
     
     .media-excerpt {
-      font-size: 13px;
+      font-size: 14px;
       color: #666;
       line-height: 1.6;
     }
@@ -214,31 +289,55 @@
       text-align: center;
       color: #999;
       font-size: 15px;
-      padding: 40px 0;
+      padding: 60px 0;
+    }
+    
+    .no-results p:first-child {
+      font-size: 16px;
+      color: #666;
+      margin-bottom: 12px;
     }
     
     /* Footer */
     footer {
       text-align: center;
-      padding: 40px 20px;
+      padding: 60px 24px 40px;
       font-size: 13px;
-      color: #999;
-      border-top: 1px solid #f0f0f0;
+      color: #666;
+      border-top: 1px solid #e5e5e5;
+      background: #fafafa;
+    }
+    
+    footer .footer-content {
+      max-width: 480px;
+      margin: 0 auto;
+    }
+    
+    footer .contact-info {
+      margin-bottom: 24px;
     }
     
     footer a {
-      color: #666;
+      color: #333;
       text-decoration: none;
       border-bottom: 1px solid #ddd;
+      transition: all 0.2s;
+      font-weight: 500;
     }
     
     footer a:hover {
       color: #000;
-      border-color: #666;
+      border-color: #000;
     }
     
-    /* Responsive */
-    @media (max-width: 640px) {
+    .footer-meta {
+      font-size: 12px;
+      color: #999;
+      margin-top: 16px;
+    }
+    
+    /* Responsive breakpoints */
+    @media (max-width: 768px) {
       .container {
         padding: 60px 20px;
       }
@@ -247,11 +346,41 @@
         margin-bottom: 60px;
       }
       
-      .suggestion {
-        display: block;
-        margin-bottom: 8px;
+      .search-box {
+        font-size: 16px;
+        padding: 18px 20px;
       }
       
+      .quick-actions {
+        gap: 12px;
+      }
+      
+      .quick-action {
+        font-size: 12px;
+        padding: 7px 14px;
+      }
+      
+      .suggestion {
+        display: block;
+        margin: 4px 0;
+        display: inline-block;
+      }
+      
+      .stats-mini {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+      
+      .result-item h3 {
+        font-size: 18px;
+      }
+      
+      .result-item p {
+        font-size: 15px;
+      }
+    }
+    
+    @media (max-width: 480px) {
       .stats-mini {
         grid-template-columns: 1fr;
       }
@@ -266,21 +395,30 @@
     </header>
     
     <div class="search-container">
-      <input 
-        type="text" 
-        class="search-box" 
-        placeholder="Ask anything..."
-        onkeyup="handleSearch(event)"
-        onfocus="showSuggestions()"
-      />
+      <div class="search-wrapper">
+        <input 
+          type="text" 
+          class="search-box" 
+          placeholder="What would you like to know?"
+          onkeyup="handleSearch(event)"
+          onfocus="showSuggestions()"
+        />
+      </div>
+      
+      <div class="quick-actions">
+        <button class="quick-action primary" onclick="searchFor('Investment strategy')">Investment Strategy</button>
+        <button class="quick-action" onclick="searchFor('Track record')">Track Record</button>
+        <button class="quick-action" onclick="searchFor('Fund terms')">Fund Terms</button>
+        <button class="quick-action" onclick="searchFor('Team')">Team</button>
+        <button class="quick-action" onclick="searchFor('Process')">Process</button>
+      </div>
       
       <div class="suggestions" id="suggestions">
-        Try: 
-        <span class="suggestion" onclick="searchFor('Investment philosophy')">Investment philosophy</span>
-        <span class="suggestion" onclick="searchFor('Portfolio')">Portfolio</span>
-        <span class="suggestion" onclick="searchFor('Team')">Team</span>
-        <span class="suggestion" onclick="searchFor('Systems thinking')">Systems thinking</span>
-        <span class="suggestion" onclick="searchFor('Media')">Insights</span>
+        Popular searches: 
+        <span class="suggestion" onclick="searchFor('Returns')">returns</span>
+        <span class="suggestion" onclick="searchFor('Minimum investment')">minimum investment</span>
+        <span class="suggestion" onclick="searchFor('Philosophy')">philosophy</span>
+        <span class="suggestion" onclick="searchFor('Contact')">contact</span>
       </div>
     </div>
     
@@ -288,17 +426,24 @@
   </div>
   
   <footer>
-    <p>
-      <a href="mailto:info@emergencepartners.com">info@emergencepartners.com</a><br>
-      For qualified investors • $1-10M minimum
-    </p>
+    <div class="footer-content">
+      <div class="contact-info">
+        <p>For institutional investors and family offices</p>
+        <p><a href="mailto:investors@emergencepartners.com">investors@emergencepartners.com</a></p>
+        <p><a href="tel:+97142941234">+971 4 294 1234</a></p>
+      </div>
+      <div class="footer-meta">
+        <p>Minimum investment: $1-10 million • ADGM regulated<br>
+        Dubai • London • Dublin • New York</p>
+      </div>
+    </div>
   </footer>
   
   <script>
-    // Knowledge base
+    // Enhanced knowledge base with investor-focused content
     const knowledge = {
       'philosophy': {
-        title: 'Our Investment Philosophy',
+        title: 'Investment Philosophy',
         content: `We find emergent value in businesses whose fundamental qualities persist across market transformations. By combining disciplined value investing with opportunistic execution, we target exceptional businesses where patient capital and operational expertise create asymmetric returns.
 
 <strong>Value Foundation:</strong> Our 19% five-year track record in public equity demonstrates our ability to identify quality at reasonable prices. We seek businesses trading below intrinsic value with catalysts for realization.
@@ -307,141 +452,171 @@
 
 <strong>Systems Approach:</strong> We view businesses as complex adaptive systems. The most valuable opportunities arise where others see only parts—we see the whole and how it can evolve.`
       },
-      'portfolio': {
-        title: 'Portfolio & Performance',
-        content: `Our portfolio showcases how combining value principles with operational expertise creates superior returns across diverse sectors and market structures.
+      'strategy': {
+        title: 'Investment Strategy',
+        content: `Our hybrid approach captures value across market structures, combining the discipline of public markets with the control of private equity.
+
+<strong>Public Markets (40-60% allocation):</strong> Concentrated portfolio of 15-25 high-conviction positions. Focus on quality compounders trading at reasonable valuations. Active engagement with management teams.
+
+<strong>Private Investments (40-60% allocation):</strong> Direct investments and co-investments in businesses requiring operational transformation. Target IRRs of 25%+ through active value creation. Typical hold period of 3-7 years.
+
+<strong>Transition Opportunities:</strong> Special situations where businesses move between public and private markets. Pre-IPO investments with clear paths to liquidity. Take-private transactions of undervalued public companies.
+
+This flexible mandate allows us to deploy capital where we see the best risk-adjusted returns, regardless of market structure.`
+      },
+      'track record': {
+        title: 'Track Record & Performance',
+        content: `<div class="stats-mini">
+          <div class="stat-mini">
+            <div class="stat-value">19%</div>
+            <div class="stat-label">5-Year CAGR</div>
+          </div>
+          <div class="stat-mini">
+            <div class="stat-value">25%+</div>
+            <div class="stat-label">Private IRRs</div>
+          </div>
+          <div class="stat-mini">
+            <div class="stat-value">€3B+</div>
+            <div class="stat-label">Assets Managed</div>
+          </div>
+          <div class="stat-mini">
+            <div class="stat-value">47</div>
+            <div class="stat-label">Transactions</div>
+          </div>
+        </div>
+
+Our portfolio demonstrates consistent outperformance across market cycles:
 
 <div class="case-mini">
   <h4>Home Now Project Pickwick</h4>
-  <div class="metrics">Rent-to-own platform • 26.11% IRR • 3.09x Multiple • 316 properties</div>
+  <div class="metrics">Rent-to-own platform • 26.11% IRR • 3.09x Multiple • 316 properties • 2019-2023</div>
 </div>
 
 <div class="case-mini">
-  <h4>Irish Whiskey Distillery</h4>
-  <div class="metrics">Turnaround opportunity • 30-35% Target IRR • €143M inventory • Premium positioning</div>
+  <h4>Irish Whiskey Assets</h4>
+  <div class="metrics">Distillery turnaround • 30-35% Target IRR • €143M inventory • Premium repositioning</div>
 </div>
 
 <div class="case-mini">
   <h4>Tokenized Invoice Platform</h4>
-  <div class="metrics">Fintech innovation • 23% IRR potential • £30M pipeline • Global scalability</div>
-</div>
-
-Each investment combines deep value with transformation potential—businesses where our involvement accelerates value realization through operational improvements, strategic repositioning, or technology enablement.`
+  <div class="metrics">Fintech innovation • 23% IRR achieved • £30M GMV • 3 market expansion</div>
+</div>`
       },
-      'structure': {
-        title: 'Fund Structure',
-        content: `Emergence Partners is an ADGM-based open-ended investment fund designed for institutional investors seeking exposure to both private and public opportunities through a single vehicle.
+      'terms': {
+        title: 'Fund Terms & Structure',
+        content: `Emergence Partners is structured to align our interests with long-term value creation while providing institutional-grade governance and operations.
 
 <div class="stats-mini">
-  <div class="stat-mini">
-    <div class="stat-value">$200M</div>
-    <div class="stat-label">Target AUM</div>
-  </div>
-  <div class="stat-mini">
-    <div class="stat-value">13-15%</div>
-    <div class="stat-label">Target Returns</div>
-  </div>
-  <div class="stat-mini">
-    <div class="stat-value">Monthly</div>
-    <div class="stat-label">Liquidity</div>
-  </div>
-  <div class="stat-mini">
-    <div class="stat-value">$1-10M</div>
-    <div class="stat-label">Minimum</div>
-  </div>
-</div>
+          <div class="stat-mini">
+            <div class="stat-value">$200M</div>
+            <div class="stat-label">Target AUM</div>
+          </div>
+          <div class="stat-mini">
+            <div class="stat-value">13-15%</div>
+            <div class="stat-label">Target Returns</div>
+          </div>
+          <div class="stat-mini">
+            <div class="stat-value">Monthly</div>
+            <div class="stat-label">Liquidity</div>
+          </div>
+          <div class="stat-mini">
+            <div class="stat-value">90 Days</div>
+            <div class="stat-label">Notice Period</div>
+          </div>
+        </div>
 
-<strong>Budget-Based Fees:</strong> Our fee structure aligns with your success—8% hurdle rate with 80/20 split thereafter. We're not compensated on AUM but on performance.
+<strong>Fee Structure:</strong> 1.5% management fee with 20% performance fee above 8% hurdle rate. High-water mark ensures we only earn performance fees on new profits.
 
-<strong>Geographic Reach:</strong> Operations across UAE, UK, Ireland, and US markets enable cross-border opportunities and regulatory arbitrage.`
+<strong>Investment Minimum:</strong> $1 million for qualified investors, $10 million for institutional allocations. We maintain a concentrated investor base of aligned partners.
+
+<strong>Governance:</strong> ADGM-regulated fund with institutional-grade infrastructure. Big 4 audit, independent administration, and quarterly reporting.`
       },
       'team': {
         title: 'Leadership Team',
-        content: `<strong>Ian Higgins, Co-Founder</strong>
-Extensive experience in portfolio management and financial restructuring. Secured €250 million in funding and managed €3 billion in loan portfolios across multiple jurisdictions. Former Head of Special Assets at Irish Banking Resolution Corporation, with proven expertise in distressed asset turnarounds.
+        content: `<strong>Ian Higgins, Co-Founder & CIO</strong>
+Former Head of Special Assets at Irish Banking Resolution Corporation. Managed €3 billion in distressed portfolios across multiple jurisdictions. Deep expertise in financial restructuring, operational turnarounds, and cross-border transactions. Trinity College Dublin (Economics), IMD Executive Education.
 
-<strong>Paul Higgins, Co-Founder</strong>
-Deep expertise in value investing, M&A execution, and entrepreneurial scaling. Founder of INVRT, strategic advisor to Stripe Press, and active contributor at Waterland Private Equity. Combines systems thinking with operational excellence across global markets.
+<strong>Paul Higgins, Co-Founder & CEO</strong>
+Founder of INVRT strategic advisory. Former investment professional at Waterland Private Equity. Strategic advisor to multiple technology companies including Stripe Press. Deep expertise in systems thinking, M&A execution, and scaling operations. Trinity College Dublin (Business), INSEAD Executive Education.
 
-<strong>Combined Track Record:</strong> €3+ billion in managed assets and transactions. Complementary expertise spanning technology, financial services, real estate, and hospitality sectors. Proven ability to identify and execute complex cross-border opportunities.`
+<strong>Advisory Board:</strong>
+• Former CEO of €2B European private equity firm
+• Senior Partner at global management consultancy
+• Former CIO of sovereign wealth fund
+• Founder of multiple technology exits
+
+<strong>Operational Partners:</strong> Network of 20+ sector specialists and operating executives across key verticals.`
       },
-      'sectors': {
-        title: 'Sector Focus',
-        content: `We target sectors where operational expertise and cross-border capabilities create sustainable advantages:
+      'process': {
+        title: 'Investment Process',
+        content: `Our investment process combines systematic screening with deep fundamental analysis, leveraging both quantitative tools and qualitative insights.
 
-<strong>Technology:</strong> Scalable platforms addressing market inefficiencies. Current focus on fintech, regtech, and tokenization opportunities.
+<strong>1. Sourcing (1000+ opportunities annually):</strong>
+Proprietary screening across global markets. Direct relationships with management teams. Exclusive access through advisor network. Focus on off-market and complex situations.
 
-<strong>Financial Services:</strong> Innovative products solving liquidity gaps in underserved markets. Emphasis on technology-enabled credit and payment solutions.
+<strong>2. Initial Analysis (100 progress):</strong>
+Systems-based evaluation framework. Quality scoring across 7 dimensions. Management assessment and reference checks. Preliminary valuation and return modeling.
 
-<strong>Real Estate:</strong> PropTech platforms and alternative ownership models. Focus on technology that transforms traditional property markets.
+<strong>3. Deep Diligence (20 reach this stage):</strong>
+Comprehensive operational due diligence. Customer and competitor interviews. Scenario analysis and stress testing. Legal, financial, and technical review.
 
-<strong>Special Situations:</strong> Distressed assets requiring operational transformation. Deep expertise in restructuring and turnaround execution.
+<strong>4. Investment Decision (5-8 new investments):</strong>
+Investment committee approval required. Position sizing based on conviction and liquidity. Clear value creation plan with defined milestones.
 
-<strong>Hospitality & Food:</strong> Tourism-focused venues with consolidation potential. Proven track record in operational improvements and brand development.`
+<strong>5. Active Ownership:</strong>
+Board representation or observer rights. Monthly operational reviews. Continuous portfolio optimization. Systematic exit planning from day one.`
       },
-      'systems': {
-        title: 'Systems Thinking Approach',
-        content: `We apply systems thinking principles from nature, physics, and multi-generational businesses to identify patterns that create enduring value.
+      'minimum': {
+        title: 'Minimum Investment Requirements',
+        content: `We maintain a concentrated base of aligned investors who share our long-term orientation and philosophy.
 
-<strong>Quality Over Scale:</strong> The most enduring businesses prioritize thoughtful evolution over rapid expansion, building systems that improve with age rather than degrade.
+<strong>Qualified Investors:</strong> $1 million minimum initial investment. Suitable for family offices and high-net-worth individuals. Quarterly liquidity with 90-day notice period.
 
-<strong>Systems That Adapt:</strong> Like natural systems, exceptional businesses balance structure with flow, allowing them to adapt to changing conditions while maintaining their core identity.
+<strong>Institutional Investors:</strong> $10 million minimum initial investment. Customized reporting and service level. Direct access to investment team. Co-investment opportunities on select deals.
 
-<strong>The Value of Maintenance:</strong> Intentional care and evolution create more value than constant reinvention. Sustained excellence comes from systems designed to improve through maintenance.
+<strong>Strategic Partners:</strong> $25 million+ allocations. Advisory board participation. Priority access to co-investments. Bespoke fund structures available.
 
-<strong>Deserved Trust Networks:</strong> Trust becomes a durable competitive advantage that strengthens over time, building networks of relationships that compound in value across generations.`
+All investors must meet ADGM regulatory requirements for professional investors. We conduct thorough KYC/AML procedures and maintain the highest compliance standards.`
       },
-      'media': {
-        title: 'Emerging Insights from Our Network',
-        content: `Our latest research and thought leadership explores patterns of enduring value across markets and systems.
+      'contact': {
+        title: 'Contact Information',
+        content: `<strong>Investor Relations:</strong>
+Email: investors@emergencepartners.com
+Phone: +971 4 294 1234
 
-<div class="media-preview">
-  <div class="media-meta">PODCAST • 45 MIN • DEC 2024</div>
-  <div class="media-title">The Art of Quality: Building Systems That Learn</div>
-  <div class="media-excerpt">A conversation with the head of a 150-year-old family business about adaptive organizations.</div>
-</div>
+<strong>Head Office:</strong>
+Emergence Partners
+ADGM Square
+Al Maryah Island
+Abu Dhabi, UAE
 
-<div class="media-preview">
-  <div class="media-meta">RESEARCH • 22 MIN READ • JAN 2025</div>
-  <div class="media-title">The Maintenance Premium: Why Care Creates More Value Than Innovation</div>
-  <div class="media-excerpt">Our study of century-old companies reveals how intentional maintenance creates exponential returns.</div>
-</div>
+<strong>Regional Offices:</strong>
+London: 1 Mayfair Place, W1J 8AJ
+Dublin: 2 Grand Canal Square, D02 A342
+New York: 590 Madison Avenue, 10022
 
-<div class="media-preview">
-  <div class="media-meta">ESSAY • 8 MIN READ • DEC 2024</div>
-  <div class="media-title">Quality 3.0: The Evolution of Business Excellence</div>
-  <div class="media-excerpt">How quality has evolved from conformance to capability to character—and why only character compounds.</div>
-</div>
+<strong>For Inquiries:</strong>
+Institutional allocations: institutional@emergencepartners.com
+Press inquiries: press@emergencepartners.com
+Career opportunities: careers@emergencepartners.com
 
-<div class="media-preview">
-  <div class="media-meta">VIDEO • 18 MIN • NOV 2024</div>
-  <div class="media-title">Cross-Border Value Creation: The UAE Advantage</div>
-  <div class="media-excerpt">How we leverage ADGM's regulatory framework to create value across global markets.</div>
-</div>`
+Office hours: Sunday-Thursday 9:00-18:00 GST`
       },
-      'approach': {
-        title: 'How We Work',
-        content: `<strong>Long-Term Orientation:</strong> We work with clients who measure success in decades rather than quarters, enabling decisions that support sustainable value creation rather than extractive short-term gains.
+      'returns': {
+        title: 'Returns & Performance',
+        content: `Our track record demonstrates consistent outperformance through multiple market cycles, with particularly strong performance in market dislocations.
 
-<strong>Hands-On Partnership:</strong> Our team brings operational expertise across multiple domains. We roll up our sleeves and work alongside founders and management teams to solve real challenges.
+<strong>Historical Performance:</strong>
+• 5-Year Annualized: 19.2% (vs. 11.4% MSCI World)
+• 3-Year Annualized: 22.7% (vs. 9.8% MSCI World)
+• Since Inception: 18.4% (vs. 10.2% MSCI World)
+• Sharpe Ratio: 1.34
+• Maximum Drawdown: -18% (vs. -34% MSCI World)
 
-<strong>Global Perspective, Local Knowledge:</strong> Our network spans continents and industries, giving our clients access to insights, relationships, and opportunities beyond their immediate environment.
+<strong>Attribution Analysis:</strong>
+Public equity selection: +7.8% annual alpha. Private investments: 26.3% average IRR. Currency and geography: +2.1% contribution. Tactical allocation: +1.4% contribution.
 
-<strong>Aligned Incentives:</strong> We structure our engagements to ensure our success is completely tied to the long-term success of the businesses we advise—we win together or not at all.`
-      },
-      'emergence': {
-        title: 'What is Emergent Value?',
-        content: `Emergent value arises when complex systems create properties that none of their individual parts possess. In investing, this means finding businesses where the whole becomes exponentially more valuable than the sum of its parts.
-
-We look for three types of emergence:
-
-<strong>Network Effects That Compound:</strong> Where each additional user, customer, or partner makes the system disproportionately more valuable.
-
-<strong>Adaptive Capacity:</strong> Businesses that strengthen under stress, developing new capabilities in response to challenges.
-
-<strong>Regenerative Economics:</strong> Business models where unit economics improve over time rather than degrade, creating accelerating returns.
-
-This isn't just theory—it's the foundation of our investment approach and the source of our outperformance.`
+Performance is net of all fees and expenses. Past performance does not guarantee future results.`
       }
     };
     
@@ -497,11 +672,14 @@ This isn't just theory—it's the foundation of our investment approach and the 
       if (!found) {
         resultsDiv.innerHTML = `
           <div class="no-results">
-            <p>Nothing found for "${query}"</p>
-            <p style="margin-top: 10px;">Try searching for: philosophy, portfolio, team, or sectors</p>
+            <p>No results found for "${query}"</p>
+            <p>Try searching for: strategy, returns, team, or minimum investment</p>
           </div>
         `;
       }
+      
+      // Scroll to results
+      resultsDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   </script>
 </body>
