@@ -17,16 +17,21 @@
       color: #1a1a1a;
       background: #fff;
       font-size: 16px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
     
     .container {
-      max-width: 640px;
+      max-width: 600px;
       margin: 0 auto;
-      padding: 60px 20px;
+      padding: 80px 20px;
+      flex: 1;
     }
     
     header {
-      margin-bottom: 60px;
+      text-align: center;
+      margin-bottom: 100px;
     }
     
     .logo {
@@ -37,85 +42,98 @@
     }
     
     .subtitle {
+      font-size: 13px;
+      color: #999;
+      font-weight: 400;
+    }
+    
+    /* Search Section */
+    .search-container {
+      margin-bottom: 100px;
+    }
+    
+    .search-box {
+      width: 100%;
+      padding: 16px 20px;
+      font-size: 18px;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      outline: none;
+      transition: all 0.2s;
+      font-family: inherit;
+    }
+    
+    .search-box:focus {
+      border-color: #999;
+    }
+    
+    .search-box::placeholder {
+      color: #ccc;
+    }
+    
+    .suggestions {
+      margin-top: 20px;
       font-size: 14px;
       color: #666;
-      font-weight: 400;
+      line-height: 1.8;
     }
     
-    .hero {
-      margin-bottom: 80px;
-    }
-    
-    .hero h1 {
-      font-size: 28px;
-      font-weight: 400;
-      line-height: 1.4;
-      margin-bottom: 32px;
-      letter-spacing: -0.5px;
-    }
-    
-    /* Interactive expandable sections */
-    .expandable {
-      margin-bottom: 24px;
-      border-bottom: 1px solid #eee;
-      padding-bottom: 24px;
-    }
-    
-    .expandable-header {
+    .suggestion {
       cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 4px 0;
+      display: inline-block;
+      margin-right: 20px;
+      padding: 2px 0;
+      border-bottom: 1px dotted #ccc;
       transition: all 0.2s;
     }
     
-    .expandable-header:hover {
+    .suggestion:hover {
       color: #000;
+      border-color: #666;
     }
     
-    .expandable-title {
-      font-size: 17px;
+    /* Results Section */
+    .results {
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .result-item {
+      margin-bottom: 60px;
+      padding-bottom: 60px;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    
+    .result-item:last-child {
+      border-bottom: none;
+    }
+    
+    .result-item h3 {
+      font-size: 18px;
       font-weight: 500;
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      margin-bottom: 16px;
+      color: #1a1a1a;
     }
     
-    .plus {
-      font-size: 20px;
-      font-weight: 300;
-      color: #999;
-      transition: transform 0.3s;
-      display: inline-block;
-      width: 20px;
-      text-align: center;
-    }
-    
-    .expandable.active .plus {
-      transform: rotate(45deg);
-    }
-    
-    .expandable-content {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease;
-    }
-    
-    .expandable.active .expandable-content {
-      max-height: 2000px;
-      padding-top: 16px;
-    }
-    
-    .expandable-content p {
+    .result-item p {
       font-size: 15px;
-      line-height: 1.7;
+      line-height: 1.8;
       color: #333;
       margin-bottom: 16px;
     }
     
-    /* Stats within expandable content */
-    .stats-grid {
+    .result-item strong {
+      font-weight: 500;
+      color: #1a1a1a;
+    }
+    
+    /* Stats grid within results */
+    .stats-mini {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 20px;
@@ -125,365 +143,117 @@
       border-bottom: 1px solid #f0f0f0;
     }
     
-    .stat {
+    .stat-mini {
       text-align: center;
     }
     
     .stat-value {
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 300;
       color: #1a1a1a;
       margin-bottom: 4px;
     }
     
     .stat-label {
-      font-size: 12px;
-      color: #666;
+      font-size: 11px;
+      color: #999;
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
     
-    /* Case study mini-cards */
-    .case-highlight {
+    /* Case highlight boxes */
+    .case-mini {
       background: #f9f9f9;
       padding: 16px;
       border-radius: 4px;
       margin-bottom: 12px;
+      font-size: 14px;
     }
     
-    .case-highlight h4 {
-      font-size: 15px;
+    .case-mini h4 {
+      font-size: 14px;
       font-weight: 500;
       margin-bottom: 4px;
     }
     
-    .case-highlight .metrics {
-      font-size: 13px;
+    .case-mini .metrics {
+      font-size: 12px;
       color: #666;
     }
     
-    /* Hover hints */
-    .hint {
-      color: #666;
-      border-bottom: 1px dotted #999;
-      cursor: help;
-      position: relative;
-    }
-    
-    .hint:hover::after {
-      content: attr(data-hint);
-      position: absolute;
-      bottom: 100%;
-      left: 0;
-      background: #333;
-      color: white;
-      padding: 4px 8px;
-      font-size: 13px;
-      white-space: nowrap;
-      border-radius: 3px;
-      margin-bottom: 4px;
-      z-index: 10;
-    }
-    
-    /* Media Section Styles */
-    .media-section {
-      margin: 80px 0;
-    }
-    
-    .media-section h2 {
-      font-size: 20px;
-      font-weight: 400;
-      letter-spacing: -0.3px;
-      margin-bottom: 40px;
-      color: #1a1a1a;
-    }
-    
-    /* Filter tabs */
-    .media-filters {
-      display: flex;
-      gap: 20px;
-      margin-bottom: 30px;
-      padding-bottom: 20px;
-      border-bottom: 1px solid #eee;
-      flex-wrap: wrap;
-    }
-    
-    .filter-tab {
-      font-size: 14px;
-      color: #666;
-      cursor: pointer;
-      transition: all 0.2s;
-      padding: 4px 0;
-      border-bottom: 2px solid transparent;
-    }
-    
-    .filter-tab:hover {
-      color: #1a1a1a;
-    }
-    
-    .filter-tab.active {
-      color: #1a1a1a;
-      border-bottom-color: #1a1a1a;
-    }
-    
-    /* Media grid */
-    .media-grid {
-      display: grid;
-      gap: 32px;
-    }
-    
-    .media-item {
-      border-bottom: 1px solid #f0f0f0;
-      padding-bottom: 32px;
-      transition: all 0.3s;
-    }
-    
-    .media-item:hover {
-      border-bottom-color: #ddd;
+    /* Media items in results */
+    .media-preview {
+      border-left: 2px solid #f0f0f0;
+      padding-left: 16px;
+      margin: 16px 0;
     }
     
     .media-meta {
-      display: flex;
-      gap: 16px;
-      margin-bottom: 12px;
-      font-size: 12px;
+      font-size: 11px;
       color: #999;
       text-transform: uppercase;
       letter-spacing: 0.5px;
-    }
-    
-    .media-type {
-      font-weight: 500;
+      margin-bottom: 4px;
     }
     
     .media-title {
-      font-size: 18px;
+      font-size: 14px;
       font-weight: 500;
-      margin-bottom: 8px;
       color: #1a1a1a;
-      line-height: 1.4;
+      margin-bottom: 4px;
     }
     
     .media-excerpt {
-      font-size: 15px;
-      line-height: 1.6;
-      color: #666;
-      margin-bottom: 12px;
-    }
-    
-    .media-tags {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-bottom: 12px;
-    }
-    
-    .tag {
-      font-size: 11px;
-      color: #666;
-      background: #f5f5f5;
-      padding: 3px 8px;
-      border-radius: 3px;
-    }
-    
-    /* Media type specific styles */
-    .media-video {
-      position: relative;
-      background: #f9f9f9;
-      border-radius: 4px;
-      margin-bottom: 16px;
-      overflow: hidden;
-    }
-    
-    .video-thumbnail {
-      width: 100%;
-      aspect-ratio: 16/9;
-      object-fit: cover;
-      display: block;
-    }
-    
-    .play-button {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 60px;
-      height: 60px;
-      background: rgba(0,0,0,0.8);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-    
-    .play-button:hover {
-      background: rgba(0,0,0,0.9);
-      transform: translate(-50%, -50%) scale(1.1);
-    }
-    
-    .play-button::after {
-      content: '';
-      width: 0;
-      height: 0;
-      border-style: solid;
-      border-width: 10px 0 10px 16px;
-      border-color: transparent transparent transparent #fff;
-      margin-left: 4px;
-    }
-    
-    .duration {
-      position: absolute;
-      bottom: 8px;
-      right: 8px;
-      background: rgba(0,0,0,0.8);
-      color: white;
-      font-size: 11px;
-      padding: 2px 6px;
-      border-radius: 3px;
-    }
-    
-    /* Load more button */
-    .load-more {
-      text-align: center;
-      margin-top: 40px;
-    }
-    
-    .load-more button {
-      font-size: 14px;
-      color: #666;
-      background: none;
-      border: 1px solid #ddd;
-      padding: 8px 24px;
-      border-radius: 3px;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    
-    .load-more button:hover {
-      color: #1a1a1a;
-      border-color: #999;
-    }
-    
-    /* Essay section */
-    .essays {
-      margin: 80px 0;
-    }
-    
-    .essays h3 {
-      font-size: 14px;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      margin-bottom: 20px;
-      color: #1a1a1a;
-    }
-    
-    .essay-link {
-      display: block;
-      padding: 12px 0;
-      border-bottom: 1px solid #eee;
-      color: #1a1a1a;
-      text-decoration: none;
-      transition: all 0.2s;
-      font-size: 15px;
-    }
-    
-    .essay-link:hover {
-      padding-left: 8px;
-      color: #000;
-    }
-    
-    .essay-date {
-      color: #999;
       font-size: 13px;
-      margin-left: 8px;
-    }
-    
-    /* Quote section */
-    .quote {
-      margin: 60px 0;
-      padding: 24px;
-      border-left: 2px solid #eee;
-      font-style: italic;
       color: #666;
-      font-size: 15px;
-      line-height: 1.7;
+      line-height: 1.6;
     }
     
-    footer {
-      margin-top: 80px;
-      padding-top: 40px;
-      border-top: 1px solid #eee;
-      font-size: 14px;
-      color: #666;
-    }
-    
-    .footer-stats {
-      display: flex;
-      justify-content: space-around;
-      margin-bottom: 30px;
-      padding-bottom: 30px;
-      border-bottom: 1px solid #eee;
-    }
-    
-    .footer-stat {
+    /* No results state */
+    .no-results {
       text-align: center;
-    }
-    
-    .footer-stat-value {
-      font-size: 16px;
-      color: #1a1a1a;
-      font-weight: 300;
-    }
-    
-    .footer-stat-label {
-      font-size: 11px;
       color: #999;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-top: 2px;
+      font-size: 15px;
+      padding: 40px 0;
     }
     
-    a {
-      color: #1a1a1a;
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 13px;
+      color: #999;
+      border-top: 1px solid #f0f0f0;
+    }
+    
+    footer a {
+      color: #666;
       text-decoration: none;
       border-bottom: 1px solid #ddd;
-      transition: border-color 0.2s;
     }
     
-    a:hover {
+    footer a:hover {
+      color: #000;
       border-color: #666;
     }
     
+    /* Responsive */
     @media (max-width: 640px) {
       .container {
-        padding: 40px 20px;
+        padding: 60px 20px;
       }
       
-      .hero h1 {
-        font-size: 24px;
+      header {
+        margin-bottom: 60px;
       }
       
-      .hint:hover::after {
-        display: none;
+      .suggestion {
+        display: block;
+        margin-bottom: 8px;
       }
       
-      .stats-grid {
+      .stats-mini {
         grid-template-columns: 1fr;
-      }
-      
-      .footer-stats {
-        flex-direction: column;
-        gap: 20px;
-      }
-      
-      .media-filters {
-        gap: 12px;
-      }
-      
-      .filter-tab {
-        font-size: 13px;
       }
     }
   </style>
@@ -492,388 +262,246 @@
   <div class="container">
     <header>
       <div class="logo">EMERGENCE PARTNERS</div>
-      <div class="subtitle">Quality. Value. Systems. Long-Term.</div>
+      <div class="subtitle">Finding emergent value in complex systems</div>
     </header>
     
-    <section class="hero">
-      <h1>We find <span class="hint" data-hint="Value that arises from complex systems">emergent value</span> in businesses whose fundamental qualities persist across market transformations.</h1>
-    </section>
-    
-    <div class="expandable">
-      <div class="expandable-header" onclick="toggleSection(this)">
-        <div class="expandable-title">
-          <span class="plus">+</span>
-          What is our investment philosophy?
-        </div>
-      </div>
-      <div class="expandable-content">
-        <p>
-          We combine disciplined value investing with opportunistic execution, targeting exceptional businesses where patient capital and operational expertise create asymmetric returns.
-        </p>
-        <p>
-          <strong>Value Foundation:</strong> Our 19% five-year track record in public equity demonstrates our ability to identify quality at reasonable prices. We seek businesses trading below intrinsic value with catalysts for realization.
-        </p>
-        <p>
-          <strong>Opportunistic Execution:</strong> We pursue private investments targeting 25%+ IRRs through hands-on value creation. Our team's expertise in financial restructuring, operational improvement, and cross-border scaling transforms potential into performance.
-        </p>
-        <p>
-          <strong>Systems Approach:</strong> We view businesses as complex adaptive systems. The most valuable opportunities arise where others see only parts—we see the whole and how it can evolve.
-        </p>
-      </div>
-    </div>
-    
-    <div class="expandable">
-      <div class="expandable-header" onclick="toggleSection(this)">
-        <div class="expandable-title">
-          <span class="plus">+</span>
-          How is the fund structured?
-        </div>
-      </div>
-      <div class="expandable-content">
-        <p>
-          Emergence Partners is an ADGM-based open-ended investment fund designed for institutional investors seeking exposure to both private and public opportunities through a single vehicle.
-        </p>
-        
-        <div class="stats-grid">
-          <div class="stat">
-            <div class="stat-value">$200M</div>
-            <div class="stat-label">Target AUM</div>
-          </div>
-          <div class="stat">
-            <div class="stat-value">13-15%</div>
-            <div class="stat-label">Target Returns</div>
-          </div>
-          <div class="stat">
-            <div class="stat-value">Monthly</div>
-            <div class="stat-label">Liquidity</div>
-          </div>
-          <div class="stat">
-            <div class="stat-value">$1-10M</div>
-            <div class="stat-label">Minimum</div>
-          </div>
-        </div>
-        
-        <p>
-          <strong>Budget-Based Fees:</strong> Our fee structure aligns with your success—8% hurdle rate with 80/20 split thereafter. We're not compensated on AUM but on performance.
-        </p>
-        <p>
-          <strong>Geographic Reach:</strong> Operations across UAE, UK, Ireland, and US markets enable cross-border opportunities and regulatory arbitrage.
-        </p>
-      </div>
-    </div>
-    
-    <div class="expandable">
-      <div class="expandable-header" onclick="toggleSection(this)">
-        <div class="expandable-title">
-          <span class="plus">+</span>
-          What does our portfolio demonstrate?
-        </div>
-      </div>
-      <div class="expandable-content">
-        <p>
-          Our portfolio showcases how combining value principles with operational expertise creates superior returns across diverse sectors and market structures.
-        </p>
-        
-        <div class="case-highlight">
-          <h4>Home Now Project Pickwick</h4>
-          <div class="metrics">Rent-to-own platform • 26.11% IRR • 3.09x Multiple • 316 properties</div>
-        </div>
-        
-        <div class="case-highlight">
-          <h4>Irish Whiskey Distillery</h4>
-          <div class="metrics">Turnaround opportunity • 30-35% Target IRR • €143M inventory • Premium positioning</div>
-        </div>
-        
-        <div class="case-highlight">
-          <h4>Tokenized Invoice Platform</h4>
-          <div class="metrics">Fintech innovation • 23% IRR potential • £30M pipeline • Global scalability</div>
-        </div>
-        
-        <p>
-          Each investment combines deep value with transformation potential—businesses where our involvement accelerates value realization through operational improvements, strategic repositioning, or technology enablement.
-        </p>
-      </div>
-    </div>
-    
-    <div class="expandable">
-      <div class="expandable-header" onclick="toggleSection(this)">
-        <div class="expandable-title">
-          <span class="plus">+</span>
-          Who leads Emergent Value?
-        </div>
-      </div>
-      <div class="expandable-content">
-        <p>
-          <strong>Ian Higgins, Co-Founder</strong><br>
-          Extensive experience in portfolio management and financial restructuring. Secured €250 million in funding and managed €3 billion in loan portfolios across multiple jurisdictions. Former Head of Special Assets at Irish Banking Resolution Corporation, with proven expertise in distressed asset turnarounds.
-        </p>
-        <p>
-          <strong>Paul Higgins, Co-Founder</strong><br>
-          Deep expertise in value investing, M&A execution, and entrepreneurial scaling. Founder of INVRT, strategic advisor to Stripe Press, and active contributor at Waterland Private Equity. Combines systems thinking with operational excellence across global markets.
-        </p>
-        <p>
-          <strong>Combined Track Record:</strong> €3+ billion in managed assets and transactions. Complementary expertise spanning technology, financial services, real estate, and hospitality sectors. Proven ability to identify and execute complex cross-border opportunities.
-        </p>
-      </div>
-    </div>
-    
-    <div class="expandable">
-      <div class="expandable-header" onclick="toggleSection(this)">
-        <div class="expandable-title">
-          <span class="plus">+</span>
-          Which sectors do we focus on?
-        </div>
-      </div>
-      <div class="expandable-content">
-        <p>
-          We target sectors where operational expertise and cross-border capabilities create sustainable advantages:
-        </p>
-        <p>
-          <strong>Technology:</strong> Scalable platforms addressing market inefficiencies. Current focus on fintech, regtech, and tokenization opportunities.
-        </p>
-        <p>
-          <strong>Financial Services:</strong> Innovative products solving liquidity gaps in underserved markets. Emphasis on technology-enabled credit and payment solutions.
-        </p>
-        <p>
-          <strong>Real Estate:</strong> PropTech platforms and alternative ownership models. Focus on technology that transforms traditional property markets.
-        </p>
-        <p>
-          <strong>Special Situations:</strong> Distressed assets requiring operational transformation. Deep expertise in restructuring and turnaround execution.
-        </p>
-        <p>
-          <strong>Hospitality & Food:</strong> Tourism-focused venues with consolidation potential. Proven track record in operational improvements and brand development.
-        </p>
-      </div>
-    </div>
-    
-    <!-- NEW MEDIA SECTION -->
-    <section class="media-section">
-      <h2>Emerging Insights from Our Network</h2>
+    <div class="search-container">
+      <input 
+        type="text" 
+        class="search-box" 
+        placeholder="Ask anything..."
+        onkeyup="handleSearch(event)"
+        onfocus="showSuggestions()"
+      />
       
-      <div class="media-filters">
-        <div class="filter-tab active" onclick="filterMedia('all')">All Content</div>
-        <div class="filter-tab" onclick="filterMedia('podcast')">Podcasts</div>
-        <div class="filter-tab" onclick="filterMedia('essay')">Essays</div>
-        <div class="filter-tab" onclick="filterMedia('research')">Research</div>
-        <div class="filter-tab" onclick="filterMedia('video')">Videos</div>
+      <div class="suggestions" id="suggestions">
+        Try: 
+        <span class="suggestion" onclick="searchFor('Investment philosophy')">Investment philosophy</span>
+        <span class="suggestion" onclick="searchFor('Portfolio')">Portfolio</span>
+        <span class="suggestion" onclick="searchFor('Team')">Team</span>
+        <span class="suggestion" onclick="searchFor('Systems thinking')">Systems thinking</span>
+        <span class="suggestion" onclick="searchFor('Media')">Insights</span>
       </div>
-      
-      <div class="media-grid" id="mediaGrid">
-        <!-- Podcast Episode -->
-        <article class="media-item" data-type="podcast">
-          <div class="media-meta">
-            <span class="media-type">PODCAST</span>
-            <span>45 MIN</span>
-            <span>DEC 2024</span>
-          </div>
-          <h3 class="media-title">The Art of Quality: Building Systems That Learn</h3>
-          <p class="media-excerpt">
-            A conversation with the head of a 150-year-old family business about adaptive organizations and how they've evolved through six generations while maintaining core quality principles.
-          </p>
-          <div class="media-tags">
-            <span class="tag">Systems Thinking</span>
-            <span class="tag">Family Business</span>
-            <span class="tag">Adaptation</span>
-          </div>
-        </article>
-        
-        <!-- Research Paper -->
-        <article class="media-item" data-type="research">
-          <div class="media-meta">
-            <span class="media-type">RESEARCH</span>
-            <span>22 MIN READ</span>
-            <span>JAN 2025</span>
-          </div>
-          <h3 class="media-title">The Maintenance Premium: Why Care Creates More Value Than Innovation</h3>
-          <p class="media-excerpt">
-            Our comprehensive study of century-old companies reveals how intentional maintenance creates exponential returns. We explore why the greatest businesses are designed from the outset with regeneration in mind.
-          </p>
-          <div class="media-tags">
-            <span class="tag">Long-term Value</span>
-            <span class="tag">Business Strategy</span>
-            <span class="tag">Quality</span>
-          </div>
-        </article>
-        
-        <!-- Video Content -->
-        <article class="media-item" data-type="video">
-          <div class="media-video">
-            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 9'%3E%3Crect width='16' height='9' fill='%23f0f0f0'/%3E%3C/svg%3E" alt="Video thumbnail" class="video-thumbnail">
-            <div class="play-button"></div>
-            <span class="duration">18:32</span>
-          </div>
-          <div class="media-meta">
-            <span class="media-type">VIDEO</span>
-            <span>18 MIN</span>
-            <span>NOV 2024</span>
-          </div>
-          <h3 class="media-title">Cross-Border Value Creation: The UAE Advantage</h3>
-          <p class="media-excerpt">
-            How we leverage ADGM's regulatory framework and UAE's strategic position to create value across global markets. Case studies from our portfolio demonstrate practical applications.
-          </p>
-          <div class="media-tags">
-            <span class="tag">Cross-border</span>
-            <span class="tag">UAE Markets</span>
-            <span class="tag">Strategy</span>
-          </div>
-        </article>
-        
-        <!-- Essay -->
-        <article class="media-item" data-type="essay">
-          <div class="media-meta">
-            <span class="media-type">ESSAY</span>
-            <span>8 MIN READ</span>
-            <span>DEC 2024</span>
-          </div>
-          <h3 class="media-title">Quality 3.0: The Evolution of Business Excellence</h3>
-          <p class="media-excerpt">
-            How the definition of quality has evolved from conformance to capability to character—and why only character-based quality compounds over generations. A framework for identifying enduring value.
-          </p>
-          <div class="media-tags">
-            <span class="tag">Quality Investing</span>
-            <span class="tag">Framework</span>
-            <span class="tag">Philosophy</span>
-          </div>
-        </article>
-        
-        <!-- Podcast Episode -->
-        <article class="media-item" data-type="podcast">
-          <div class="media-meta">
-            <span class="media-type">PODCAST</span>
-            <span>52 MIN</span>
-            <span>OCT 2024</span>
-          </div>
-          <h3 class="media-title">Distressed Assets in Rising Rate Environments</h3>
-          <p class="media-excerpt">
-            Our co-founder Ian Higgins discusses opportunities emerging from the current credit cycle, drawing on lessons from managing €3 billion in distressed portfolios through multiple cycles.
-          </p>
-          <div class="media-tags">
-            <span class="tag">Special Situations</span>
-            <span class="tag">Credit Markets</span>
-            <span class="tag">Turnarounds</span>
-          </div>
-        </article>
-        
-        <!-- Research -->
-        <article class="media-item" data-type="research">
-          <div class="media-meta">
-            <span class="media-type">RESEARCH</span>
-            <span>15 MIN READ</span>
-            <span>SEP 2024</span>
-          </div>
-          <h3 class="media-title">Alternative Credit Markets: Identifying Underserved Opportunities</h3>
-          <p class="media-excerpt">
-            Our analysis of global credit markets reveals significant gaps in SME financing. We explore how technology platforms can address these inefficiencies while generating superior risk-adjusted returns.
-          </p>
-          <div class="media-tags">
-            <span class="tag">Fintech</span>
-            <span class="tag">Credit Markets</span>
-            <span class="tag">Technology</span>
-          </div>
-        </article>
-      </div>
-      
-      <div class="load-more">
-        <button onclick="loadMoreContent()">Load More</button>
-      </div>
-    </section>
-    
-    <div class="quote">
-      "Price is what you pay. Value is what you get. Emergent value is what others haven't seen yet."<br>
-      — Adapted from Warren Buffett
     </div>
     
-    <section class="essays">
-      <h3>FEATURED INSIGHTS</h3>
-      <a href="#" class="essay-link">
-        Cross-Border Value Creation: The UAE Advantage
-        <span class="essay-date">Current</span>
-      </a>
-      <a href="#" class="essay-link">
-        Distressed Assets in Rising Rate Environment: Opportunity and Risk
-        <span class="essay-date">Recent</span>
-      </a>
-      <a href="#" class="essay-link">
-        Technology Platforms: Building Sustainable Competitive Moats
-        <span class="essay-date">Recent</span>
-      </a>
-      <a href="#" class="essay-link">
-        Alternative Credit Markets: Identifying Underserved Opportunities
-        <span class="essay-date">Recent</span>
-      </a>
-    </section>
-    
-    <footer>
-      <div class="footer-stats">
-        <div class="footer-stat">
-          <div class="footer-stat-value">$200M</div>
-          <div class="footer-stat-label">Target AUM</div>
-        </div>
-        <div class="footer-stat">
-          <div class="footer-stat-value">19%</div>
-          <div class="footer-stat-label">5-Year Track Record</div>
-        </div>
-        <div class="footer-stat">
-          <div class="footer-stat-value">25%+</div>
-          <div class="footer-stat-label">Private IRRs</div>
-        </div>
-      </div>
-      
-      <div class="contact">
-        <p>
-          For qualified investors: <a href="mailto:info@emergentvalue.com">info@emergentvalue.com</a><br>
-          Minimum investment: $1-10 million
-        </p>
-      </div>
-      <p style="margin-top: 20px; font-size: 12px; color: #999;">
-        Emergent Value Partners<br>
-        ADGM, Abu Dhabi | London | Dublin | United States
-      </p>
-    </footer>
+    <div class="results" id="results"></div>
   </div>
   
+  <footer>
+    <p>
+      <a href="mailto:info@emergencepartners.com">info@emergencepartners.com</a><br>
+      For qualified investors • $1-10M minimum
+    </p>
+  </footer>
+  
   <script>
-    function toggleSection(header) {
-      const expandable = header.parentElement;
-      expandable.classList.toggle('active');
-      
-      // Close other sections
-      document.querySelectorAll('.expandable').forEach(section => {
-        if (section !== expandable && section.classList.contains('active')) {
-          section.classList.remove('active');
-        }
-      });
+    // Knowledge base
+    const knowledge = {
+      'philosophy': {
+        title: 'Our Investment Philosophy',
+        content: `We find emergent value in businesses whose fundamental qualities persist across market transformations. By combining disciplined value investing with opportunistic execution, we target exceptional businesses where patient capital and operational expertise create asymmetric returns.
+
+<strong>Value Foundation:</strong> Our 19% five-year track record in public equity demonstrates our ability to identify quality at reasonable prices. We seek businesses trading below intrinsic value with catalysts for realization.
+
+<strong>Opportunistic Execution:</strong> We pursue private investments targeting 25%+ IRRs through hands-on value creation. Our team's expertise in financial restructuring, operational improvement, and cross-border scaling transforms potential into performance.
+
+<strong>Systems Approach:</strong> We view businesses as complex adaptive systems. The most valuable opportunities arise where others see only parts—we see the whole and how it can evolve.`
+      },
+      'portfolio': {
+        title: 'Portfolio & Performance',
+        content: `Our portfolio showcases how combining value principles with operational expertise creates superior returns across diverse sectors and market structures.
+
+<div class="case-mini">
+  <h4>Home Now Project Pickwick</h4>
+  <div class="metrics">Rent-to-own platform • 26.11% IRR • 3.09x Multiple • 316 properties</div>
+</div>
+
+<div class="case-mini">
+  <h4>Irish Whiskey Distillery</h4>
+  <div class="metrics">Turnaround opportunity • 30-35% Target IRR • €143M inventory • Premium positioning</div>
+</div>
+
+<div class="case-mini">
+  <h4>Tokenized Invoice Platform</h4>
+  <div class="metrics">Fintech innovation • 23% IRR potential • £30M pipeline • Global scalability</div>
+</div>
+
+Each investment combines deep value with transformation potential—businesses where our involvement accelerates value realization through operational improvements, strategic repositioning, or technology enablement.`
+      },
+      'structure': {
+        title: 'Fund Structure',
+        content: `Emergence Partners is an ADGM-based open-ended investment fund designed for institutional investors seeking exposure to both private and public opportunities through a single vehicle.
+
+<div class="stats-mini">
+  <div class="stat-mini">
+    <div class="stat-value">$200M</div>
+    <div class="stat-label">Target AUM</div>
+  </div>
+  <div class="stat-mini">
+    <div class="stat-value">13-15%</div>
+    <div class="stat-label">Target Returns</div>
+  </div>
+  <div class="stat-mini">
+    <div class="stat-value">Monthly</div>
+    <div class="stat-label">Liquidity</div>
+  </div>
+  <div class="stat-mini">
+    <div class="stat-value">$1-10M</div>
+    <div class="stat-label">Minimum</div>
+  </div>
+</div>
+
+<strong>Budget-Based Fees:</strong> Our fee structure aligns with your success—8% hurdle rate with 80/20 split thereafter. We're not compensated on AUM but on performance.
+
+<strong>Geographic Reach:</strong> Operations across UAE, UK, Ireland, and US markets enable cross-border opportunities and regulatory arbitrage.`
+      },
+      'team': {
+        title: 'Leadership Team',
+        content: `<strong>Ian Higgins, Co-Founder</strong>
+Extensive experience in portfolio management and financial restructuring. Secured €250 million in funding and managed €3 billion in loan portfolios across multiple jurisdictions. Former Head of Special Assets at Irish Banking Resolution Corporation, with proven expertise in distressed asset turnarounds.
+
+<strong>Paul Higgins, Co-Founder</strong>
+Deep expertise in value investing, M&A execution, and entrepreneurial scaling. Founder of INVRT, strategic advisor to Stripe Press, and active contributor at Waterland Private Equity. Combines systems thinking with operational excellence across global markets.
+
+<strong>Combined Track Record:</strong> €3+ billion in managed assets and transactions. Complementary expertise spanning technology, financial services, real estate, and hospitality sectors. Proven ability to identify and execute complex cross-border opportunities.`
+      },
+      'sectors': {
+        title: 'Sector Focus',
+        content: `We target sectors where operational expertise and cross-border capabilities create sustainable advantages:
+
+<strong>Technology:</strong> Scalable platforms addressing market inefficiencies. Current focus on fintech, regtech, and tokenization opportunities.
+
+<strong>Financial Services:</strong> Innovative products solving liquidity gaps in underserved markets. Emphasis on technology-enabled credit and payment solutions.
+
+<strong>Real Estate:</strong> PropTech platforms and alternative ownership models. Focus on technology that transforms traditional property markets.
+
+<strong>Special Situations:</strong> Distressed assets requiring operational transformation. Deep expertise in restructuring and turnaround execution.
+
+<strong>Hospitality & Food:</strong> Tourism-focused venues with consolidation potential. Proven track record in operational improvements and brand development.`
+      },
+      'systems': {
+        title: 'Systems Thinking Approach',
+        content: `We apply systems thinking principles from nature, physics, and multi-generational businesses to identify patterns that create enduring value.
+
+<strong>Quality Over Scale:</strong> The most enduring businesses prioritize thoughtful evolution over rapid expansion, building systems that improve with age rather than degrade.
+
+<strong>Systems That Adapt:</strong> Like natural systems, exceptional businesses balance structure with flow, allowing them to adapt to changing conditions while maintaining their core identity.
+
+<strong>The Value of Maintenance:</strong> Intentional care and evolution create more value than constant reinvention. Sustained excellence comes from systems designed to improve through maintenance.
+
+<strong>Deserved Trust Networks:</strong> Trust becomes a durable competitive advantage that strengthens over time, building networks of relationships that compound in value across generations.`
+      },
+      'media': {
+        title: 'Emerging Insights from Our Network',
+        content: `Our latest research and thought leadership explores patterns of enduring value across markets and systems.
+
+<div class="media-preview">
+  <div class="media-meta">PODCAST • 45 MIN • DEC 2024</div>
+  <div class="media-title">The Art of Quality: Building Systems That Learn</div>
+  <div class="media-excerpt">A conversation with the head of a 150-year-old family business about adaptive organizations.</div>
+</div>
+
+<div class="media-preview">
+  <div class="media-meta">RESEARCH • 22 MIN READ • JAN 2025</div>
+  <div class="media-title">The Maintenance Premium: Why Care Creates More Value Than Innovation</div>
+  <div class="media-excerpt">Our study of century-old companies reveals how intentional maintenance creates exponential returns.</div>
+</div>
+
+<div class="media-preview">
+  <div class="media-meta">ESSAY • 8 MIN READ • DEC 2024</div>
+  <div class="media-title">Quality 3.0: The Evolution of Business Excellence</div>
+  <div class="media-excerpt">How quality has evolved from conformance to capability to character—and why only character compounds.</div>
+</div>
+
+<div class="media-preview">
+  <div class="media-meta">VIDEO • 18 MIN • NOV 2024</div>
+  <div class="media-title">Cross-Border Value Creation: The UAE Advantage</div>
+  <div class="media-excerpt">How we leverage ADGM's regulatory framework to create value across global markets.</div>
+</div>`
+      },
+      'approach': {
+        title: 'How We Work',
+        content: `<strong>Long-Term Orientation:</strong> We work with clients who measure success in decades rather than quarters, enabling decisions that support sustainable value creation rather than extractive short-term gains.
+
+<strong>Hands-On Partnership:</strong> Our team brings operational expertise across multiple domains. We roll up our sleeves and work alongside founders and management teams to solve real challenges.
+
+<strong>Global Perspective, Local Knowledge:</strong> Our network spans continents and industries, giving our clients access to insights, relationships, and opportunities beyond their immediate environment.
+
+<strong>Aligned Incentives:</strong> We structure our engagements to ensure our success is completely tied to the long-term success of the businesses we advise—we win together or not at all.`
+      },
+      'emergence': {
+        title: 'What is Emergent Value?',
+        content: `Emergent value arises when complex systems create properties that none of their individual parts possess. In investing, this means finding businesses where the whole becomes exponentially more valuable than the sum of its parts.
+
+We look for three types of emergence:
+
+<strong>Network Effects That Compound:</strong> Where each additional user, customer, or partner makes the system disproportionately more valuable.
+
+<strong>Adaptive Capacity:</strong> Businesses that strengthen under stress, developing new capabilities in response to challenges.
+
+<strong>Regenerative Economics:</strong> Business models where unit economics improve over time rather than degrade, creating accelerating returns.
+
+This isn't just theory—it's the foundation of our investment approach and the source of our outperformance.`
+      }
+    };
+    
+    function showSuggestions() {
+      document.getElementById('suggestions').style.display = 'block';
     }
     
-    // Media filtering
-    function filterMedia(type) {
-      // Update active tab
-      document.querySelectorAll('.filter-tab').forEach(tab => {
-        tab.classList.remove('active');
-      });
-      event.target.classList.add('active');
-      
-      // Filter media items
-      const items = document.querySelectorAll('.media-item');
-      items.forEach(item => {
-        if (type === 'all' || item.dataset.type === type) {
-          item.style.display = 'block';
-        } else {
-          item.style.display = 'none';
-        }
-      });
+    function searchFor(query) {
+      document.querySelector('.search-box').value = query;
+      performSearch(query);
     }
     
-    // Simulate loading more content
-    function loadMoreContent() {
-      // This would typically fetch more content from an API
-      const button = event.target;
-      button.textContent = 'Loading...';
+    function handleSearch(event) {
+      if (event.key === 'Enter') {
+        performSearch(event.target.value);
+      }
+    }
+    
+    function performSearch(query) {
+      const resultsDiv = document.getElementById('results');
+      const suggestionsDiv = document.getElementById('suggestions');
       
-      setTimeout(() => {
-        button.textContent = 'Load More';
-        // In a real implementation, you would append new content here
-      }, 1000);
+      if (!query.trim()) {
+        resultsDiv.style.display = 'none';
+        suggestionsDiv.style.display = 'block';
+        return;
+      }
+      
+      suggestionsDiv.style.display = 'none';
+      resultsDiv.style.display = 'block';
+      resultsDiv.innerHTML = '';
+      
+      const lowerQuery = query.toLowerCase();
+      let found = false;
+      
+      // Search through knowledge base
+      for (const [key, value] of Object.entries(knowledge)) {
+        if (lowerQuery.includes(key) || 
+            value.title.toLowerCase().includes(lowerQuery) || 
+            value.content.toLowerCase().includes(lowerQuery)) {
+          found = true;
+          const resultItem = document.createElement('div');
+          resultItem.className = 'result-item';
+          
+          resultItem.innerHTML = `
+            <h3>${value.title}</h3>
+            ${value.content.split('\n\n').map(p => `<p>${p}</p>`).join('')}
+          `;
+          resultsDiv.appendChild(resultItem);
+        }
+      }
+      
+      if (!found) {
+        resultsDiv.innerHTML = `
+          <div class="no-results">
+            <p>Nothing found for "${query}"</p>
+            <p style="margin-top: 10px;">Try searching for: philosophy, portfolio, team, or sectors</p>
+          </div>
+        `;
+      }
     }
   </script>
 </body>
