@@ -149,13 +149,13 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     }
     
-    .quick-action.primary {
+    .quick-action.primary, .quick-action.active {
       background: #1a1a1a;
       color: #fff;
       border-color: #1a1a1a;
     }
     
-    .quick-action.primary:hover {
+    .quick-action.primary:hover, .quick-action.active:hover {
       background: #000;
       border-color: #000;
     }
@@ -553,18 +553,18 @@
       </div>
       
       <div class="quick-actions">
-        <button class="quick-action primary" onclick="searchFor('Philosophy')">Investment Philosophy</button>
-        <button class="quick-action" onclick="searchFor('Track record')">Track Record</button>
-        <button class="quick-action" onclick="searchFor('Fund terms')">Fund Terms</button>
-        <button class="quick-action" onclick="searchFor('Risk management')">Risk Management</button>
-        <button class="quick-action" onclick="searchFor('Team')">Team</button>
+        <button class="quick-action" onclick="searchFor('philosophy')">Investment Philosophy</button>
+        <button class="quick-action" onclick="searchFor('track record')">Track Record</button>
+        <button class="quick-action" onclick="searchFor('fund terms')">Fund Terms</button>
+        <button class="quick-action" onclick="searchFor('risk management')">Risk Management</button>
+        <button class="quick-action" onclick="searchFor('team')">Team</button>
       </div>
       
       <div class="suggestions" id="suggestions">
-        <span class="suggestion" onclick="searchFor('Track record')">track record</span>
-        <span class="suggestion" onclick="searchFor('Insights')">insights</span>
-        <span class="suggestion" onclick="searchFor('ESG')">ESG policy</span>
-        <span class="suggestion" onclick="searchFor('Portal')">investor portal</span>
+        <span class="suggestion" onclick="searchFor('track record')">track record</span>
+        <span class="suggestion" onclick="searchFor('insights')">insights</span>
+        <span class="suggestion" onclick="searchFor('esg')">ESG policy</span>
+        <span class="suggestion" onclick="searchFor('portal')">investor portal</span>
       </div>
     </div>
     
@@ -939,6 +939,16 @@ Podcast: The Emergence Podcast (all platforms)`
     
     function searchFor(query) {
       document.querySelector('.search-box').value = query;
+      
+      // Update active button state
+      document.querySelectorAll('.quick-action').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.textContent.toLowerCase().includes(query.toLowerCase()) || 
+            btn.onclick.toString().includes(`'${query}'`)) {
+          btn.classList.add('active');
+        }
+      });
+      
       performSearch(query);
     }
     
@@ -967,9 +977,8 @@ Podcast: The Emergence Podcast (all platforms)`
       
       // Search through knowledge base
       for (const [key, value] of Object.entries(knowledge)) {
-        if (lowerQuery.includes(key) || 
-            value.title.toLowerCase().includes(lowerQuery) || 
-            value.content.toLowerCase().includes(lowerQuery)) {
+        // Exact key match first
+        if (key === lowerQuery) {
           found = true;
           const resultItem = document.createElement('div');
           resultItem.className = 'result-item';
@@ -979,6 +988,26 @@ Podcast: The Emergence Podcast (all platforms)`
             ${value.content.split('\n\n').map(p => `<p>${p}</p>`).join('')}
           `;
           resultsDiv.appendChild(resultItem);
+          break; // Stop after exact match
+        }
+      }
+      
+      // If no exact match, do fuzzy search
+      if (!found) {
+        for (const [key, value] of Object.entries(knowledge)) {
+          if (lowerQuery.includes(key) || 
+              value.title.toLowerCase().includes(lowerQuery) || 
+              value.content.toLowerCase().includes(lowerQuery)) {
+            found = true;
+            const resultItem = document.createElement('div');
+            resultItem.className = 'result-item';
+            
+            resultItem.innerHTML = `
+              <h3>${value.title}</h3>
+              ${value.content.split('\n\n').map(p => `<p>${p}</p>`).join('')}
+            `;
+            resultsDiv.appendChild(resultItem);
+          }
         }
       }
       
