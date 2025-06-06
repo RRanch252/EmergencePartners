@@ -49,7 +49,7 @@
     
     header {
       text-align: center;
-      margin-bottom: 60px;
+      margin-bottom: 80px;
     }
     
     .logo {
@@ -160,12 +160,22 @@
       border-color: #000;
     }
     
-    /* Suggestions */
+    /* Suggestions - now hidden by default */
     .suggestions {
       text-align: center;
       font-size: 13px;
       color: #999;
       line-height: 1.8;
+      opacity: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    
+    .suggestions.visible {
+      opacity: 1;
+      max-height: 50px;
+      margin-top: 16px;
     }
     
     .suggestion {
@@ -181,6 +191,12 @@
     .suggestion:hover {
       color: #000;
       border-bottom-color: #000;
+    }
+    
+    /* Placeholder rotation animation */
+    @keyframes fadeInOut {
+      0%, 100% { opacity: 0; }
+      10%, 90% { opacity: 1; }
     }
     
     /* Portal access button */
@@ -511,7 +527,7 @@
 <body>
   <!-- Regulatory compliance bar -->
   <div class="regulatory-bar">
-    Cayman Islands Regulated (CIMA #12345) | FCA Registration | <a href="#" onclick="searchFor('Risk factors')">Important Risk Information</a>
+    Cayman Islands Regulated (CIMA #12345) | <a href="#" onclick="searchFor('Risk factors')">Important Risk Information</a>
   </div>
   
   <!-- Investor portal access -->
@@ -523,13 +539,6 @@
     <header>
       <div class="logo">EMERGENCE PARTNERS</div>
       <div class="subtitle">Finding emergent value in complex systems</div>
-      
-      <div class="trust-indicators">
-        <div class="trust-item">17% p.a. Gross Returns</div>
-        <div class="trust-item">€3B+ Managed</div>
-        <div class="trust-item">5% GP Commitment</div>
-        <div class="trust-item">35 Years Combined Experience</div>
-      </div>
     </header>
     
     <div class="search-container">
@@ -552,7 +561,6 @@
       </div>
       
       <div class="suggestions" id="suggestions">
-        Popular searches: 
         <span class="suggestion" onclick="searchFor('Returns')">returns</span>
         <span class="suggestion" onclick="searchFor('ESG')">ESG policy</span>
         <span class="suggestion" onclick="searchFor('Service providers')">service providers</span>
@@ -571,8 +579,7 @@
         <p><a href="tel:+97142941234">+971 4 294 1234</a></p>
       </div>
       <div class="footer-meta">
-        <p>Minimum investment: $1-10 million • 6 month lock-up • Monthly liquidity thereafter<br>
-        Cayman Islands • Dubai • London • Dublin • New York</p>
+        <p>Cayman Islands • Dubai • London • Dublin • New York</p>
       </div>
       <div class="social-links">
         <a href="#">LinkedIn</a>
@@ -680,7 +687,7 @@ Our portfolio demonstrates consistent outperformance across market cycles:
 
 <strong>Investment Minimum:</strong> $1 million for qualified investors, $10 million for institutional allocations. We maintain a concentrated investor base of aligned partners.
 
-<strong>Governance:</strong> Cayman Islands-regulated fund (CIMA #12345) with institutional-grade infrastructure. FCA registered for UK marketing.`
+<strong>Governance:</strong> Cayman Islands-regulated fund (CIMA #12345) with institutional-grade infrastructure.`
       },
       'service providers': {
         title: 'Service Providers & Governance',
@@ -705,7 +712,7 @@ Our portfolio demonstrates consistent outperformance across market cycles:
           </div>
         </div>
 
-<strong>Regulatory Oversight:</strong> Registered with the Cayman Islands Monetary Authority (CIMA #12345) and UK Financial Conduct Authority for marketing to professional investors.
+<strong>Regulatory Oversight:</strong> Registered with the Cayman Islands Monetary Authority (CIMA #12345).
 
 <strong>Reporting & Transparency:</strong> 
 • Monthly performance estimates
@@ -871,8 +878,49 @@ Podcast: The Emergence Podcast (all platforms)`
     };
     
     function showSuggestions() {
-      document.getElementById('suggestions').style.display = 'block';
+      const suggestions = document.getElementById('suggestions');
+      suggestions.classList.add('visible');
     }
+    
+    function hideSuggestions() {
+      const suggestions = document.getElementById('suggestions');
+      suggestions.classList.remove('visible');
+    }
+    
+    // Add rotating placeholder text
+    const placeholders = [
+      "What would you like to know?",
+      "Try: investment strategy",
+      "Try: track record",
+      "Try: risk management",
+      "Try: team experience"
+    ];
+    
+    let placeholderIndex = 0;
+    
+    function rotatePlaceholder() {
+      const searchBox = document.querySelector('.search-box');
+      if (!searchBox.value) {
+        placeholderIndex = (placeholderIndex + 1) % placeholders.length;
+        searchBox.placeholder = placeholders[placeholderIndex];
+      }
+    }
+    
+    // Rotate placeholder every 3 seconds
+    setInterval(rotatePlaceholder, 3000);
+    
+    // Hide suggestions when clicking outside
+    document.addEventListener('click', function(event) {
+      const searchContainer = document.querySelector('.search-container');
+      if (!searchContainer.contains(event.target)) {
+        hideSuggestions();
+      }
+    });
+    
+    // Update search box to hide suggestions on blur
+    document.querySelector('.search-box').addEventListener('blur', function() {
+      setTimeout(hideSuggestions, 200);
+    });
     
     function searchFor(query) {
       document.querySelector('.search-box').value = query;
