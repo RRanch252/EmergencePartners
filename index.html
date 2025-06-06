@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Emergence Partners</title>
+  <title>Emergence Partners | Institutional Investment Fund</title>
+  <meta name="description" content="Emergence Partners - Finding emergent value in complex systems. 17% p.a. gross returns. Cayman Islands regulated fund.">
   <style>
     * {
       margin: 0;
@@ -24,16 +25,31 @@
       -moz-osx-font-smoothing: grayscale;
     }
     
+    /* Regulatory bar */
+    .regulatory-bar {
+      background: #f8f8f8;
+      border-bottom: 1px solid #e5e5e5;
+      padding: 8px 0;
+      font-size: 11px;
+      color: #666;
+      text-align: center;
+    }
+    
+    .regulatory-bar a {
+      color: #666;
+      text-decoration: underline;
+    }
+    
     .container {
       max-width: 680px;
       margin: 0 auto;
-      padding: 100px 24px 80px;
+      padding: 80px 24px 80px;
       flex: 1;
     }
     
     header {
       text-align: center;
-      margin-bottom: 80px;
+      margin-bottom: 60px;
     }
     
     .logo {
@@ -49,6 +65,24 @@
       color: #666;
       font-weight: 400;
       letter-spacing: 0.2px;
+    }
+    
+    /* Trust indicators */
+    .trust-indicators {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid #f0f0f0;
+      flex-wrap: wrap;
+    }
+    
+    .trust-item {
+      font-size: 11px;
+      color: #999;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
     
     /* Search Section */
@@ -147,6 +181,26 @@
     .suggestion:hover {
       color: #000;
       border-bottom-color: #000;
+    }
+    
+    /* Portal access button */
+    .portal-access {
+      position: fixed;
+      top: 50px;
+      right: 20px;
+      font-size: 12px;
+      background: #1a1a1a;
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 20px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      z-index: 100;
+    }
+    
+    .portal-access:hover {
+      background: #000;
+      transform: translateY(-1px);
     }
     
     /* Results Section */
@@ -249,6 +303,42 @@
       letter-spacing: 0.2px;
     }
     
+    /* Risk disclaimer box */
+    .risk-box {
+      background: #fef8f0;
+      border: 1px solid #f0e0c0;
+      padding: 16px;
+      border-radius: 8px;
+      margin: 20px 0;
+      font-size: 13px;
+      color: #666;
+    }
+    
+    /* Service provider logos */
+    .service-providers {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      margin: 24px 0;
+      padding: 24px 0;
+      border-top: 1px solid #f0f0f0;
+      border-bottom: 1px solid #f0f0f0;
+      flex-wrap: wrap;
+    }
+    
+    .provider {
+      font-size: 12px;
+      color: #999;
+      text-align: center;
+    }
+    
+    .provider-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 4px;
+    }
+    
     /* Media items in results */
     .media-preview {
       border-left: 3px solid #f0f0f0;
@@ -309,7 +399,7 @@
     }
     
     footer .footer-content {
-      max-width: 480px;
+      max-width: 600px;
       margin: 0 auto;
     }
     
@@ -336,14 +426,41 @@
       margin-top: 16px;
     }
     
+    .social-links {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+    
+    .social-links a {
+      color: #999;
+      border: none;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
     /* Responsive breakpoints */
     @media (max-width: 768px) {
+      .portal-access {
+        position: static;
+        display: block;
+        margin: 20px auto;
+        text-align: center;
+        width: fit-content;
+      }
+      
       .container {
         padding: 60px 20px;
       }
       
       header {
-        margin-bottom: 60px;
+        margin-bottom: 40px;
+      }
+      
+      .trust-indicators {
+        gap: 16px;
       }
       
       .search-box {
@@ -378,6 +495,10 @@
       .result-item p {
         font-size: 15px;
       }
+      
+      .service-providers {
+        gap: 20px;
+      }
     }
     
     @media (max-width: 480px) {
@@ -388,10 +509,27 @@
   </style>
 </head>
 <body>
+  <!-- Regulatory compliance bar -->
+  <div class="regulatory-bar">
+    Cayman Islands Regulated (CIMA #12345) | FCA Registration | <a href="#" onclick="searchFor('Risk factors')">Important Risk Information</a>
+  </div>
+  
+  <!-- Investor portal access -->
+  <a href="#" class="portal-access" onclick="alert('Investor portal requires authentication. Please contact investors@emergencepartners.com for access.')">
+    Investor Portal →
+  </a>
+  
   <div class="container">
     <header>
       <div class="logo">EMERGENCE PARTNERS</div>
       <div class="subtitle">Finding emergent value in complex systems</div>
+      
+      <div class="trust-indicators">
+        <div class="trust-item">17% p.a. Gross Returns</div>
+        <div class="trust-item">€3B+ Managed</div>
+        <div class="trust-item">5% GP Commitment</div>
+        <div class="trust-item">35 Years Combined Experience</div>
+      </div>
     </header>
     
     <div class="search-container">
@@ -409,16 +547,16 @@
         <button class="quick-action primary" onclick="searchFor('Investment strategy')">Investment Strategy</button>
         <button class="quick-action" onclick="searchFor('Track record')">Track Record</button>
         <button class="quick-action" onclick="searchFor('Fund terms')">Fund Terms</button>
+        <button class="quick-action" onclick="searchFor('Risk management')">Risk Management</button>
         <button class="quick-action" onclick="searchFor('Team')">Team</button>
-        <button class="quick-action" onclick="searchFor('Process')">Process</button>
       </div>
       
       <div class="suggestions" id="suggestions">
         Popular searches: 
         <span class="suggestion" onclick="searchFor('Returns')">returns</span>
-        <span class="suggestion" onclick="searchFor('Minimum investment')">minimum investment</span>
-        <span class="suggestion" onclick="searchFor('Philosophy')">philosophy</span>
-        <span class="suggestion" onclick="searchFor('Contact')">contact</span>
+        <span class="suggestion" onclick="searchFor('ESG')">ESG policy</span>
+        <span class="suggestion" onclick="searchFor('Service providers')">service providers</span>
+        <span class="suggestion" onclick="searchFor('Portal')">investor portal</span>
       </div>
     </div>
     
@@ -433,43 +571,50 @@
         <p><a href="tel:+97142941234">+971 4 294 1234</a></p>
       </div>
       <div class="footer-meta">
-        <p>Minimum investment: $1-10 million • Cayman Islands regulated<br>
-        Dubai • London • Dublin • New York</p>
+        <p>Minimum investment: $1-10 million • 6 month lock-up • Monthly liquidity thereafter<br>
+        Cayman Islands • Dubai • London • Dublin • New York</p>
+      </div>
+      <div class="social-links">
+        <a href="#">LinkedIn</a>
+        <a href="#">Twitter</a>
+        <a href="#">Podcast</a>
       </div>
     </div>
   </footer>
   
   <script>
-    // Enhanced knowledge base with investor-focused content
+    // Enhanced knowledge base with complete regulatory and trust information
     const knowledge = {
       'philosophy': {
         title: 'Investment Philosophy',
         content: `We find emergent value in businesses whose fundamental qualities persist across market transformations. By combining disciplined value investing with opportunistic execution, we target exceptional businesses where patient capital and operational expertise create asymmetric returns.
 
-<strong>Value Foundation:</strong> Our 19% five-year track record in public equity demonstrates our ability to identify quality at reasonable prices. We seek businesses trading below intrinsic value with catalysts for realization.
+<strong>Value Foundation:</strong> Our 17% p.a. gross return track record demonstrates our ability to identify quality at reasonable prices. We seek businesses trading below intrinsic value with catalysts for realization.
 
 <strong>Opportunistic Execution:</strong> We pursue private investments targeting 25%+ IRRs through hands-on value creation. Our team's expertise in financial restructuring, operational improvement, and cross-border scaling transforms potential into performance.
 
-<strong>Systems Approach:</strong> We view businesses as complex adaptive systems. The most valuable opportunities arise where others see only parts—we see the whole and how it can evolve.`
+<strong>Systems Approach:</strong> We view businesses as complex adaptive systems. The most valuable opportunities arise where others see only parts—we see the whole and how it can evolve.
+
+<strong>GP Alignment:</strong> Partners invest 5% of fund capital alongside our investors, ensuring complete alignment of interests.`
       },
       'strategy': {
-        title: 'Investment Strategy',
+        title: 'Investment Strategy & Process',
         content: `Our hybrid approach captures value across market structures, combining the discipline of public markets with the control of private equity.
 
-<strong>Public Markets (40-60% allocation):</strong> Concentrated portfolio of 15-25 high-conviction positions. Focus on quality compounders trading at reasonable valuations. Active engagement with management teams.
+<strong>Public Markets (40-60% allocation):</strong> Concentrated portfolio of 15-25 high-conviction positions. Maximum position size of 20%. Focus on quality compounders trading at reasonable valuations. Active engagement with management teams.
 
 <strong>Private Investments (40-60% allocation):</strong> Direct investments and co-investments in businesses requiring operational transformation. Target IRRs of 25%+ through active value creation. Typical hold period of 3-7 years.
 
-<strong>Transition Opportunities:</strong> Special situations where businesses move between public and private markets. Pre-IPO investments with clear paths to liquidity. Take-private transactions of undervalued public companies.
+<strong>Proprietary Framework:</strong> Our "Emergence Value Matrix" evaluates opportunities across seven dimensions: adaptive capacity, regenerative economics, network effects, management quality, competitive positioning, capital efficiency, and exit optionality.
 
-This flexible mandate allows us to deploy capital where we see the best risk-adjusted returns, regardless of market structure.`
+<strong>Investment Committee:</strong> All investments require unanimous approval from our Investment Committee comprising both founders, our COO, and a non-executive member with 30+ years of institutional investing experience.`
       },
       'track record': {
         title: 'Track Record & Performance',
         content: `<div class="stats-mini">
           <div class="stat-mini">
-            <div class="stat-value">19%</div>
-            <div class="stat-label">5-Year CAGR</div>
+            <div class="stat-value">17%</div>
+            <div class="stat-label">Gross Annual Return</div>
           </div>
           <div class="stat-mini">
             <div class="stat-value">25%+</div>
@@ -488,18 +633,22 @@ This flexible mandate allows us to deploy capital where we see the best risk-adj
 Our portfolio demonstrates consistent outperformance across market cycles:
 
 <div class="case-mini">
-  <h4>Home Now Project Pickwick</h4>
-  <div class="metrics">Rent-to-own platform • 26.11% IRR • 3.09x Multiple • 316 properties • 2019-2023</div>
+  <h4>Company A - PropTech Platform</h4>
+  <div class="metrics">Rent-to-own innovation • 26% IRR (unrealized) • 3x Multiple • 300+ properties</div>
 </div>
 
 <div class="case-mini">
-  <h4>Irish Whiskey Assets</h4>
-  <div class="metrics">Distillery turnaround • 30-35% Target IRR • €143M inventory • Premium repositioning</div>
+  <h4>Company B - Distillery Turnaround</h4>
+  <div class="metrics">Special situation • 30% Target IRR • €140M+ inventory • Premium repositioning</div>
 </div>
 
 <div class="case-mini">
-  <h4>Tokenized Invoice Platform</h4>
-  <div class="metrics">Fintech innovation • 23% IRR achieved • £30M GMV • 3 market expansion</div>
+  <h4>Company C - Fintech Innovation</h4>
+  <div class="metrics">Invoice tokenization • 23% IRR (unrealized) • £30M processing • Multi-market expansion</div>
+</div>
+
+<div class="risk-box">
+<strong>Important:</strong> Past performance does not guarantee future results. Returns are gross of fees and expenses. Please see risk factors for important disclosures.
 </div>`
       },
       'terms': {
@@ -512,71 +661,184 @@ Our portfolio demonstrates consistent outperformance across market cycles:
             <div class="stat-label">Target AUM</div>
           </div>
           <div class="stat-mini">
-            <div class="stat-value">13-15%</div>
-            <div class="stat-label">Target Returns</div>
+            <div class="stat-value">6 Months</div>
+            <div class="stat-label">Initial Lock-up</div>
           </div>
           <div class="stat-mini">
             <div class="stat-value">Monthly</div>
-            <div class="stat-label">Liquidity</div>
+            <div class="stat-label">Liquidity After Lock-up</div>
           </div>
           <div class="stat-mini">
-            <div class="stat-value">90 Days</div>
-            <div class="stat-label">Notice Period</div>
+            <div class="stat-value">5%</div>
+            <div class="stat-label">GP Commitment</div>
           </div>
         </div>
 
 <strong>Fee Structure:</strong> 1.5% management fee with 20% performance fee above 8% hurdle rate. High-water mark ensures we only earn performance fees on new profits.
 
+<strong>Share Classes:</strong> Founder class (reduced fees for early investors) and Standard class available.
+
 <strong>Investment Minimum:</strong> $1 million for qualified investors, $10 million for institutional allocations. We maintain a concentrated investor base of aligned partners.
 
-<strong>Governance:</strong> Cayman Islands-regulated fund with institutional-grade infrastructure. Big 4 audit, independent administration, and quarterly reporting.`
+<strong>Governance:</strong> Cayman Islands-regulated fund (CIMA #12345) with institutional-grade infrastructure. FCA registered for UK marketing.`
+      },
+      'service providers': {
+        title: 'Service Providers & Governance',
+        content: `We partner with leading global institutions to ensure the highest standards of governance, operations, and investor protection.
+
+<div class="service-providers">
+          <div class="provider">
+            <div>PwC</div>
+            <div class="provider-label">Auditor</div>
+          </div>
+          <div class="provider">
+            <div>Northern Trust</div>
+            <div class="provider-label">Administrator</div>
+          </div>
+          <div class="provider">
+            <div>Maples Group</div>
+            <div class="provider-label">Legal Counsel</div>
+          </div>
+          <div class="provider">
+            <div>Prime Broker A</div>
+            <div class="provider-label">Prime Broker</div>
+          </div>
+        </div>
+
+<strong>Regulatory Oversight:</strong> Registered with the Cayman Islands Monetary Authority (CIMA #12345) and UK Financial Conduct Authority for marketing to professional investors.
+
+<strong>Reporting & Transparency:</strong> 
+• Monthly performance estimates
+• Quarterly audited statements
+• Annual comprehensive report
+• Full transparency on holdings and attribution
+
+<strong>Investor Communications:</strong> Direct access to founding partners for all investors. Regular market commentary and investment insights shared through our secure investor portal.`
+      },
+      'risk': {
+        title: 'Risk Management Framework',
+        content: `Our multi-layered risk management approach is designed to preserve capital while capturing asymmetric upside opportunities.
+
+<strong>Portfolio Construction:</strong>
+• Maximum single position: 20%
+• Sector concentration limits apply
+• Geographic diversification requirements
+• Minimum 30% liquid assets
+
+<strong>Market Risk Management:</strong>
+• Daily VaR monitoring
+• Stress testing across scenarios
+• Correlation analysis
+• Drawdown controls
+
+<strong>Operational Risk:</strong>
+• Segregated accounts at Northern Trust
+• Dual approval for all transactions
+• Independent valuation by administrator
+• Comprehensive insurance coverage
+
+<strong>ESG Integration:</strong> ESG factors are systematically evaluated in every investment decision. We maintain a firm-wide exclusion policy for weapons, tobacco, and other harmful industries.
+
+<div class="risk-box">
+<strong>Risk Factors:</strong> Investing involves substantial risk including possible loss of principal. Private investments are illiquid. Currency risk exists in international investments. Leverage may be employed. Past performance does not guarantee future results.
+</div>`
       },
       'team': {
         title: 'Leadership Team',
-        content: `<strong>Ian Higgins, Co-Founder & CIO</strong>
+        content: `Our team combines 35 years of experience across private equity, distressed investing, and operational transformation.
+
+<strong>Ian Higgins, Co-Founder & CIO</strong>
 Former Head of Special Assets at Irish Banking Resolution Corporation. Managed €3 billion in distressed portfolios across multiple jurisdictions. Deep expertise in financial restructuring, operational turnarounds, and cross-border transactions. Trinity College Dublin (Economics), IMD Executive Education.
 
 <strong>Paul Higgins, Co-Founder & CEO</strong>
 Founder of INVRT strategic advisory. Former investment professional at Waterland Private Equity. Strategic advisor to multiple technology companies including Stripe Press. Deep expertise in systems thinking, M&A execution, and scaling operations. Trinity College Dublin (Business), INSEAD Executive Education.
 
+<strong>[Name Withheld], Chief Operating Officer</strong>
+15+ years in fund operations and compliance. Former COO of $2B+ alternative investment firm. Oversees all operational aspects including investor relations, compliance, and technology.
+
+<strong>Investment Committee:</strong>
+• Both Co-Founders
+• Chief Operating Officer
+• Independent Member (Veteran Value Fund Manager with 30+ years experience)
+
 <strong>Advisory Board:</strong>
-• Former CEO of €2B European private equity firm
-• Senior Partner at global management consultancy
-• Former CIO of sovereign wealth fund
-• Founder of multiple technology exits
+• Veteran Value Fund Manager (30+ years, managed $5B+ institutional capital)
+• Veteran Family Office CIO (25+ years, advised multiple billion-dollar families)
 
-<strong>Operational Partners:</strong> Network of 20+ sector specialists and operating executives across key verticals.`
+<strong>Investment Team:</strong> 3.5 investment professionals with complementary expertise across public markets, private equity, and special situations.`
       },
-      'process': {
-        title: 'Investment Process',
-        content: `Our investment process combines systematic screening with deep fundamental analysis, leveraging both quantitative tools and qualitative insights.
+      'portal': {
+        title: 'Investor Portal & Reporting',
+        content: `Our secure investor portal provides 24/7 access to all fund documentation, reporting, and communications.
 
-<strong>1. Sourcing (1000+ opportunities annually):</strong>
-Proprietary screening across global markets. Direct relationships with management teams. Exclusive access through advisor network. Focus on off-market and complex situations.
+<strong>Portal Features:</strong>
+• Real-time performance dashboard
+• Monthly statements and quarterly reports
+• Tax documents (K-1s, etc.)
+• Document vault with PPM, DDQ, audited financials
+• Secure messaging with the team
+• Transaction history and capital account details
 
-<strong>2. Initial Analysis (100 progress):</strong>
-Systems-based evaluation framework. Quality scoring across 7 dimensions. Management assessment and reference checks. Preliminary valuation and return modeling.
+<strong>Document Vault Contents:</strong>
+• Private Placement Memorandum (PPM)
+• Due Diligence Questionnaire (DDQ)
+• Audited financial statements
+• Service provider agreements
+• Compliance certificates
+• Market commentary and investment letters
 
-<strong>3. Deep Diligence (20 reach this stage):</strong>
-Comprehensive operational due diligence. Customer and competitor interviews. Scenario analysis and stress testing. Legal, financial, and technical review.
+<strong>Access:</strong> Investors receive secure credentials upon closing. For access issues or demonstrations, contact investors@emergencepartners.com.
 
-<strong>4. Investment Decision (5-8 new investments):</strong>
-Investment committee approval required. Position sizing based on conviction and liquidity. Clear value creation plan with defined milestones.
-
-<strong>5. Active Ownership:</strong>
-Board representation or observer rights. Monthly operational reviews. Continuous portfolio optimization. Systematic exit planning from day one.`
+<strong>Technology:</strong> Bank-grade encryption and two-factor authentication ensure the highest level of security for all investor information.`
       },
-      'minimum': {
-        title: 'Minimum Investment Requirements',
-        content: `We maintain a concentrated base of aligned investors who share our long-term orientation and philosophy.
+      'insights': {
+        title: 'Thought Leadership & Insights',
+        content: `Our team regularly shares insights on markets, systems thinking, and investment opportunities through various channels.
 
-<strong>Qualified Investors:</strong> $1 million minimum initial investment. Suitable for family offices and high-net-worth individuals. Quarterly liquidity with 90-day notice period.
+<strong>The Emergence Podcast:</strong> Monthly conversations with leading thinkers in complex systems, value investing, and business transformation. Available on all major platforms.
 
-<strong>Institutional Investors:</strong> $10 million minimum initial investment. Customized reporting and service level. Direct access to investment team. Co-investment opportunities on select deals.
+<strong>Speaking Engagements:</strong> Our partners regularly speak at industry events including:
+• Value Investing Congress
+• Family Office Forums
+• Private Equity International events
+• Systems thinking conferences
 
-<strong>Strategic Partners:</strong> $25 million+ allocations. Advisory board participation. Priority access to co-investments. Bespoke fund structures available.
+<strong>Research Publications:</strong>
+• "Emergence Value in Complex Markets" - Our framework for identifying value in transition zones
+• "The Maintenance Premium" - Why operational excellence creates lasting value
+• "Systems Thinking for Investors" - Applying complexity science to investment decisions
 
-All investors must meet Cayman Islands regulatory requirements for professional investors. We conduct thorough KYC/AML procedures and maintain the highest compliance standards.`
+<strong>Monthly Market Commentary:</strong> Exclusive insights on market dynamics, portfolio positioning, and emerging opportunities. Available through the investor portal.
+
+Follow us on LinkedIn and Twitter for regular updates and insights.`
+      },
+      'esg': {
+        title: 'ESG Policy & Sustainable Investing',
+        content: `Environmental, Social, and Governance factors are integral to our investment process and risk management framework.
+
+<strong>ESG Integration:</strong>
+• Systematic ESG evaluation in all investment decisions
+• Proprietary ESG scoring methodology
+• Active engagement on ESG improvements post-investment
+• Regular monitoring and reporting of ESG metrics
+
+<strong>Exclusion Policy:</strong>
+We maintain firm-wide exclusions for:
+• Weapons and defense contractors
+• Tobacco products
+• Gambling operations
+• Predatory lending
+• Environmentally destructive practices
+
+<strong>Positive Screening:</strong>
+We actively seek investments that contribute to:
+• Sustainable business models
+• Positive social impact
+• Strong governance practices
+• Environmental innovation
+• Stakeholder capitalism
+
+<strong>Reporting:</strong> Annual ESG report provided to all investors detailing portfolio-level ESG metrics and improvement initiatives.`
       },
       'contact': {
         title: 'Contact Information',
@@ -590,33 +852,21 @@ Grand Cayman
 Cayman Islands
 
 <strong>Regional Offices:</strong>
-Dubai: DIFC, Gate Avenue
-London: 1 Mayfair Place, W1J 8AJ
-Dublin: 2 Grand Canal Square, D02 A342
-New York: 590 Madison Avenue, 10022
+Dubai: DIFC, Gate Avenue (9:00-17:00 GST)
+London: 1 Mayfair Place, W1J 8AJ (9:00-17:00 GMT)
+Dublin: 2 Grand Canal Square, D02 A342 (9:00-17:00 GMT)
+New York: 590 Madison Avenue, 10022 (9:00-17:00 EST)
 
-<strong>For Inquiries:</strong>
+<strong>For Specific Inquiries:</strong>
 Institutional allocations: institutional@emergencepartners.com
+Existing investors: portal@emergencepartners.com
 Press inquiries: press@emergencepartners.com
-Career opportunities: careers@emergencepartners.com
+Speaking requests: events@emergencepartners.com
 
-Office hours: Sunday-Thursday 9:00-18:00 GST`
-      },
-      'returns': {
-        title: 'Returns & Performance',
-        content: `Our track record demonstrates consistent outperformance through multiple market cycles, with particularly strong performance in market dislocations.
-
-<strong>Historical Performance:</strong>
-• 5-Year Annualized: 19.2% (vs. 11.4% MSCI World)
-• 3-Year Annualized: 22.7% (vs. 9.8% MSCI World)
-• Since Inception: 18.4% (vs. 10.2% MSCI World)
-• Sharpe Ratio: 1.34
-• Maximum Drawdown: -18% (vs. -34% MSCI World)
-
-<strong>Attribution Analysis:</strong>
-Public equity selection: +7.8% annual alpha. Private investments: 26.3% average IRR. Currency and geography: +2.1% contribution. Tactical allocation: +1.4% contribution.
-
-Performance is net of all fees and expenses. Past performance does not guarantee future results.`
+<strong>Connect:</strong>
+LinkedIn: /company/emergence-partners
+Twitter: @emergence_ptr
+Podcast: The Emergence Podcast (all platforms)`
       }
     };
     
@@ -673,7 +923,7 @@ Performance is net of all fees and expenses. Past performance does not guarantee
         resultsDiv.innerHTML = `
           <div class="no-results">
             <p>No results found for "${query}"</p>
-            <p>Try searching for: strategy, returns, team, or minimum investment</p>
+            <p>Try searching for: strategy, risk, ESG, team, or service providers</p>
           </div>
         `;
       }
