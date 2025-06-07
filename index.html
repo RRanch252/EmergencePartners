@@ -149,6 +149,11 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     }
     
+    .quick-action:active {
+      transform: translateY(0);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    
     .quick-action.primary {
       background: #1a1a1a;
       color: #fff;
@@ -158,6 +163,10 @@
     .quick-action.primary:hover {
       background: #000;
       border-color: #000;
+    }
+    
+    .quick-action.primary:active {
+      background: #333;
     }
     
     /* Suggestions - now hidden by default */
