@@ -73,6 +73,30 @@
       margin-top: 4px;
     }
     
+    /* Header CTAs container */
+    .header-ctas {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+    
+    /* Investor Portal CTA */
+    .investor-portal-cta {
+      color: #666;
+      padding: 10px 20px;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+      transition: all 0.2s ease;
+      border-bottom: none;
+    }
+    
+    .investor-portal-cta:hover {
+      color: #000;
+      border-bottom: none;
+    }
+    
     /* Search CTA Button */
     .search-cta {
       background: #1a1a1a;
@@ -87,12 +111,14 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
+      border-bottom: none;
     }
     
     .search-cta:hover {
       background: #000;
       transform: translateY(-1px);
       box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      border-bottom: none;
     }
     
     .search-icon {
@@ -426,6 +452,16 @@
         text-align: center;
       }
       
+      .header-ctas {
+        flex-direction: column;
+        gap: 12px;
+      }
+      
+      .investor-portal-cta {
+        font-size: 12px;
+        padding: 8px 16px;
+      }
+      
       .search-cta {
         font-size: 12px;
         padding: 8px 16px;
@@ -464,20 +500,25 @@
     Cayman Islands Regulated (CIMA #12345) | <a href="#risk">Important Risk Information</a>
   </div>
   
-  <!-- Fixed header with CTA -->
+  <!-- Fixed header with CTAs -->
   <header class="main-header">
     <div class="header-content">
       <div class="logo-section">
         <div class="logo">EMERGENCE PARTNERS</div>
         <div class="tagline">Finding emergent value in complex systems</div>
       </div>
-      <a href="search.html" class="search-cta">
-        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <circle cx="11" cy="11" r="8"></circle>
-          <path d="M21 21l-4.35-4.35"></path>
-        </svg>
-        Try our search-first website
-      </a>
+      <div class="header-ctas">
+        <a href="#" class="investor-portal-cta" onclick="alert('Investor portal requires authentication. Please contact investors@emergencepartners.com for access.')">
+          Investor Portal →
+        </a>
+        <a href="search.html" class="search-cta">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="M21 21l-4.35-4.35"></path>
+          </svg>
+          Try our Search Website
+        </a>
+      </div>
     </div>
   </header>
   
@@ -486,13 +527,7 @@
       <h1>We find emergent value in businesses whose fundamental qualities persist across market transformations.</h1>
     </section>
     
-    <!-- Trust indicators -->
-    <div class="trust-indicators">
-      <span class="trust-item">17% p.a. Gross Returns</span>
-      <span class="trust-item">€3B+ Assets Managed</span>
-      <span class="trust-item">Cayman Regulated</span>
-      <span class="trust-item">Institutional Grade</span>
-    </div>
+
     
     <!-- Investment Philosophy -->
     <div class="expandable">
