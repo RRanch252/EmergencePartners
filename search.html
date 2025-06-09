@@ -177,19 +177,15 @@
       box-shadow: 0 1px 3px rgba(0,0,0,0.1);
     }
     
-    .quick-action.primary {
+    .quick-action.active {
       background: #1a1a1a;
       color: #fff;
       border-color: #1a1a1a;
     }
     
-    .quick-action.primary:hover {
+    .quick-action.active:hover {
       background: #000;
       border-color: #000;
-    }
-    
-    .quick-action.primary:active {
-      background: #333;
     }
     
     /* Recent searches */
@@ -661,7 +657,7 @@
       </div>
       
       <div class="quick-actions">
-        <button class="quick-action primary" onclick="searchFor('Investment strategy')">Investment Strategy</button>
+        <button class="quick-action" onclick="searchFor('Investment strategy')">Investment Strategy</button>
         <button class="quick-action" onclick="searchFor('Track record')">Track Record</button>
         <button class="quick-action" onclick="searchFor('Fund terms')">Fund Terms</button>
         <button class="quick-action" onclick="searchFor('Risk management')">Risk Management</button>
@@ -1045,6 +1041,11 @@ Podcast: The Emergence Podcast (all platforms)`
       resultsDiv.style.display = 'none';
       updateClearButton();
       searchBox.focus();
+      
+      // Remove active state from all buttons
+      document.querySelectorAll('.quick-action').forEach(button => {
+        button.classList.remove('active');
+      });
     }
     
     // Add rotating placeholder text
@@ -1089,13 +1090,30 @@ Podcast: The Emergence Podcast (all platforms)`
       }
     });
     
+    function updateActiveButton(query) {
+      // Remove active class from all buttons
+      document.querySelectorAll('.quick-action').forEach(button => {
+        button.classList.remove('active');
+      });
+      
+      // Add active class to matching button
+      const lowerQuery = query.toLowerCase().trim();
+      document.querySelectorAll('.quick-action').forEach(button => {
+        if (button.textContent.toLowerCase() === lowerQuery) {
+          button.classList.add('active');
+        }
+      });
+    }
+    
     function searchFor(query) {
       document.querySelector('.search-box').value = query;
+      updateActiveButton(query);
       performSearch(query);
     }
     
     function handleSearch(event) {
       if (event.key === 'Enter') {
+        updateActiveButton(event.target.value);
         performSearch(event.target.value);
       }
     }
