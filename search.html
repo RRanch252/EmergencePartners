@@ -92,7 +92,7 @@
     
     .search-box {
       width: 100%;
-      padding: 20px 24px;
+      padding: 20px 50px 20px 24px;
       font-size: 17px;
       border: 2px solid #e5e5e5;
       border-radius: 12px;
@@ -113,12 +113,35 @@
       color: #b0b0b0;
     }
     
+    /* Clear button */
+    .clear-search {
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: #999;
+      cursor: pointer;
+      padding: 8px;
+      font-size: 14px;
+      display: none;
+      transition: all 0.2s ease;
+    }
+    
+    .clear-search:hover {
+      color: #333;
+    }
+    
+    .clear-search.visible {
+      display: block;
+    }
+    
     /* Quick actions - More professional CTAs */
     .quick-actions {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
       margin-bottom: 32px;
     }
     
@@ -127,13 +150,18 @@
       color: #666;
       background: #f7f7f7;
       border: 1px solid #e5e5e5;
-      padding: 8px 16px;
+      padding: 12px 16px;
       border-radius: 20px;
       cursor: pointer;
       transition: all 0.2s ease;
       white-space: nowrap;
       font-weight: 500;
       letter-spacing: 0.2px;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
     }
     
     .quick-action:hover {
@@ -149,19 +177,51 @@
       box-shadow: 0 1px 3px rgba(0,0,0,0.1);
     }
     
-    .quick-action.primary {
+    .quick-action.active {
       background: #1a1a1a;
       color: #fff;
       border-color: #1a1a1a;
     }
     
-    .quick-action.primary:hover {
+    .quick-action.active:hover {
       background: #000;
       border-color: #000;
     }
     
-    .quick-action.primary:active {
-      background: #333;
+    /* Recent searches */
+    .recent-searches {
+      margin-bottom: 24px;
+      display: none;
+    }
+    
+    .recent-searches.visible {
+      display: block;
+    }
+    
+    .recent-searches-title {
+      font-size: 12px;
+      color: #999;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+    
+    .recent-search-item {
+      display: inline-block;
+      font-size: 13px;
+      color: #666;
+      background: #f5f5f5;
+      padding: 4px 12px;
+      border-radius: 16px;
+      margin-right: 8px;
+      margin-bottom: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    
+    .recent-search-item:hover {
+      background: #e5e5e5;
+      color: #000;
     }
     
     /* Suggestions - now hidden by default */
@@ -228,14 +288,72 @@
       to { opacity: 1; transform: translateY(0); }
     }
     
+    /* Search query display */
+    .search-query-display {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 32px;
+      padding: 12px 16px;
+      background: #f9f9f9;
+      border-radius: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .clear-results {
+      font-size: 12px;
+      color: #999;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+    
+    .clear-results:hover {
+      color: #333;
+    }
+    
+    /* Section indicators */
+    .section-indicator {
+      font-size: 11px;
+      color: #999;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 16px;
+    }
+    
     .result-item {
       margin-bottom: 64px;
       padding-bottom: 64px;
       border-bottom: 1px solid #e5e5e5;
+      position: relative;
+      padding-left: 20px;
+    }
+    
+    .result-item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 64px;
+      width: 4px;
+      background: #f0f0f0;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+    
+    .result-item:hover::before {
+      background: #1a1a1a;
     }
     
     .result-item:last-child {
       border-bottom: none;
+    }
+    
+    .result-item:target {
+      background: #f9f9f9;
+      margin: -20px;
+      padding: 40px 20px 84px 40px;
+      border-radius: 8px;
     }
     
     .result-item h3 {
@@ -353,41 +471,6 @@
       margin-top: 4px;
     }
     
-    /* Media items in results */
-    .media-preview {
-      border-left: 3px solid #f0f0f0;
-      padding-left: 20px;
-      margin: 20px 0;
-      transition: all 0.2s ease;
-    }
-    
-    .media-preview:hover {
-      border-left-color: #333;
-    }
-    
-    .media-meta {
-      font-size: 11px;
-      color: #999;
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-      margin-bottom: 6px;
-      font-weight: 500;
-    }
-    
-    .media-title {
-      font-size: 15px;
-      font-weight: 600;
-      color: #000;
-      margin-bottom: 6px;
-      letter-spacing: -0.2px;
-    }
-    
-    .media-excerpt {
-      font-size: 14px;
-      color: #666;
-      line-height: 1.6;
-    }
-    
     /* No results state */
     .no-results {
       text-align: center;
@@ -455,6 +538,19 @@
       letter-spacing: 0.5px;
     }
     
+    /* Keyboard shortcuts hint */
+    .keyboard-hint {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      font-size: 11px;
+      color: #999;
+      background: rgba(255,255,255,0.9);
+      padding: 8px 12px;
+      border-radius: 4px;
+      border: 1px solid #e5e5e5;
+    }
+    
     /* Responsive breakpoints */
     @media (max-width: 768px) {
       .portal-access {
@@ -475,16 +571,17 @@
       
       .search-box {
         font-size: 16px;
-        padding: 18px 20px;
+        padding: 18px 50px 18px 20px;
       }
       
       .quick-actions {
+        grid-template-columns: repeat(2, 1fr);
         gap: 12px;
       }
       
       .quick-action {
         font-size: 12px;
-        padding: 7px 14px;
+        padding: 10px 8px;
       }
       
       .suggestion {
@@ -509,6 +606,10 @@
       .service-providers {
         gap: 20px;
       }
+      
+      .keyboard-hint {
+        display: none;
+      }
     }
     
     @media (max-width: 480px) {
@@ -532,6 +633,7 @@
   <div class="container">
     <header>
       <div class="logo">EMERGENCE PARTNERS</div>
+      <div class="subtitle">Finding emergent value in complex systems</div>
       <a href="index.html" class="back-link">← Back to main site</a>
     </header>
     
@@ -539,15 +641,23 @@
       <div class="search-wrapper">
         <input 
           type="text" 
-          class="search-box" 
+          class="search-box"
+          id="searchBox"
           placeholder="What would you like to know?"
           onkeyup="handleSearch(event)"
+          oninput="updateClearButton()"
           onfocus="showSuggestions()"
         />
+        <button class="clear-search" id="clearButton" onclick="clearSearch()">×</button>
+      </div>
+      
+      <div class="recent-searches" id="recentSearches">
+        <div class="recent-searches-title">Recent searches</div>
+        <div id="recentSearchItems"></div>
       </div>
       
       <div class="quick-actions">
-        <button class="quick-action primary" onclick="searchFor('Investment strategy')">Investment Strategy</button>
+        <button class="quick-action" onclick="searchFor('Investment strategy')">Investment Strategy</button>
         <button class="quick-action" onclick="searchFor('Track record')">Track Record</button>
         <button class="quick-action" onclick="searchFor('Fund terms')">Fund Terms</button>
         <button class="quick-action" onclick="searchFor('Risk management')">Risk Management</button>
@@ -583,6 +693,10 @@
       </div>
     </div>
   </footer>
+  
+  <div class="keyboard-hint">
+    Press ESC to clear search • Use ↑↓ to navigate
+  </div>
   
   <script>
     // Enhanced knowledge base with complete regulatory and trust information
@@ -872,6 +986,32 @@ Podcast: The Emergence Podcast (all platforms)`
       }
     };
     
+    // Search history management
+    let searchHistory = JSON.parse(localStorage.getItem('searchHistory') || '[]');
+    
+    function updateRecentSearches() {
+      const container = document.getElementById('recentSearchItems');
+      const recentSearchesDiv = document.getElementById('recentSearches');
+      
+      if (searchHistory.length > 0) {
+        recentSearchesDiv.classList.add('visible');
+        container.innerHTML = searchHistory.slice(0, 5).map(term => 
+          `<span class="recent-search-item" onclick="searchFor('${term}')">${term}</span>`
+        ).join('');
+      } else {
+        recentSearchesDiv.classList.remove('visible');
+      }
+    }
+    
+    function addToSearchHistory(term) {
+      if (!term.trim()) return;
+      searchHistory = searchHistory.filter(t => t.toLowerCase() !== term.toLowerCase());
+      searchHistory.unshift(term);
+      searchHistory = searchHistory.slice(0, 10);
+      localStorage.setItem('searchHistory', JSON.stringify(searchHistory));
+      updateRecentSearches();
+    }
+    
     function showSuggestions() {
       const suggestions = document.getElementById('suggestions');
       suggestions.classList.add('visible');
@@ -880,6 +1020,32 @@ Podcast: The Emergence Podcast (all platforms)`
     function hideSuggestions() {
       const suggestions = document.getElementById('suggestions');
       suggestions.classList.remove('visible');
+    }
+    
+    function updateClearButton() {
+      const searchBox = document.getElementById('searchBox');
+      const clearButton = document.getElementById('clearButton');
+      
+      if (searchBox.value.trim()) {
+        clearButton.classList.add('visible');
+      } else {
+        clearButton.classList.remove('visible');
+      }
+    }
+    
+    function clearSearch() {
+      const searchBox = document.getElementById('searchBox');
+      const resultsDiv = document.getElementById('results');
+      
+      searchBox.value = '';
+      resultsDiv.style.display = 'none';
+      updateClearButton();
+      searchBox.focus();
+      
+      // Remove active state from all buttons
+      document.querySelectorAll('.quick-action').forEach(button => {
+        button.classList.remove('active');
+      });
     }
     
     // Add rotating placeholder text
@@ -917,17 +1083,42 @@ Podcast: The Emergence Podcast (all platforms)`
       setTimeout(hideSuggestions, 200);
     });
     
+    // Keyboard shortcuts
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        clearSearch();
+      }
+    });
+    
+    function updateActiveButton(query) {
+      // Remove active class from all buttons
+      document.querySelectorAll('.quick-action').forEach(button => {
+        button.classList.remove('active');
+      });
+      
+      // Add active class to matching button
+      const lowerQuery = query.toLowerCase().trim();
+      document.querySelectorAll('.quick-action').forEach(button => {
+        if (button.textContent.toLowerCase() === lowerQuery) {
+          button.classList.add('active');
+        }
+      });
+    }
+    
     function searchFor(query) {
       document.querySelector('.search-box').value = query;
+      updateActiveButton(query);
       performSearch(query);
     }
     
     function handleSearch(event) {
       if (event.key === 'Enter') {
+        updateActiveButton(event.target.value);
         performSearch(event.target.value);
       }
     }
     
+    // Improved search function with precise matching
     function performSearch(query) {
       const resultsDiv = document.getElementById('results');
       const suggestionsDiv = document.getElementById('suggestions');
@@ -942,25 +1133,124 @@ Podcast: The Emergence Podcast (all platforms)`
       resultsDiv.style.display = 'block';
       resultsDiv.innerHTML = '';
       
-      const lowerQuery = query.toLowerCase();
-      let found = false;
+      const lowerQuery = query.toLowerCase().trim();
+      addToSearchHistory(query.trim());
       
-      // Search through knowledge base
-      for (const [key, value] of Object.entries(knowledge)) {
-        if (lowerQuery.includes(key) || 
-            value.title.toLowerCase().includes(lowerQuery) || 
-            value.content.toLowerCase().includes(lowerQuery)) {
-          found = true;
-          const resultItem = document.createElement('div');
-          resultItem.className = 'result-item';
-          
-          resultItem.innerHTML = `
-            <h3>${value.title}</h3>
-            ${value.content.split('\n\n').map(p => `<p>${p}</p>`).join('')}
-          `;
-          resultsDiv.appendChild(resultItem);
+      let found = false;
+      let exactMatch = false;
+      let results = [];
+      
+      // First, try to find exact matches in quick action buttons
+      const quickActionMap = {
+        'investment strategy': ['strategy', 'philosophy'],
+        'track record': ['track record'],
+        'fund terms': ['terms'],
+        'risk management': ['risk'],
+        'team': ['team'],
+        'insights': ['insights']
+      };
+      
+      // Check if the query matches a quick action exactly
+      let searchKeys = [];
+      for (const [buttonText, keys] of Object.entries(quickActionMap)) {
+        if (lowerQuery === buttonText.toLowerCase()) {
+          searchKeys = keys;
+          exactMatch = true;
+          break;
         }
       }
+      
+      // If not exact match, create search terms based on the query
+      if (!exactMatch) {
+        // Map common search terms to specific knowledge base keys
+        const searchMapping = {
+          'returns': ['track record'],
+          'performance': ['track record'],
+          'esg': ['esg'],
+          'environmental': ['esg'],
+          'social': ['esg'],
+          'governance': ['esg'],
+          'service providers': ['service providers'],
+          'auditor': ['service providers'],
+          'administrator': ['service providers'],
+          'portal': ['portal'],
+          'investor portal': ['portal'],
+          'philosophy': ['philosophy'],
+          'strategy': ['strategy', 'philosophy'],
+          'team': ['team'],
+          'leadership': ['team'],
+          'ian higgins': ['team'],
+          'paul higgins': ['team'],
+          'terms': ['terms'],
+          'fees': ['terms'],
+          'minimum': ['terms'],
+          'risk': ['risk'],
+          'risk factors': ['risk'],
+          'risk management': ['risk'],
+          'contact': ['contact'],
+          'email': ['contact'],
+          'phone': ['contact']
+        };
+        
+        // Find matching keys based on the query
+        for (const [searchTerm, keys] of Object.entries(searchMapping)) {
+          if (lowerQuery.includes(searchTerm)) {
+            searchKeys = [...searchKeys, ...keys];
+          }
+        }
+      }
+      
+      // Remove duplicates
+      searchKeys = [...new Set(searchKeys)];
+      
+      // If we have specific keys to search, show only those sections
+      if (searchKeys.length > 0) {
+        for (const key of searchKeys) {
+          if (knowledge[key]) {
+            found = true;
+            results.push({
+              key: key,
+              data: knowledge[key]
+            });
+          }
+        }
+      } else {
+        // Fallback: search in titles only for better precision
+        for (const [key, value] of Object.entries(knowledge)) {
+          if (value.title.toLowerCase().includes(lowerQuery)) {
+            found = true;
+            results.push({
+              key: key,
+              data: value
+            });
+          }
+        }
+      }
+      
+      // Display search query
+      if (found) {
+        const searchQueryDisplay = document.createElement('div');
+        searchQueryDisplay.className = 'search-query-display';
+        searchQueryDisplay.innerHTML = `
+          <span>Showing results for: <strong>${query}</strong></span>
+          <span class="clear-results" onclick="clearSearch()">Clear search</span>
+        `;
+        resultsDiv.appendChild(searchQueryDisplay);
+      }
+      
+      // Display results with section indicators
+      results.forEach((result, index) => {
+        const resultItem = document.createElement('div');
+        resultItem.className = 'result-item';
+        resultItem.id = `result-${result.key}`;
+        
+        resultItem.innerHTML = `
+          <div class="section-indicator">Section ${index + 1} of ${results.length}</div>
+          <h3>${result.data.title}</h3>
+          ${result.data.content.split('\n\n').map(p => `<p>${p}</p>`).join('')}
+        `;
+        resultsDiv.appendChild(resultItem);
+      });
       
       if (!found) {
         resultsDiv.innerHTML = `
@@ -971,9 +1261,14 @@ Podcast: The Emergence Podcast (all platforms)`
         `;
       }
       
-      // Scroll to results
-      resultsDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // Smooth scroll to results
+      setTimeout(() => {
+        resultsDiv.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+      }, 100);
     }
+    
+    // Initialize recent searches on load
+    updateRecentSearches();
   </script>
 </body>
 </html>
