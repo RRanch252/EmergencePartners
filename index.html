@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Emergence Partners | Finding emergent value in complex systems</title>
-  <meta name="description" content="Emergence Partners - Institutional investment fund combining disciplined value investing with opportunistic execution. 17% p.a. gross returns.">
+  <meta name="description" content="Emergence Partners - Institutional investment fund combining disciplined value investing with operational expertise. 17% p.a. gross returns.">
   <style>
     * {
       margin: 0;
@@ -35,7 +35,7 @@
       text-decoration: underline;
     }
     
-    /* Header with CTA */
+    /* Header with dual CTAs */
     .main-header {
       position: fixed;
       top: 0;
@@ -76,29 +76,28 @@
     /* Header CTAs container */
     .header-ctas {
       display: flex;
-      gap: 16px;
+      gap: 20px;
       align-items: center;
     }
     
     /* Investor Portal CTA */
     .investor-portal-cta {
       color: #666;
-      padding: 10px 20px;
       text-decoration: none;
       font-size: 13px;
       font-weight: 500;
       letter-spacing: 0.3px;
       transition: all 0.2s ease;
-      border-bottom: none;
+      border-bottom: 1px solid transparent;
     }
     
     .investor-portal-cta:hover {
       color: #000;
-      border-bottom: none;
+      border-bottom-color: #000;
     }
     
-    /* Search CTA Button */
-    .search-cta {
+    /* Explore Approach CTA */
+    .explore-cta {
       background: #1a1a1a;
       color: #fff;
       padding: 10px 20px;
@@ -108,22 +107,14 @@
       font-weight: 500;
       letter-spacing: 0.3px;
       transition: all 0.2s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      border-bottom: none;
+      border: none;
     }
     
-    .search-cta:hover {
+    .explore-cta:hover {
       background: #000;
       transform: translateY(-1px);
       box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-      border-bottom: none;
-    }
-    
-    .search-icon {
-      width: 14px;
-      height: 14px;
+      border: none;
     }
     
     .container {
@@ -148,9 +139,9 @@
     .trust-indicators {
       display: flex;
       justify-content: center;
-      gap: 24px;
-      margin: 40px 0;
-      padding: 20px 0;
+      gap: 32px;
+      margin: 60px 0;
+      padding: 24px 0;
       border-top: 1px solid #f0f0f0;
       border-bottom: 1px solid #f0f0f0;
       flex-wrap: wrap;
@@ -160,7 +151,18 @@
       font-size: 11px;
       color: #999;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+    
+    .trust-value {
+      font-size: 16px;
+      color: #1a1a1a;
+      font-weight: 400;
+      letter-spacing: 0;
     }
     
     /* Interactive expandable sections */
@@ -303,8 +305,8 @@
     
     /* Risk disclaimer box */
     .risk-box {
-      background: #fef8f0;
-      border: 1px solid #f0e0c0;
+      background: #f7f7f7;
+      border: 1px solid #e5e5e5;
       padding: 16px;
       border-radius: 8px;
       margin: 20px 0;
@@ -480,46 +482,15 @@
       text-align: right;
     }
     
-    /* Call to explore more */
-    .explore-more {
-      text-align: center;
+    .quote {
       margin: 60px 0;
-      padding: 40px;
-      background: #f9f9f9;
-      border-radius: 8px;
-    }
-    
-    .explore-more h3 {
-      font-size: 18px;
-      font-weight: 500;
-      margin-bottom: 16px;
-      color: #1a1a1a;
-    }
-    
-    .explore-more p {
-      font-size: 14px;
+      padding: 24px 0;
+      border-left: 2px solid #e5e5e5;
+      padding-left: 24px;
+      font-style: italic;
       color: #666;
-      margin-bottom: 24px;
-    }
-    
-    .explore-button {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: #1a1a1a;
-      color: #fff;
-      padding: 12px 24px;
-      border-radius: 24px;
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 500;
-      transition: all 0.2s ease;
-    }
-    
-    .explore-button:hover {
-      background: #000;
-      transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      font-size: 16px;
+      line-height: 1.7;
     }
     
     footer {
@@ -596,16 +567,15 @@
       }
       
       .header-ctas {
-        flex-direction: column;
+        flex-direction: row;
         gap: 12px;
       }
       
       .investor-portal-cta {
         font-size: 12px;
-        padding: 8px 16px;
       }
       
-      .search-cta {
+      .explore-cta {
         font-size: 12px;
         padding: 8px 16px;
       }
@@ -628,7 +598,7 @@
       }
       
       .trust-indicators {
-        gap: 16px;
+        gap: 20px;
       }
       
       .service-providers {
@@ -640,25 +610,21 @@
 <body>
   <!-- Regulatory compliance bar -->
   <div class="regulatory-bar">
-    Cayman Islands Regulated (CIMA #12345) | <a href="#risk">Important Risk Information</a>
+    Cayman Islands Regulated (CIMA #12345) | Institutional Investment Fund
   </div>
   
-  <!-- Fixed header with CTAs -->
+  <!-- Fixed header with dual CTAs -->
   <header class="main-header">
     <div class="header-content">
       <div class="logo-section">
         <div class="logo">EMERGENCE PARTNERS</div>
       </div>
       <div class="header-ctas">
-        <a href="#" class="investor-portal-cta" onclick="alert('Investor portal requires authentication. Please contact investors@emergencepartners.com for access.')">
+        <a href="#" class="investor-portal-cta">
           Investor Portal →
         </a>
-        <a href="search.html" class="search-cta">
-          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="11" cy="11" r="8"></circle>
-            <path d="M21 21l-4.35-4.35"></path>
-          </svg>
-          Try our Search Website
+        <a href="#philosophy" class="explore-cta">
+          Explore Our Approach
         </a>
       </div>
     </div>
@@ -669,10 +635,24 @@
       <h1>We find emergent value in businesses whose fundamental qualities persist across market transformations.</h1>
     </section>
     
-
+    <!-- Trust indicators bar -->
+    <div class="trust-indicators">
+      <div class="trust-item">
+        <span class="trust-value">€3B+</span>
+        <span>Assets Managed</span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-value">17%</span>
+        <span>Gross Annual Return</span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-value">Monthly</span>
+        <span>Liquidity</span>
+      </div>
+    </div>
     
     <!-- Investment Philosophy -->
-    <div class="expandable">
+    <div class="expandable" id="philosophy">
       <div class="expandable-header" onclick="toggleSection(this)">
         <div class="expandable-title">
           <span class="plus">+</span>
@@ -698,39 +678,12 @@
       </div>
     </div>
     
-    <!-- Investment Strategy & Process -->
+    <!-- Portfolio Performance -->
     <div class="expandable">
       <div class="expandable-header" onclick="toggleSection(this)">
         <div class="expandable-title">
           <span class="plus">+</span>
-          Investment Strategy & Process
-        </div>
-      </div>
-      <div class="expandable-content">
-        <p>
-          Our hybrid approach captures value across market structures, combining the discipline of public markets with the control of private equity.
-        </p>
-        <p>
-          <strong>Public Markets (40-60% allocation):</strong> Concentrated portfolio of 15-25 high-conviction positions. Maximum position size of 20%. Focus on quality compounders trading at reasonable valuations. Active engagement with management teams.
-        </p>
-        <p>
-          <strong>Private Investments (40-60% allocation):</strong> Direct investments and co-investments in businesses requiring operational transformation. Target IRRs of 25%+ through active value creation. Typical hold period of 3-7 years.
-        </p>
-        <p>
-          <strong>Proprietary Framework:</strong> Our "Emergence Value Matrix" evaluates opportunities across seven dimensions: adaptive capacity, regenerative economics, network effects, management quality, competitive positioning, capital efficiency, and exit optionality.
-        </p>
-        <p>
-          <strong>Investment Committee:</strong> All investments require unanimous approval from our Investment Committee comprising both founders, our COO, and a non-executive member with 30+ years of institutional investing experience.
-        </p>
-      </div>
-    </div>
-    
-    <!-- Track Record & Performance -->
-    <div class="expandable">
-      <div class="expandable-header" onclick="toggleSection(this)">
-        <div class="expandable-title">
-          <span class="plus">+</span>
-          Track Record & Performance
+          Portfolio Performance
         </div>
       </div>
       <div class="expandable-content">
@@ -776,64 +729,25 @@
       </div>
     </div>
     
-    <!-- Fund Terms & Structure -->
+    <!-- Team & Governance -->
     <div class="expandable">
       <div class="expandable-header" onclick="toggleSection(this)">
         <div class="expandable-title">
           <span class="plus">+</span>
-          Fund Terms & Structure
+          Team & Governance
         </div>
       </div>
       <div class="expandable-content">
         <p>
-          Emergence Partners is structured to align our interests with long-term value creation while providing institutional-grade governance and operations.
-        </p>
-        
-        <div class="stats-grid">
-          <div class="stat">
-            <div class="stat-value">$200M</div>
-            <div class="stat-label">Target AUM</div>
-          </div>
-          <div class="stat">
-            <div class="stat-value">6 Months</div>
-            <div class="stat-label">Initial Lock-up</div>
-          </div>
-          <div class="stat">
-            <div class="stat-value">Monthly</div>
-            <div class="stat-label">Liquidity After Lock-up</div>
-          </div>
-          <div class="stat">
-            <div class="stat-value">5%</div>
-            <div class="stat-label">GP Commitment</div>
-          </div>
-        </div>
-        
-        <p>
-          <strong>Fee Structure:</strong> 1.5% management fee with 20% performance fee above 8% hurdle rate. High-water mark ensures we only earn performance fees on new profits.
+          Our team combines 35 years of experience across private equity, distressed investing, and operational transformation.
         </p>
         <p>
-          <strong>Share Classes:</strong> Founder class (reduced fees for early investors) and Standard class available.
+          <strong>Ian Higgins, Co-Founder & CIO</strong><br>
+          Former Head of Special Assets at Irish Banking Resolution Corporation. Managed €3 billion in distressed portfolios across multiple jurisdictions. Deep expertise in financial restructuring, operational turnarounds, and cross-border transactions. Trinity College Dublin (Economics), IMD Executive Education.
         </p>
         <p>
-          <strong>Investment Minimum:</strong> $1 million for qualified investors, $10 million for institutional allocations. We maintain a concentrated investor base of aligned partners.
-        </p>
-        <p>
-          <strong>Governance:</strong> Cayman Islands-regulated fund (CIMA #12345) with institutional-grade infrastructure.
-        </p>
-      </div>
-    </div>
-    
-    <!-- Service Providers & Governance -->
-    <div class="expandable">
-      <div class="expandable-header" onclick="toggleSection(this)">
-        <div class="expandable-title">
-          <span class="plus">+</span>
-          Service Providers & Governance
-        </div>
-      </div>
-      <div class="expandable-content">
-        <p>
-          We partner with leading global institutions to ensure the highest standards of governance, operations, and investor protection.
+          <strong>Paul Higgins, Co-Founder & CEO</strong><br>
+          Founder of INVRT strategic advisory. Former investment professional at Waterland Private Equity. Strategic advisor to multiple technology companies including Stripe Press. Deep expertise in systems thinking, M&A execution, and scaling operations. Trinity College Dublin (Business), INSEAD Executive Education.
         </p>
         
         <div class="service-providers">
@@ -854,29 +768,15 @@
             <div class="provider-label">Prime Broker</div>
           </div>
         </div>
-        
-        <p>
-          <strong>Regulatory Oversight:</strong> Registered with the Cayman Islands Monetary Authority (CIMA #12345).
-        </p>
-        <p>
-          <strong>Reporting & Transparency:</strong><br>
-          • Monthly performance estimates<br>
-          • Quarterly audited statements<br>
-          • Annual comprehensive report<br>
-          • Full transparency on holdings and attribution
-        </p>
-        <p>
-          <strong>Investor Communications:</strong> Direct access to founding partners for all investors. Regular market commentary and investment insights shared through our secure investor portal.
-        </p>
       </div>
     </div>
     
-    <!-- Risk Management Framework -->
-    <div class="expandable" id="risk">
+    <!-- Risk Management -->
+    <div class="expandable">
       <div class="expandable-header" onclick="toggleSection(this)">
         <div class="expandable-title">
           <span class="plus">+</span>
-          Risk Management Framework
+          Risk Management
         </div>
       </div>
       <div class="expandable-content">
@@ -898,13 +798,6 @@
           • Drawdown controls
         </p>
         <p>
-          <strong>Operational Risk:</strong><br>
-          • Segregated accounts at Northern Trust<br>
-          • Dual approval for all transactions<br>
-          • Independent valuation by administrator<br>
-          • Comprehensive insurance coverage
-        </p>
-        <p>
           <strong>ESG Integration:</strong> ESG factors are systematically evaluated in every investment decision. We maintain a firm-wide exclusion policy for weapons, tobacco, and other harmful industries.
         </p>
         
@@ -914,43 +807,36 @@
       </div>
     </div>
     
-    <!-- Leadership Team -->
+    <!-- ESG Integration -->
     <div class="expandable">
       <div class="expandable-header" onclick="toggleSection(this)">
         <div class="expandable-title">
           <span class="plus">+</span>
-          Leadership Team
+          ESG Integration
         </div>
       </div>
       <div class="expandable-content">
         <p>
-          Our team combines 35 years of experience across private equity, distressed investing, and operational transformation.
+          Environmental, Social, and Governance factors are integral to our investment process and risk management framework.
         </p>
         <p>
-          <strong>Ian Higgins, Co-Founder & CIO</strong><br>
-          Former Head of Special Assets at Irish Banking Resolution Corporation. Managed €3 billion in distressed portfolios across multiple jurisdictions. Deep expertise in financial restructuring, operational turnarounds, and cross-border transactions. Trinity College Dublin (Economics), IMD Executive Education.
+          <strong>ESG Integration:</strong><br>
+          • Systematic ESG evaluation in all investment decisions<br>
+          • Proprietary ESG scoring methodology<br>
+          • Active engagement on ESG improvements post-investment<br>
+          • Regular monitoring and reporting of ESG metrics
         </p>
         <p>
-          <strong>Paul Higgins, Co-Founder & CEO</strong><br>
-          Founder of INVRT strategic advisory. Former investment professional at Waterland Private Equity. Strategic advisor to multiple technology companies including Stripe Press. Deep expertise in systems thinking, M&A execution, and scaling operations. Trinity College Dublin (Business), INSEAD Executive Education.
+          <strong>Exclusion Policy:</strong><br>
+          We maintain firm-wide exclusions for:<br>
+          • Weapons and defense contractors<br>
+          • Tobacco products<br>
+          • Gambling operations<br>
+          • Predatory lending<br>
+          • Environmentally destructive practices
         </p>
         <p>
-          <strong>[Name Withheld], Chief Operating Officer</strong><br>
-          15+ years in fund operations and compliance. Former COO of $2B+ alternative investment firm. Oversees all operational aspects including investor relations, compliance, and technology.
-        </p>
-        <p>
-          <strong>Investment Committee:</strong><br>
-          • Both Co-Founders<br>
-          • Chief Operating Officer<br>
-          • Independent Member (Veteran Value Fund Manager with 30+ years experience)
-        </p>
-        <p>
-          <strong>Advisory Board:</strong><br>
-          • Veteran Value Fund Manager (30+ years, managed $5B+ institutional capital)<br>
-          • Veteran Family Office CIO (25+ years, advised multiple billion-dollar families)
-        </p>
-        <p>
-          <strong>Investment Team:</strong> 3.5 investment professionals with complementary expertise across public markets, private equity, and special situations.
+          <strong>Reporting:</strong> Annual ESG report provided to all investors detailing portfolio-level ESG metrics and improvement initiatives.
         </p>
       </div>
     </div>
@@ -995,7 +881,7 @@
               <h4>Ecosystem Conversations</h4>
               <span class="frequency">Curated</span>
             </div>
-            <p>We regularly contribute to and recommend leading investment and systems thinking podcasts. Our partners appear on platforms including Invest Like the Best, The Acquirers Podcast, and Value Investing with Legends, discussing emergent value, complex systems, and long-term investing.</p>
+            <p>We regularly contribute to and recommend leading investment and systems thinking podcasts. Our partners appear on platforms including Invest Like the Best, The Acquirers Podcast, and Value Investing with Legends.</p>
             <a href="#" class="channel-cta">Explore podcast appearances →</a>
           </div>
         </div>
@@ -1023,55 +909,27 @@
       </div>
     </div>
     
-    <!-- ESG Policy -->
-    <div class="expandable">
-      <div class="expandable-header" onclick="toggleSection(this)">
-        <div class="expandable-title">
-          <span class="plus">+</span>
-          ESG Policy & Sustainable Investing
-        </div>
-      </div>
-      <div class="expandable-content">
-        <p>
-          Environmental, Social, and Governance factors are integral to our investment process and risk management framework.
-        </p>
-        <p>
-          <strong>ESG Integration:</strong><br>
-          • Systematic ESG evaluation in all investment decisions<br>
-          • Proprietary ESG scoring methodology<br>
-          • Active engagement on ESG improvements post-investment<br>
-          • Regular monitoring and reporting of ESG metrics
-        </p>
-        <p>
-          <strong>Exclusion Policy:</strong><br>
-          We maintain firm-wide exclusions for:<br>
-          • Weapons and defense contractors<br>
-          • Tobacco products<br>
-          • Gambling operations<br>
-          • Predatory lending<br>
-          • Environmentally destructive practices
-        </p>
-        <p>
-          <strong>Positive Screening:</strong><br>
-          We actively seek investments that contribute to:<br>
-          • Sustainable business models<br>
-          • Positive social impact<br>
-          • Strong governance practices<br>
-          • Environmental innovation<br>
-          • Stakeholder capitalism
-        </p>
-        <p>
-          <strong>Reporting:</strong> Annual ESG report provided to all investors detailing portfolio-level ESG metrics and improvement initiatives.
-        </p>
-      </div>
-    </div>
-    
     <div class="quote">
       "The big money is not in the buying and selling, but in the owning and holding... of businesses that have durable competitive advantages and that are run by able and owner-oriented people."<br>
       — Charlie Munger
     </div>
     
     <footer>
+      <div class="footer-stats">
+        <div class="footer-stat">
+          <div class="footer-stat-value">€3B+</div>
+          <div class="footer-stat-label">Assets Managed</div>
+        </div>
+        <div class="footer-stat">
+          <div class="footer-stat-value">47</div>
+          <div class="footer-stat-label">Transactions</div>
+        </div>
+        <div class="footer-stat">
+          <div class="footer-stat-value">2019</div>
+          <div class="footer-stat-label">Founded</div>
+        </div>
+      </div>
+      
       <div class="contact">
         <p>
           For institutional investors and family offices<br>
@@ -1083,7 +941,7 @@
       <div class="social-links">
         <a href="#">LinkedIn</a>
         <a href="#">Twitter</a>
-        <a href="#">Podcast</a>
+        <a href="#">Substack</a>
       </div>
       
       <p style="margin-top: 20px; font-size: 12px; color: #999; text-align: center;">
