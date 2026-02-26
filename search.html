@@ -3,8 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Emergence Partners | Search Platform</title>
-  <meta name="description" content="Search Emergence Partners' comprehensive knowledge base for information about our investment philosophy, portfolio, team, and more.">
+  <title>Emergence Partners | Search</title>
+  <meta name="description" content="Search Emergence Partners for information about our investment philosophy, team, and more.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -13,7 +16,7 @@
     }
     
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
       line-height: 1.6;
       color: #1a1a1a;
       background: #fff;
@@ -53,18 +56,21 @@
     }
     
     .logo {
+      font-family: 'DM Sans', sans-serif;
       font-size: 13px;
       font-weight: 600;
-      letter-spacing: 1.5px;
+      letter-spacing: 2px;
       margin-bottom: 10px;
       color: #000;
     }
     
     .subtitle {
-      font-size: 14px;
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: 16px;
       color: #666;
       font-weight: 400;
       letter-spacing: 0.2px;
+      font-style: italic;
     }
     
     .back-link {
@@ -74,10 +80,12 @@
       color: #666;
       text-decoration: none;
       transition: all 0.2s ease;
+      border-bottom: none;
     }
     
     .back-link:hover {
       color: #000;
+      border-bottom: none;
     }
     
     /* Search Section */
@@ -137,7 +145,7 @@
       display: block;
     }
     
-    /* Quick actions - More professional CTAs */
+    /* Quick actions */
     .quick-actions {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -162,6 +170,7 @@
       align-items: center;
       justify-content: center;
       text-align: center;
+      font-family: inherit;
     }
     
     .quick-action:hover {
@@ -224,7 +233,7 @@
       color: #000;
     }
     
-    /* Suggestions - now hidden by default */
+    /* Suggestions */
     .suggestions {
       text-align: center;
       font-size: 13px;
@@ -255,26 +264,6 @@
     .suggestion:hover {
       color: #000;
       border-bottom-color: #000;
-    }
-    
-    /* Portal access button */
-    .portal-access {
-      position: fixed;
-      top: 50px;
-      right: 20px;
-      font-size: 12px;
-      background: #1a1a1a;
-      color: #fff;
-      padding: 8px 16px;
-      border-radius: 20px;
-      text-decoration: none;
-      transition: all 0.2s ease;
-      z-index: 100;
-    }
-    
-    .portal-access:hover {
-      background: #000;
-      transform: translateY(-1px);
     }
     
     /* Results Section */
@@ -349,13 +338,6 @@
       border-bottom: none;
     }
     
-    .result-item:target {
-      background: #f9f9f9;
-      margin: -20px;
-      padding: 40px 20px 84px 40px;
-      border-radius: 8px;
-    }
-    
     .result-item h3 {
       font-size: 20px;
       font-weight: 600;
@@ -376,99 +358,15 @@
       color: #000;
     }
     
-    /* Stats grid within results */
-    .stats-mini {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
-      margin: 32px 0;
-      padding: 32px 0;
-      border-top: 1px solid #e5e5e5;
-      border-bottom: 1px solid #e5e5e5;
-    }
-    
-    .stat-mini {
-      text-align: center;
-    }
-    
-    .stat-value {
-      font-size: 24px;
-      font-weight: 300;
-      color: #000;
-      margin-bottom: 6px;
-      letter-spacing: -0.5px;
-    }
-    
-    .stat-label {
-      font-size: 11px;
-      color: #999;
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-      font-weight: 500;
-    }
-    
-    /* Case highlight boxes */
-    .case-mini {
-      background: #f9f9f9;
-      border: 1px solid #e5e5e5;
-      padding: 20px;
-      border-radius: 8px;
-      margin-bottom: 16px;
-      transition: all 0.2s ease;
-    }
-    
-    .case-mini:hover {
-      background: #fff;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-    }
-    
-    .case-mini h4 {
-      font-size: 15px;
-      font-weight: 600;
-      margin-bottom: 6px;
-      color: #000;
-    }
-    
-    .case-mini .metrics {
-      font-size: 13px;
-      color: #666;
-      letter-spacing: 0.2px;
-    }
-    
     /* Risk disclaimer box */
     .risk-box {
-      background: #fef8f0;
-      border: 1px solid #f0e0c0;
+      background: #fef9f2;
+      border: 1px solid #ede0cc;
       padding: 16px;
       border-radius: 8px;
       margin: 20px 0;
       font-size: 13px;
       color: #666;
-    }
-    
-    /* Service provider logos */
-    .service-providers {
-      display: flex;
-      justify-content: center;
-      gap: 32px;
-      margin: 24px 0;
-      padding: 24px 0;
-      border-top: 1px solid #f0f0f0;
-      border-bottom: 1px solid #f0f0f0;
-      flex-wrap: wrap;
-    }
-    
-    .provider {
-      font-size: 12px;
-      color: #999;
-      text-align: center;
-    }
-    
-    .provider-label {
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-top: 4px;
     }
     
     /* No results state */
@@ -551,16 +449,8 @@
       border: 1px solid #e5e5e5;
     }
     
-    /* Responsive breakpoints */
+    /* Responsive */
     @media (max-width: 768px) {
-      .portal-access {
-        position: static;
-        display: block;
-        margin: 20px auto;
-        text-align: center;
-        width: fit-content;
-      }
-      
       .container {
         padding: 60px 20px;
       }
@@ -584,17 +474,6 @@
         padding: 10px 8px;
       }
       
-      .suggestion {
-        display: block;
-        margin: 4px 0;
-        display: inline-block;
-      }
-      
-      .stats-mini {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-      }
-      
       .result-item h3 {
         font-size: 18px;
       }
@@ -603,18 +482,8 @@
         font-size: 15px;
       }
       
-      .service-providers {
-        gap: 20px;
-      }
-      
       .keyboard-hint {
         display: none;
-      }
-    }
-    
-    @media (max-width: 480px) {
-      .stats-mini {
-        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -622,19 +491,14 @@
 <body>
   <!-- Regulatory compliance bar -->
   <div class="regulatory-bar">
-    Cayman Islands Regulated (CIMA #12345) | <a href="#" onclick="searchFor('Risk factors')">Important Risk Information</a>
+    BVI Approved Manager (FSC) | <a href="#" onclick="searchFor('Risk factors')">Important Risk Information</a>
   </div>
-  
-  <!-- Investor portal access -->
-  <a href="#" class="portal-access" onclick="alert('Investor portal requires authentication. Please contact investors@emergencepartners.com for access.')">
-    Investor Portal →
-  </a>
   
   <div class="container">
     <header>
       <div class="logo">EMERGENCE PARTNERS</div>
       <div class="subtitle">Finding emergent value in complex systems</div>
-      <a href="index.html" class="back-link">← Back to main site</a>
+      <a href="index_v2.html" class="back-link">← Back to main site</a>
     </header>
     
     <div class="search-container">
@@ -656,20 +520,20 @@
         <div id="recentSearchItems"></div>
       </div>
       
+      <!-- Updated quick actions: removed Track Record, Fund Terms, Service Providers -->
       <div class="quick-actions">
-        <button class="quick-action" onclick="searchFor('Investment strategy')">Investment Strategy</button>
-        <button class="quick-action" onclick="searchFor('Track record')">Track Record</button>
-        <button class="quick-action" onclick="searchFor('Fund terms')">Fund Terms</button>
+        <button class="quick-action" onclick="searchFor('Philosophy')">Philosophy</button>
+        <button class="quick-action" onclick="searchFor('Strategy')">Strategy</button>
         <button class="quick-action" onclick="searchFor('Risk management')">Risk Management</button>
         <button class="quick-action" onclick="searchFor('Team')">Team</button>
         <button class="quick-action" onclick="searchFor('Insights')">Insights</button>
+        <button class="quick-action" onclick="searchFor('ESG')">ESG</button>
       </div>
       
       <div class="suggestions" id="suggestions">
-        <span class="suggestion" onclick="searchFor('Returns')">returns</span>
         <span class="suggestion" onclick="searchFor('ESG')">ESG policy</span>
-        <span class="suggestion" onclick="searchFor('Service providers')">service providers</span>
-        <span class="suggestion" onclick="searchFor('Portal')">investor portal</span>
+        <span class="suggestion" onclick="searchFor('Contact')">contact us</span>
+        <span class="suggestion" onclick="searchFor('Insights')">thought leadership</span>
       </div>
     </div>
     
@@ -680,8 +544,8 @@
     <div class="footer-content">
       <div class="contact-info">
         <p>For institutional investors and family offices</p>
-        <p><a href="mailto:investors@emergencepartners.com">investors@emergencepartners.com</a></p>
-        <p><a href="tel:+97142941234">+971 4 294 1234</a></p>
+        <p><a href="mailto:info@emergence.partners">info@emergence.partners</a></p>
+        <p><a href="tel:+971561731915">+971 56 173 1915</a></p>
       </div>
       <div class="footer-meta">
         <p>Cayman Islands • Dubai • London • Dublin • New York</p>
@@ -695,163 +559,45 @@
   </footer>
   
   <div class="keyboard-hint">
-    Press ESC to clear search • Use ↑↓ to navigate
+    Press ESC to clear search
   </div>
   
   <script>
-    // Enhanced knowledge base with complete regulatory and trust information
+    // Knowledge base — CLEANED for 506(b) compliance
+    // Removed: track record, terms, service providers
+    // Stripped: commercial terms, target returns, fee structures, fund-specific operational details
     const knowledge = {
       'philosophy': {
         title: 'Investment Philosophy',
         content: `We find emergent value in businesses whose fundamental qualities persist across market transformations. By combining disciplined value investing with opportunistic execution, we target exceptional businesses where patient capital and operational expertise create asymmetric returns.
 
-<strong>Value Foundation:</strong> Our 17% p.a. gross return track record demonstrates our ability to identify quality at reasonable prices. We seek businesses trading below intrinsic value with catalysts for realization.
+<strong>Value Foundation:</strong> We seek businesses trading below intrinsic value with catalysts for realization. Every opportunity is evaluated through a proprietary expected return framework assessing the operating cash flow yield, quality and sustainability of growth, and the conservatism embedded in the current market valuation.
 
-<strong>Opportunistic Execution:</strong> We pursue private investments targeting 25%+ IRRs through hands-on value creation. Our team's expertise in financial restructuring, operational improvement, and cross-border scaling transforms potential into performance.
+<strong>Opportunistic Execution:</strong> We pursue private investments through hands-on value creation. Our team's expertise in financial restructuring, operational improvement, and cross-border scaling transforms potential into performance.
 
-<strong>Systems Approach:</strong> We view businesses as complex adaptive systems. The most valuable opportunities arise where others see only parts—we see the whole and how it can evolve.
+<strong>Systems Approach:</strong> We view businesses as complex adaptive systems. The most valuable opportunities arise where others see only parts — we see the whole and how it can evolve.
 
-<strong>GP Alignment:</strong> Partners invest 5% of fund capital alongside our investors, ensuring complete alignment of interests.`
+<strong>GP Alignment:</strong> Partners invest alongside our investors, ensuring alignment of interests.`
       },
       'strategy': {
         title: 'Investment Strategy & Process',
         content: `Our hybrid approach captures value across market structures, combining the discipline of public markets with the control of private equity.
 
-<strong>Public Markets (40-60% allocation):</strong> Concentrated portfolio of 15-25 high-conviction positions. Maximum position size of 20%. Focus on quality compounders trading at reasonable valuations. Active engagement with management teams.
+<strong>Public Securities:</strong> Concentrated portfolio of high-conviction positions in publicly-traded securities globally. We employ a patient, low-turnover approach with intended holding periods exceeding five years, targeting businesses with durable quality and expected return characteristics.
 
-<strong>Private Investments (40-60% allocation):</strong> Direct investments and co-investments in businesses requiring operational transformation. Target IRRs of 25%+ through active value creation. Typical hold period of 3-7 years.
+<strong>Private Investments:</strong> Direct investments across the capital structure, including minority, significant minority, and controlling positions. We seek businesses where we can contribute active operational value through board representation, capital structure optimisation, or strategic advisory.
 
-<strong>Proprietary Framework:</strong> Our "Emergence Value Matrix" evaluates opportunities across seven dimensions: adaptive capacity, regenerative economics, network effects, management quality, competitive positioning, capital efficiency, and exit optionality.
+<strong>Geographic Focus:</strong> The Investment Advisor specialises in the United States, Europe, and the Gulf Cooperation Council region. The Fund may invest globally.
 
-<strong>Investment Committee:</strong> All investments require unanimous approval from our Investment Committee comprising both founders, our COO, and a non-executive member with 30+ years of institutional investing experience.`
-      },
-      'track record': {
-        title: 'Track Record & Performance',
-        content: `<div class="stats-mini">
-          <div class="stat-mini">
-            <div class="stat-value">17%</div>
-            <div class="stat-label">Gross Annual Return</div>
-          </div>
-          <div class="stat-mini">
-            <div class="stat-value">25%+</div>
-            <div class="stat-label">Private IRRs</div>
-          </div>
-          <div class="stat-mini">
-            <div class="stat-value">€3B+</div>
-            <div class="stat-label">Assets Managed</div>
-          </div>
-          <div class="stat-mini">
-            <div class="stat-value">47</div>
-            <div class="stat-label">Transactions</div>
-          </div>
-        </div>
-
-Our portfolio demonstrates consistent outperformance across market cycles:
-
-<div class="case-mini">
-  <h4>Company A - PropTech Platform</h4>
-  <div class="metrics">Rent-to-own innovation • 26% IRR (unrealized) • 3x Multiple • 300+ properties</div>
-</div>
-
-<div class="case-mini">
-  <h4>Company B - Distillery Turnaround</h4>
-  <div class="metrics">Special situation • 30% Target IRR • €140M+ inventory • Premium repositioning</div>
-</div>
-
-<div class="case-mini">
-  <h4>Company C - Fintech Innovation</h4>
-  <div class="metrics">Invoice tokenization • 23% IRR (unrealized) • £30M processing • Multi-market expansion</div>
-</div>
-
-<div class="risk-box">
-<strong>Important:</strong> Past performance does not guarantee future results. Returns are gross of fees and expenses. Please see risk factors for important disclosures.
-</div>`
-      },
-      'terms': {
-        title: 'Fund Terms & Structure',
-        content: `Emergence Partners is structured to align our interests with long-term value creation while providing institutional-grade governance and operations.
-
-<div class="stats-mini">
-          <div class="stat-mini">
-            <div class="stat-value">$200M</div>
-            <div class="stat-label">Target AUM</div>
-          </div>
-          <div class="stat-mini">
-            <div class="stat-value">6 Months</div>
-            <div class="stat-label">Initial Lock-up</div>
-          </div>
-          <div class="stat-mini">
-            <div class="stat-value">Monthly</div>
-            <div class="stat-label">Liquidity After Lock-up</div>
-          </div>
-          <div class="stat-mini">
-            <div class="stat-value">5%</div>
-            <div class="stat-label">GP Commitment</div>
-          </div>
-        </div>
-
-<strong>Fee Structure:</strong> 1.5% management fee with 20% performance fee above 8% hurdle rate. High-water mark ensures we only earn performance fees on new profits.
-
-<strong>Share Classes:</strong> Founder class (reduced fees for early investors) and Standard class available.
-
-<strong>Investment Minimum:</strong> $1 million for qualified investors, $10 million for institutional allocations. We maintain a concentrated investor base of aligned partners.
-
-<strong>Governance:</strong> Cayman Islands-regulated fund (CIMA #12345) with institutional-grade infrastructure.`
-      },
-      'service providers': {
-        title: 'Service Providers & Governance',
-        content: `We partner with leading global institutions to ensure the highest standards of governance, operations, and investor protection.
-
-<div class="service-providers">
-          <div class="provider">
-            <div>PwC</div>
-            <div class="provider-label">Auditor</div>
-          </div>
-          <div class="provider">
-            <div>Northern Trust</div>
-            <div class="provider-label">Administrator</div>
-          </div>
-          <div class="provider">
-            <div>Maples Group</div>
-            <div class="provider-label">Legal Counsel</div>
-          </div>
-          <div class="provider">
-            <div>Prime Broker A</div>
-            <div class="provider-label">Prime Broker</div>
-          </div>
-        </div>
-
-<strong>Regulatory Oversight:</strong> Registered with the Cayman Islands Monetary Authority (CIMA #12345).
-
-<strong>Reporting & Transparency:</strong> 
-• Monthly performance estimates
-• Quarterly audited statements
-• Annual comprehensive report
-• Full transparency on holdings and attribution
-
-<strong>Investor Communications:</strong> Direct access to founding partners for all investors. Regular market commentary and investment insights shared through our secure investor portal.`
+<strong>Investment Committee:</strong> All investments require unanimous approval from our Investment Committee, comprising both Managing Partners, our COO, and an Independent Chairman with thirty years of institutional investing experience.`
       },
       'risk': {
         title: 'Risk Management Framework',
         content: `Our multi-layered risk management approach is designed to preserve capital while capturing asymmetric upside opportunities.
 
-<strong>Portfolio Construction:</strong>
-• Maximum single position: 20%
-• Sector concentration limits apply
-• Geographic diversification requirements
-• Minimum 30% liquid assets
+<strong>Market Risk Management:</strong> We employ daily monitoring, stress testing across macroeconomic and idiosyncratic scenarios, correlation analysis, and active drawdown controls to manage portfolio-level exposure.
 
-<strong>Market Risk Management:</strong>
-• Daily VaR monitoring
-• Stress testing across scenarios
-• Correlation analysis
-• Drawdown controls
-
-<strong>Operational Risk:</strong>
-• Segregated accounts at Northern Trust
-• Dual approval for all transactions
-• Independent valuation by administrator
-• Comprehensive insurance coverage
+<strong>Concentration Discipline:</strong> Portfolio construction is governed by position-sizing limits, sector concentration constraints, and geographic diversification requirements to mitigate undue risk concentration.
 
 <strong>ESG Integration:</strong> ESG factors are systematically evaluated in every investment decision. We maintain a firm-wide exclusion policy for weapons, tobacco, and other harmful industries.
 
@@ -861,70 +607,29 @@ Our portfolio demonstrates consistent outperformance across market cycles:
       },
       'team': {
         title: 'Leadership Team',
-        content: `Our team combines 35 years of experience across private equity, distressed investing, and operational transformation.
+        content: `<strong>Ian Higgins, Managing Partner</strong>
+Ian has twenty years of experience navigating crises and building platforms, with £500 million in capital raised across two housing businesses. As Head of Special Situations at Irish Bank Resolution Corporation (2012–2016), Ian managed a €3 billion portfolio across 15 countries, leading substantial asset recovery efforts during Ireland's banking crisis. Since 2016, Ian has built housing platforms, raising £350 million for a UK proptech platform and securing €250 million as CEO of Residential Reversions Ltd. Ian currently holds advisory roles and board representation at portfolio companies and is based in UAE.
 
-<strong>Ian Higgins, Co-Founder & CIO</strong>
-Former Head of Special Assets at Irish Banking Resolution Corporation. Managed €3 billion in distressed portfolios across multiple jurisdictions. Deep expertise in financial restructuring, operational turnarounds, and cross-border transactions. Trinity College Dublin (Economics), IMD Executive Education.
+<strong>Paul Higgins, Managing Partner</strong>
+Paul has fifteen years of experience across value investing, private equity, and mergers and acquisitions. Since 2020, he has completed transactions with enterprise values exceeding €60 million. Prior to 2020, he participated in transactions exceeding €500 million across the United States, Europe, Asia, and Latin America. Paul began his career as an analyst at Wallace Capital Management, a $1 billion value-oriented hedge fund, subsequently working at Ernst & Young Corporate Finance and Accenture Global M&A. He gained institutional experience at Waterland Private Equity (€9 billion AUM). From 2021–2023, he served as Advisor to Stripe for the 2023 edition of Poor Charlie's Almanack, working alongside Peter Kaufman (CEO, Glenair).
 
-<strong>Paul Higgins, Co-Founder & CEO</strong>
-Founder of INVRT strategic advisory. Former investment professional at Waterland Private Equity. Strategic advisor to multiple technology companies including Stripe Press. Deep expertise in systems thinking, M&A execution, and scaling operations. Trinity College Dublin (Business), INSEAD Executive Education.
+<strong>Lewis Kilroe, Chief Operating Officer</strong>
+Lewis has fifteen years of experience building institutional fund operations. As former COO of a $2 billion alternative investment firm, he built and scaled infrastructure across investor relations, regulatory compliance, risk management, and technology platforms.
 
-<strong>[Name Withheld], Chief Operating Officer</strong>
-15+ years in fund operations and compliance. Former COO of $2B+ alternative investment firm. Oversees all operational aspects including investor relations, compliance, and technology.
+<strong>Adrian Beattie, Independent Chairman</strong>
+Adrian has thirty years of financial services leadership, including senior executive roles at SS&C Technologies, where he specialized in global fund operations and institutional infrastructure. As Independent Chairman of the Investment Committee, Adrian challenges investment theses, ensures governance best practices, provides institutional perspective, and strengthens risk oversight.
 
-<strong>Investment Committee:</strong>
-• Both Co-Founders
-• Chief Operating Officer
-• Independent Member (Veteran Value Fund Manager with 30+ years experience)
-
-<strong>Advisory Board:</strong>
-• Veteran Value Fund Manager (30+ years, managed $5B+ institutional capital)
-• Veteran Family Office CIO (25+ years, advised multiple billion-dollar families)
-
-<strong>Investment Team:</strong> 3.5 investment professionals with complementary expertise across public markets, private equity, and special situations.`
-      },
-      'portal': {
-        title: 'Investor Portal & Reporting',
-        content: `Our secure investor portal provides 24/7 access to all fund documentation, reporting, and communications.
-
-<strong>Portal Features:</strong>
-• Real-time performance dashboard
-• Monthly statements and quarterly reports
-• Tax documents (K-1s, etc.)
-• Document vault with PPM, DDQ, audited financials
-• Secure messaging with the team
-• Transaction history and capital account details
-
-<strong>Document Vault Contents:</strong>
-• Private Placement Memorandum (PPM)
-• Due Diligence Questionnaire (DDQ)
-• Audited financial statements
-• Service provider agreements
-• Compliance certificates
-• Market commentary and investment letters
-
-<strong>Access:</strong> Investors receive secure credentials upon closing. For access issues or demonstrations, contact investors@emergencepartners.com.
-
-<strong>Technology:</strong> Bank-grade encryption and two-factor authentication ensure the highest level of security for all investor information.`
+<strong>Partnership:</strong> Ian and Paul co-managed family capital for over a decade using the public-private hybrid approach that forms the foundation of Emergence Partners.`
       },
       'insights': {
         title: 'Thought Leadership & Insights',
-        content: `Our team regularly shares insights on markets, systems thinking, and investment opportunities through various channels.
+        content: `Our investment philosophy extends beyond portfolio management. We regularly share insights on markets, systems thinking, and value creation through multiple channels.
 
-<strong>The Emergence Podcast:</strong> Monthly conversations with leading thinkers in complex systems, value investing, and business transformation. Available on all major platforms.
+<strong>Institutional Insights (Monthly):</strong> Exclusive market commentary and portfolio insights delivered directly to subscribers. Analysis of market dynamics, portfolio positioning, and emerging opportunities from our Investment Committee.
 
-<strong>Speaking Engagements:</strong> Our partners regularly speak at industry events including:
-• Value Investing Congress
-• Family Office Forums
-• Private Equity International events
-• Systems thinking conferences
+<strong>Research & Analysis (Quarterly):</strong> Long-form research on value creation, systems thinking, and market dynamics. Recent publications include "The Maintenance Premium," "Systems Value in Complex Markets," and "Cross-Border Arbitrage in Rising Rate Environments."
 
-<strong>Research Publications:</strong>
-• "Emergence Value in Complex Markets" - Our framework for identifying value in transition zones
-• "The Maintenance Premium" - Why operational excellence creates lasting value
-• "Systems Thinking for Investors" - Applying complexity science to investment decisions
-
-<strong>Monthly Market Commentary:</strong> Exclusive insights on market dynamics, portfolio positioning, and emerging opportunities. Available through the investor portal.
+<strong>Ecosystem Conversations:</strong> We regularly contribute to and recommend leading investment and systems thinking podcasts. Our partners appear on platforms discussing emergent value, complex systems, and long-term investing.
 
 Follow us on LinkedIn and Twitter for regular updates and insights.`
       },
@@ -958,36 +663,25 @@ We actively seek investments that contribute to:
       },
       'contact': {
         title: 'Contact Information',
-        content: `<strong>Investor Relations:</strong>
-Email: investors@emergencepartners.com
-Phone: +971 4 294 1234
+        content: `<strong>General Enquiries:</strong>
+Email: info@emergence.partners
+Phone: +971 56 173 1915
 
-<strong>Head Office:</strong>
-Emergence Partners
-Grand Cayman
-Cayman Islands
+<strong>Offices:</strong>
+Cayman Islands • Dubai • London • Dublin • New York
 
-<strong>Regional Offices:</strong>
-Dubai: DIFC, Gate Avenue (9:00-17:00 GST)
-London: 1 Mayfair Place, W1J 8AJ (9:00-17:00 GMT)
-Dublin: 2 Grand Canal Square, D02 A342 (9:00-17:00 GMT)
-New York: 590 Madison Avenue, 10022 (9:00-17:00 EST)
-
-<strong>For Specific Inquiries:</strong>
-Institutional allocations: institutional@emergencepartners.com
-Existing investors: portal@emergencepartners.com
-Press inquiries: press@emergencepartners.com
-Speaking requests: events@emergencepartners.com
-
-<strong>Connect:</strong>
-LinkedIn: /company/emergence-partners
-Twitter: @emergence_ptr
-Podcast: The Emergence Podcast (all platforms)`
+For further information about Emergence Partners, including fund documentation, please contact us directly. All investment-related documentation is made available exclusively to qualifying investors upon request.`
       }
     };
     
     // Search history management
-    let searchHistory = JSON.parse(localStorage.getItem('searchHistory') || '[]');
+    let searchHistory = [];
+    
+    try {
+      searchHistory = JSON.parse(localStorage.getItem('searchHistory') || '[]');
+    } catch(e) {
+      searchHistory = [];
+    }
     
     function updateRecentSearches() {
       const container = document.getElementById('recentSearchItems');
@@ -996,7 +690,7 @@ Podcast: The Emergence Podcast (all platforms)`
       if (searchHistory.length > 0) {
         recentSearchesDiv.classList.add('visible');
         container.innerHTML = searchHistory.slice(0, 5).map(term => 
-          `<span class="recent-search-item" onclick="searchFor('${term}')">${term}</span>`
+          `<span class="recent-search-item" onclick="searchFor('${term.replace(/'/g, "\\'")}')">${term}</span>`
         ).join('');
       } else {
         recentSearchesDiv.classList.remove('visible');
@@ -1008,55 +702,43 @@ Podcast: The Emergence Podcast (all platforms)`
       searchHistory = searchHistory.filter(t => t.toLowerCase() !== term.toLowerCase());
       searchHistory.unshift(term);
       searchHistory = searchHistory.slice(0, 10);
-      localStorage.setItem('searchHistory', JSON.stringify(searchHistory));
+      try {
+        localStorage.setItem('searchHistory', JSON.stringify(searchHistory));
+      } catch(e) {}
       updateRecentSearches();
     }
     
     function showSuggestions() {
-      const suggestions = document.getElementById('suggestions');
-      suggestions.classList.add('visible');
+      document.getElementById('suggestions').classList.add('visible');
     }
     
     function hideSuggestions() {
-      const suggestions = document.getElementById('suggestions');
-      suggestions.classList.remove('visible');
+      document.getElementById('suggestions').classList.remove('visible');
     }
     
     function updateClearButton() {
       const searchBox = document.getElementById('searchBox');
       const clearButton = document.getElementById('clearButton');
-      
-      if (searchBox.value.trim()) {
-        clearButton.classList.add('visible');
-      } else {
-        clearButton.classList.remove('visible');
-      }
+      clearButton.classList.toggle('visible', !!searchBox.value.trim());
     }
     
     function clearSearch() {
       const searchBox = document.getElementById('searchBox');
-      const resultsDiv = document.getElementById('results');
-      
+      document.getElementById('results').style.display = 'none';
       searchBox.value = '';
-      resultsDiv.style.display = 'none';
       updateClearButton();
       searchBox.focus();
-      
-      // Remove active state from all buttons
-      document.querySelectorAll('.quick-action').forEach(button => {
-        button.classList.remove('active');
-      });
+      document.querySelectorAll('.quick-action').forEach(b => b.classList.remove('active'));
     }
     
-    // Add rotating placeholder text
+    // Rotating placeholder
     const placeholders = [
       "What would you like to know?",
-      "Try: investment strategy",
-      "Try: track record",
+      "Try: investment philosophy",
       "Try: risk management",
-      "Try: team experience"
+      "Try: team experience",
+      "Try: ESG policy"
     ];
-    
     let placeholderIndex = 0;
     
     function rotatePlaceholder() {
@@ -1066,40 +748,27 @@ Podcast: The Emergence Podcast (all platforms)`
         searchBox.placeholder = placeholders[placeholderIndex];
       }
     }
-    
-    // Rotate placeholder every 3 seconds
     setInterval(rotatePlaceholder, 3000);
     
-    // Hide suggestions when clicking outside
     document.addEventListener('click', function(event) {
-      const searchContainer = document.querySelector('.search-container');
-      if (!searchContainer.contains(event.target)) {
+      if (!document.querySelector('.search-container').contains(event.target)) {
         hideSuggestions();
       }
     });
     
-    // Update search box to hide suggestions on blur
     document.querySelector('.search-box').addEventListener('blur', function() {
       setTimeout(hideSuggestions, 200);
     });
     
-    // Keyboard shortcuts
     document.addEventListener('keydown', function(event) {
-      if (event.key === 'Escape') {
-        clearSearch();
-      }
+      if (event.key === 'Escape') clearSearch();
     });
     
     function updateActiveButton(query) {
-      // Remove active class from all buttons
-      document.querySelectorAll('.quick-action').forEach(button => {
-        button.classList.remove('active');
-      });
-      
-      // Add active class to matching button
+      document.querySelectorAll('.quick-action').forEach(b => b.classList.remove('active'));
       const lowerQuery = query.toLowerCase().trim();
       document.querySelectorAll('.quick-action').forEach(button => {
-        if (button.textContent.toLowerCase() === lowerQuery) {
+        if (button.textContent.toLowerCase().trim() === lowerQuery) {
           button.classList.add('active');
         }
       });
@@ -1118,7 +787,6 @@ Podcast: The Emergence Podcast (all platforms)`
       }
     }
     
-    // Improved search function with precise matching
     function performSearch(query) {
       const resultsDiv = document.getElementById('results');
       const suggestionsDiv = document.getElementById('suggestions');
@@ -1137,62 +805,56 @@ Podcast: The Emergence Podcast (all platforms)`
       addToSearchHistory(query.trim());
       
       let found = false;
-      let exactMatch = false;
-      let results = [];
+      let searchKeys = [];
       
-      // First, try to find exact matches in quick action buttons
+      // Quick action exact match mapping (updated — removed track record, fund terms)
       const quickActionMap = {
+        'philosophy': ['philosophy'],
+        'strategy': ['strategy'],
         'investment strategy': ['strategy', 'philosophy'],
-        'track record': ['track record'],
-        'fund terms': ['terms'],
         'risk management': ['risk'],
         'team': ['team'],
-        'insights': ['insights']
+        'insights': ['insights'],
+        'esg': ['esg']
       };
       
-      // Check if the query matches a quick action exactly
-      let searchKeys = [];
+      let exactMatch = false;
       for (const [buttonText, keys] of Object.entries(quickActionMap)) {
-        if (lowerQuery === buttonText.toLowerCase()) {
+        if (lowerQuery === buttonText) {
           searchKeys = keys;
           exactMatch = true;
           break;
         }
       }
       
-      // If not exact match, create search terms based on the query
       if (!exactMatch) {
-        // Map common search terms to specific knowledge base keys
+        // Keyword mapping (updated — removed terms, service providers, track record mappings)
         const searchMapping = {
-          'returns': ['track record'],
-          'performance': ['track record'],
           'esg': ['esg'],
           'environmental': ['esg'],
           'social': ['esg'],
           'governance': ['esg'],
-          'service providers': ['service providers'],
-          'auditor': ['service providers'],
-          'administrator': ['service providers'],
-          'portal': ['portal'],
-          'investor portal': ['portal'],
           'philosophy': ['philosophy'],
           'strategy': ['strategy', 'philosophy'],
           'team': ['team'],
           'leadership': ['team'],
           'ian higgins': ['team'],
           'paul higgins': ['team'],
-          'terms': ['terms'],
-          'fees': ['terms'],
-          'minimum': ['terms'],
+          'lewis kilroe': ['team'],
+          'adrian beattie': ['team'],
           'risk': ['risk'],
           'risk factors': ['risk'],
-          'risk management': ['risk'],
           'contact': ['contact'],
           'email': ['contact'],
-          'phone': ['contact']
+          'phone': ['contact'],
+          'insights': ['insights'],
+          'thought leadership': ['insights'],
+          'newsletter': ['insights'],
+          'podcast': ['insights'],
+          'research': ['insights'],
+          'substack': ['insights']
         };
         
-        // Find matching keys based on the query
         for (const [searchTerm, keys] of Object.entries(searchMapping)) {
           if (lowerQuery.includes(searchTerm)) {
             searchKeys = [...searchKeys, ...keys];
@@ -1200,34 +862,36 @@ Podcast: The Emergence Podcast (all platforms)`
         }
       }
       
-      // Remove duplicates
       searchKeys = [...new Set(searchKeys)];
       
-      // If we have specific keys to search, show only those sections
+      let results = [];
+      
       if (searchKeys.length > 0) {
         for (const key of searchKeys) {
           if (knowledge[key]) {
             found = true;
-            results.push({
-              key: key,
-              data: knowledge[key]
-            });
+            results.push({ key, data: knowledge[key] });
           }
         }
       } else {
-        // Fallback: search in titles only for better precision
+        // Fallback: search in titles
         for (const [key, value] of Object.entries(knowledge)) {
           if (value.title.toLowerCase().includes(lowerQuery)) {
             found = true;
-            results.push({
-              key: key,
-              data: value
-            });
+            results.push({ key, data: value });
+          }
+        }
+        // If still not found, search in content
+        if (!found) {
+          for (const [key, value] of Object.entries(knowledge)) {
+            if (value.content.toLowerCase().includes(lowerQuery)) {
+              found = true;
+              results.push({ key, data: value });
+            }
           }
         }
       }
       
-      // Display search query
       if (found) {
         const searchQueryDisplay = document.createElement('div');
         searchQueryDisplay.className = 'search-query-display';
@@ -1238,12 +902,10 @@ Podcast: The Emergence Podcast (all platforms)`
         resultsDiv.appendChild(searchQueryDisplay);
       }
       
-      // Display results with section indicators
       results.forEach((result, index) => {
         const resultItem = document.createElement('div');
         resultItem.className = 'result-item';
         resultItem.id = `result-${result.key}`;
-        
         resultItem.innerHTML = `
           <div class="section-indicator">Section ${index + 1} of ${results.length}</div>
           <h3>${result.data.title}</h3>
@@ -1256,18 +918,16 @@ Podcast: The Emergence Podcast (all platforms)`
         resultsDiv.innerHTML = `
           <div class="no-results">
             <p>No results found for "${query}"</p>
-            <p>Try searching for: strategy, risk, ESG, team, or service providers</p>
+            <p>Try searching for: philosophy, strategy, risk, team, ESG, or insights</p>
           </div>
         `;
       }
       
-      // Smooth scroll to results
-      setTimeout(() => {
-        resultsDiv.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
-      }, 100);
+      // Scroll to results
+      resultsDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
     
-    // Initialize recent searches on load
+    // Initialize
     updateRecentSearches();
   </script>
 </body>
