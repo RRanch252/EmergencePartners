@@ -1,11 +1,13 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Emergence Partners | Concentrated Long term Investing</title>
+  <title>Emergence Partners | Concentrated Long-Term Investing</title>
   <meta name="description" content="Emergence Partners - Concentrated portfolio of 15-20 exceptional businesses across public and private markets who compound equity value over decades.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -14,11 +16,13 @@
     }
     
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
       line-height: 1.6;
       color: #1a1a1a;
       background: #fff;
       font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
     
     /* Regulatory bar */
@@ -29,6 +33,7 @@
       font-size: 11px;
       color: #666;
       text-align: center;
+      letter-spacing: 0.2px;
     }
     
     .regulatory-bar a {
@@ -36,13 +41,15 @@
       text-decoration: underline;
     }
     
-    /* Header with CTA */
+    /* Header */
     .main-header {
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
       background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       border-bottom: 1px solid #e5e5e5;
       z-index: 100;
       padding: 20px 0;
@@ -62,43 +69,19 @@
     }
     
     .logo {
+      font-family: 'DM Sans', sans-serif;
       font-size: 14px;
       font-weight: 600;
-      letter-spacing: 1.5px;
+      letter-spacing: 2px;
       color: #000;
     }
     
-    .tagline {
-      font-size: 12px;
-      color: #666;
-      margin-top: 4px;
-    }
-    
-    /* Header CTAs container */
     .header-ctas {
       display: flex;
       gap: 16px;
       align-items: center;
     }
     
-    /* Investor Portal CTA */
-    .investor-portal-cta {
-      color: #666;
-      padding: 10px 20px;
-      text-decoration: none;
-      font-size: 13px;
-      font-weight: 500;
-      letter-spacing: 0.3px;
-      transition: all 0.2s ease;
-      border-bottom: none;
-    }
-    
-    .investor-portal-cta:hover {
-      color: #000;
-      border-bottom: none;
-    }
-    
-    /* Search CTA Button */
     .search-cta {
       background: #1a1a1a;
       color: #fff;
@@ -133,42 +116,29 @@
       padding: 120px 20px 60px;
     }
     
+    /* Hero */
     .hero {
-      margin-bottom: 80px;
+      margin-bottom: 72px;
     }
     
     .hero h1 {
-      font-size: 28px;
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: 30px;
       font-weight: 400;
-      line-height: 1.4;
-      margin-bottom: 32px;
-      letter-spacing: -0.5px;
+      line-height: 1.45;
+      margin-bottom: 0;
+      letter-spacing: -0.3px;
+      color: #111;
     }
     
-    /* Trust indicators */
-    .trust-indicators {
-      display: flex;
-      justify-content: center;
-      gap: 24px;
-      margin: 40px 0;
-      padding: 20px 0;
-      border-top: 1px solid #f0f0f0;
-      border-bottom: 1px solid #f0f0f0;
-      flex-wrap: wrap;
-    }
-    
-    .trust-item {
-      font-size: 11px;
-      color: #999;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-    
-    /* Interactive expandable sections */
+    /* Expandable sections */
     .expandable {
-      margin-bottom: 24px;
-      border-bottom: 1px solid #eee;
-      padding-bottom: 24px;
+      margin-bottom: 0;
+      border-bottom: 1px solid #e8e8e8;
+    }
+    
+    .expandable:first-of-type {
+      border-top: 1px solid #e8e8e8;
     }
     
     .expandable-header {
@@ -176,7 +146,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 4px 0;
+      padding: 22px 0;
       transition: all 0.2s;
     }
     
@@ -185,11 +155,12 @@
     }
     
     .expandable-title {
-      font-size: 17px;
+      font-size: 16px;
       font-weight: 500;
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
+      letter-spacing: 0.1px;
     }
     
     .plus {
@@ -209,18 +180,18 @@
     .expandable-content {
       max-height: 0;
       overflow: hidden;
-      transition: max-height 0.3s ease;
+      transition: max-height 0.4s ease;
     }
     
     .expandable.active .expandable-content {
-      max-height: 2000px;
-      padding-top: 16px;
+      max-height: 3000px;
+      padding-bottom: 28px;
     }
     
     .expandable-content p {
       font-size: 15px;
-      line-height: 1.7;
-      color: #333;
+      line-height: 1.75;
+      color: #3a3a3a;
       margin-bottom: 16px;
     }
     
@@ -229,102 +200,16 @@
       font-weight: 600;
     }
     
-    /* Stats within expandable content */
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-      margin: 20px 0;
-      padding: 20px 0;
-      border-top: 1px solid #f0f0f0;
-      border-bottom: 1px solid #f0f0f0;
-    }
-    
-    .stat {
-      text-align: center;
-    }
-    
-    .stat-value {
-      font-size: 20px;
-      font-weight: 300;
-      color: #1a1a1a;
-      margin-bottom: 4px;
-    }
-    
-    .stat-label {
-      font-size: 12px;
-      color: #666;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-    
-    /* Case study mini-cards */
-    .case-highlight {
-      background: #f9f9f9;
-      padding: 16px;
-      border-radius: 4px;
-      margin-bottom: 12px;
-    }
-    
-    .case-highlight h4 {
-      font-size: 15px;
-      font-weight: 500;
-      margin-bottom: 4px;
-    }
-    
-    .case-highlight .metrics {
-      font-size: 13px;
-      color: #666;
-    }
-    
-    /* Service providers */
-    .service-providers {
-      display: flex;
-      justify-content: center;
-      gap: 32px;
-      margin: 24px 0;
-      padding: 24px 0;
-      border-top: 1px solid #f0f0f0;
-      border-bottom: 1px solid #f0f0f0;
-      flex-wrap: wrap;
-    }
-    
-    .provider {
-      font-size: 12px;
-      color: #999;
-      text-align: center;
-    }
-    
-    .provider-label {
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-top: 4px;
-    }
-    
     /* Risk disclaimer box */
     .risk-box {
-      background: #fef8f0;
-      border: 1px solid #f0e0c0;
-      padding: 16px;
-      border-radius: 8px;
+      background: #fef9f2;
+      border: 1px solid #ede0cc;
+      padding: 16px 20px;
+      border-radius: 6px;
       margin: 20px 0;
       font-size: 13px;
       color: #666;
-    }
-    
-    /* Media Section */
-    .media-section {
-      margin: 80px 0;
-    }
-    
-    .media-section h2 {
-      font-size: 20px;
-      font-weight: 400;
-      letter-spacing: -0.3px;
-      margin-bottom: 40px;
-      color: #1a1a1a;
-      text-align: center;
+      line-height: 1.7;
     }
     
     /* Insights section styles */
@@ -333,7 +218,7 @@
     }
     
     .insight-channel {
-      border-left: 1px solid #e5e5e5;
+      border-left: 2px solid #e5e5e5;
       padding-left: 20px;
       margin-bottom: 32px;
       transition: all 0.3s ease;
@@ -351,7 +236,7 @@
     }
     
     .channel-header h4 {
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 600;
       color: #1a1a1a;
       margin: 0;
@@ -480,93 +365,35 @@
       color: #999;
       text-align: right;
     }
-    
-    /* Call to explore more */
-    .explore-more {
-      text-align: center;
-      margin: 60px 0;
-      padding: 40px;
-      background: #f9f9f9;
-      border-radius: 8px;
-    }
-    
-    .explore-more h3 {
-      font-size: 18px;
-      font-weight: 500;
-      margin-bottom: 16px;
-      color: #1a1a1a;
-    }
-    
-    .explore-more p {
-      font-size: 14px;
-      color: #666;
-      margin-bottom: 24px;
-    }
-    
-    .explore-button {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: #1a1a1a;
-      color: #fff;
-      padding: 12px 24px;
-      border-radius: 24px;
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 500;
-      transition: all 0.2s ease;
-    }
-    
-    .explore-button:hover {
-      background: #000;
-      transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    }
 
-    /* Quote styling */
+    /* Quote */
     .quote {
-      font-size: 16px;
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: 18px;
       line-height: 1.7;
-      color: #666;
+      color: #555;
       font-style: italic;
-      padding: 32px 0;
-      margin: 60px 0;
-      border-top: 1px solid #eee;
-      border-bottom: 1px solid #eee;
+      padding: 36px 0;
+      margin: 40px 0 0;
+      border-top: none;
+      border-bottom: none;
     }
     
+    .quote .attribution {
+      font-size: 15px;
+      font-style: italic;
+      color: #999;
+      margin-top: 12px;
+      display: block;
+    }
+    
+    /* Footer */
     footer {
       margin-top: 80px;
       padding-top: 40px;
-      border-top: 1px solid #eee;
+      border-top: 1px solid #e8e8e8;
       font-size: 14px;
       color: #666;
-    }
-    
-    .footer-stats {
-      display: flex;
-      justify-content: space-around;
-      margin-bottom: 30px;
-      padding-bottom: 30px;
-      border-bottom: 1px solid #eee;
-    }
-    
-    .footer-stat {
-      text-align: center;
-    }
-    
-    .footer-stat-value {
-      font-size: 16px;
-      color: #1a1a1a;
-      font-weight: 300;
-    }
-    
-    .footer-stat-label {
-      font-size: 11px;
-      color: #999;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-top: 2px;
     }
     
     .contact {
@@ -574,19 +401,15 @@
       margin-bottom: 20px;
     }
     
-    .social-links {
-      margin-top: 20px;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
+    .contact a {
+      color: #1a1a1a;
+      text-decoration: none;
+      border-bottom: 1px solid #ddd;
+      transition: border-color 0.2s;
     }
     
-    .social-links a {
-      color: #999;
-      text-decoration: none;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
+    .contact a:hover {
+      border-color: #666;
     }
     
     a {
@@ -613,11 +436,6 @@
         gap: 12px;
       }
       
-      .investor-portal-cta {
-        font-size: 12px;
-        padding: 8px 16px;
-      }
-      
       .search-cta {
         font-size: 12px;
         padding: 8px 16px;
@@ -631,21 +449,13 @@
         font-size: 24px;
       }
       
-      .stats-grid {
+      .insight-item {
         grid-template-columns: 1fr;
+        gap: 4px;
       }
       
-      .footer-stats {
-        flex-direction: column;
-        gap: 20px;
-      }
-      
-      .trust-indicators {
-        gap: 16px;
-      }
-      
-      .service-providers {
-        gap: 20px;
+      .insight-date {
+        text-align: left;
       }
     }
   </style>
@@ -653,25 +463,22 @@
 <body>
   <!-- Regulatory compliance bar -->
   <div class="regulatory-bar">
-    Cayman Islands Regulated (CIMA #TBC) | <a href="#risk">Important Risk Information</a>
+    BVI Approved Manager (FSC) | <a href="#risk">Important Risk Information</a>
   </div>
   
-  <!-- Fixed header with CTAs -->
+  <!-- Fixed header -->
   <header class="main-header">
     <div class="header-content">
       <div class="logo-section">
         <div class="logo">EMERGENCE PARTNERS</div>
       </div>
       <div class="header-ctas">
-        <a href="#" class="investor-portal-cta" onclick="alert('Investor portal requires authentication. Please contact investors@emergencepartners.com for access.')">
-          Investor Portal →
-        </a>
         <a href="search.html" class="search-cta">
           <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <circle cx="11" cy="11" r="8"></circle>
             <path d="M21 21l-4.35-4.35"></path>
           </svg>
-          Try our Search Website
+          Search our website
         </a>
       </div>
     </div>
@@ -679,12 +486,10 @@
   
   <div class="container">
     <section class="hero">
-      <h1>We invest in 15-20 of the world's best businesses who compound cash earnings for decades across private and public markets. We seek to bring the best of these commercial models and human capital to new markets including UAE and GCC.  </h1>
+      <h1>We own a concentrated portfolio of exceptional businesses across public and private markets. Resilient compounders whose quality, adaptability, and reinvestment runways create value over decades.</h1>
     </section>
     
-
-    
-    <!-- Investment Philosophy -->
+    <!-- 1. Investment Philosophy — LOW RISK: Keep -->
     <div class="expandable">
       <div class="expandable-header" onclick="toggleSection(this)">
         <div class="expandable-title">
@@ -694,24 +499,21 @@
       </div>
       <div class="expandable-content">
         <p>
-          We own a concentrated portfolio of approximately 20 exceptional businesses that improve themselves every year. Our investment horizon is long-term (10+ years minimum). We accept short-term price volatility because we focus on per-unit cash earnings power compounding over decades.
+          We deploy capital only when the expected return materially exceeds our required rate of return and that of any existing holding it would displace. Every opportunity is evaluated through a proprietary expected return framework assessing the operating cash flow yield at the prevailing price, the quality and sustainability of growth, and the conservatism embedded in the current market valuation.
         </p>
         <p>
-          <strong>Our Quality Bar:</strong> Every new investment must be good enough to displace one of our existing holdings. This is our effective cost of capital. We only invest when we've found something demonstrably better than what we already own.
+          We target businesses with durable and widening competitive advantages, high returns on tangible capital, and management teams whose capital allocation decisions compound per-share value over a decade or longer. We assess competitive position through a structured evaluation of moat strength and trajectory, and management quality through the discipline with which capital is allocated among reinvestment, acquisitions, share repurchases, dividends, and balance sheet management.
         </p>
         <p>
-          <strong>What We Look For:</strong> Businesses with enduring competitive advantages, run by able and owner-oriented management, that can reinvest earnings at high rates of return for many years. We seek companies where the fundamental unit economics improve annually, regardless of market sentiment.
+          We distinguish between organic growth and growth dependent on the returns generated by incrementally deployed capital. We balance current and future cash earnings when assessing valuation, seeking a reasonable price for durable quality rather than overpaying for growth or underpaying for value traps.
         </p>
         <p>
-          <strong>How We Differ:</strong> We balance current and future cash earnings when assessing valuation. We aim to pay a reasonable price for durable quality rather than overpaying for growth or underpaying for value traps.
-        </p>
-        <p>
-          <strong>GP Alignment:</strong> Partners co-invest alongside our investors, ensuring alignment of interests.
+          Our structural advantage is duration — a capital structure permitting holding periods of ten to fifteen years or longer, capturing compound growth that time-constrained vehicles must forfeit. Partners co-invest alongside our investors, ensuring alignment of interests.
         </p>
       </div>
     </div>
     
-    <!-- Investment Strategy & Process -->
+    <!-- 2. Investment Strategy & Process — LOW RISK: Keep -->
     <div class="expandable">
       <div class="expandable-header" onclick="toggleSection(this)">
         <div class="expandable-title">
@@ -721,262 +523,100 @@
       </div>
       <div class="expandable-content">
         <p>
-          Our hybrid approach captures value across market structures, combining the discipline of public markets with the control of private equity.
+          The Fund pursues a concentrated investment strategy across public and private markets, with allocations driven by share class risk and liquidity profiles.
         </p>
         <p>
-          <strong>Portfolio Construction:</strong> Concentrated portfolio of 15-20 positions across public markets (60% allocation) and private investments (40% allocation). Maximum initial position size of 20%. We let winners compound without arbitrary rebalancing or tax-triggered selling.
+          <strong>Public Securities:</strong> The Fund invests in publicly-traded securities globally, targeting businesses with the quality and expected return characteristics described above. We employ a patient, low-turnover approach with intended holding periods exceeding five years.
         </p>
         <p>
-          <strong>Public Markets:</strong> High-conviction positions in listed companies. Focus on quality compounders trading at reasonable valuations. Active engagement with management teams where appropriate.
+          <strong>Private Investments:</strong> The Fund pursues private investments across the capital structure, including minority, significant minority, and controlling positions. We seek businesses where we can contribute active operational value through board representation, capital structure optimisation, or strategic advisory. Investments may include established cash-generative businesses as well as businesses at earlier stages of development where we have conviction in the trajectory of future cash flows. Private opportunities are evaluated using the same expected return framework applied to public securities. Sourcing derives from proprietary relationships developed through our principals' combined thirty years of transaction experience.
         </p>
         <p>
-          <strong>Private Investments:</strong> Direct investments and co-investments in businesses requiring operational transformation. Target IRRs of 25%+ through active value creation. Typical hold period of 3-7 years.
+          <strong>Geographic Focus:</strong> The Fund may invest globally. The Investment Advisor specialises in the United States, Europe, and the Gulf Cooperation Council region.
         </p>
         <p>
-          <strong>Investment Criteria:</strong><br>
-          • ROIC >15% sustained for 5+ years<br>
-          • Reinvestment runway of 10+ years at high returns<br>
-          • Mission-critical to customers with structural switching costs<br>
-          • Management we'd trust with our family's capital<br>
-          • Trading at reasonable multiples for the quality delivered
-        </p>
-        <p>
-          <strong>Holding Period:</strong> Forever is our target horizon for public positions. We view selling as a failure unless fundamentals deteriorate or valuation becomes egregiously detached from cash earnings power. Private investments have defined exit horizons but we partner for long-term value creation.
-        </p>
-        <p>
-          <strong>Decision Process:</strong> All investments require unanimous Investment Committee approval. We pass on 95%+ of opportunities reviewed.
+          <strong>Decision Process:</strong> All investments require unanimous Investment Committee approval.
         </p>
       </div>
     </div>
     
-<!-- Track Record & Performance -->
-<div class="expandable">
-  <div class="expandable-header" onclick="toggleSection(this)">
-    <div class="expandable-title">
-      <span class="plus">+</span>
-      Track Record & Performance
-    </div>
-  </div>
-  <div class="expandable-content">
-    <div class="stats-grid">
-      <div class="stat">
-        <div class="stat-value">15%+</div>
-        <div class="stat-label">Target Annual Return</div>
-      </div>
-      <div class="stat">
-        <div class="stat-value">10+ Years</div>
-        <div class="stat-label">Investment Horizon</div>
-      </div>
-      <div class="stat">
-        <div class="stat-value">15-20</div>
-        <div class="stat-label">Portfolio Positions</div>
-      </div>
-      <div class="stat">
-        <div class="stat-value">Aligned</div>
-        <div class="stat-label">GP Co-Investment</div>
-      </div>
-    </div>
+    <!-- 3. Track Record — REMOVED (HIGH RISK) -->
+    <!-- 4. Fund Terms — REMOVED (MEDIUM RISK) -->
+    <!-- 5. Service Providers — REMOVED (MEDIUM RISK) -->
     
-    <p>Our founding partners bring extensive experience across distressed investing, operational transformation, and value creation. Representative investments include:</p>
-    
-    <div class="case-highlight">
-      <h4>PropTech Platform</h4>
-      <div class="metrics">Rent-to-own innovation • Operational transformation • 300+ properties under management</div>
-    </div>
-    
-    <div class="case-highlight">
-      <h4>Distillery Turnaround</h4>
-      <div class="metrics">Special situation • €140M+ inventory repositioning • Premium brand development</div>
-    </div>
-    
-    <div class="case-highlight">
-      <h4>Fintech Innovation</h4>
-      <div class="metrics">Invoice tokenization • £30M+ processing volume • Multi-market expansion</div>
-    </div>
-    
-    <p>These examples illustrate our approach to identifying quality businesses and creating value through operational improvements and strategic repositioning.</p>
-    
-    <div class="risk-box">
-      <strong>Important:</strong> Target returns are not guaranteed. Past performance does not indicate future results. All investments carry risk of loss. Performance information available to qualified investors upon request subject to regulatory requirements.
-    </div>
-  </div>
-</div>
-    
-    <!-- Fund Terms & Structure -->
-    <div class="expandable">
+    <!-- 6. Risk Management Framework — LOW-MEDIUM: Keep, trimmed of fund-specific operational language -->
+    <div class="expandable" id="risk">
       <div class="expandable-header" onclick="toggleSection(this)">
         <div class="expandable-title">
           <span class="plus">+</span>
-          Fund Terms & Structure
+          Risk Management Framework
         </div>
       </div>
       <div class="expandable-content">
         <p>
-          Emergence Partners is structured to align our interests with long-term value creation while providing institutional-grade governance and operations.
+          Our multi-layered risk management approach is designed to preserve capital while capturing asymmetric upside opportunities.
+        </p>
+        <p>
+          <strong>Market Risk Management:</strong> We employ daily monitoring, stress testing across macroeconomic and idiosyncratic scenarios, correlation analysis, and active drawdown controls to manage portfolio-level exposure.
+        </p>
+        <p>
+          <strong>Concentration Discipline:</strong> Portfolio construction is governed by position-sizing limits, sector concentration constraints, and geographic diversification requirements to mitigate undue risk concentration.
+        </p>
+        <p>
+          <strong>ESG Integration:</strong> ESG factors are systematically evaluated in every investment decision. We maintain a firm-wide exclusion policy for weapons, tobacco, and other harmful industries.
         </p>
         
-        <div class="stats-grid">
-          <div class="stat">
-            <div class="stat-value">$200M</div>
-            <div class="stat-label">Target AUM</div>
-          </div>
-          <div class="stat">
-            <div class="stat-value">2 Year </div>
-            <div class="stat-label">Initial Lock-up</div>
-          </div>
-          <div class="stat">
-            <div class="stat-value">Monthly</div>
-            <div class="stat-label">Liquidity After Lock-up</div>
-          </div>
-          <div class="stat">
-            <div class="stat-value">Aligned</div>
-            <div class="stat-label">GP Commitment</div>
-          </div>
+        <div class="risk-box">
+          <strong>Risk Factors:</strong> Investing involves substantial risk including possible loss of principal. Private investments are illiquid. Currency risk exists in international investments. Leverage may be employed. Past performance does not guarantee future results.
         </div>
-        
-        <p>
-          <strong>Fee Structure:</strong> 1.5% management fee with 17.5% performance fee above 6% hurdle rate. 
-        </p>
-        <p>
-          <strong>Share Classes:</strong> Founder class (reduced fees for early investors) and Standard class available.
-        </p>
-        <p>
-          <strong>Investment Minimum:</strong> $0.5 million for qualified investors, $2.5+ million for institutional allocations. 
-        </p>
-        <p>
-          <strong>Governance:</strong> Cayman Islands-regulated fund with institutional-grade infrastructure.
-        </p>
       </div>
     </div>
     
-    <!-- Service Providers & Governance -->
+    <!-- 7. Leadership Team — LOW RISK: Keep -->
     <div class="expandable">
       <div class="expandable-header" onclick="toggleSection(this)">
         <div class="expandable-title">
           <span class="plus">+</span>
-          Service Providers & Governance
+          Leadership Team
         </div>
       </div>
       <div class="expandable-content">
         <p>
-          We partner with leading global institutions to ensure the highest standards of governance, operations, and investor protection.
+          <strong>Ian Higgins, Managing Partner</strong><br>
+          Ian has twenty years of experience navigating crises and building platforms, with £500 million in capital raised across two housing businesses. As Head of Special Situations at Irish Bank Resolution Corporation (2012–2016), Ian managed a €3 billion portfolio across 15 countries, leading substantial asset recovery efforts during Ireland's banking crisis. Since 2016, Ian has built housing platforms, raising £350 million for a UK proptech platform and securing €250 million as CEO of Residential Reversions Ltd. Ian currently holds advisory roles and board representation at portfolio companies and is based in UAE.
+        </p>
+        <p style="font-size: 13px; color: #666; margin-top: 8px;">
+          BA Business Studies (Griffith College Dublin) | Postgraduate Diplomas in Corporate Finance and Insolvency Practice with Distinction (Chartered Accountants Ireland) | QFA | CBI and FCA Regulated
         </p>
         
-        <div class="service-providers">
-          <div class="provider">
-            <div>TBC</div>
-            <div class="provider-label">Auditor</div>
-          </div>
-          <div class="provider">
-            <div>TBC</div>
-            <div class="provider-label">Administrator</div>
-          </div>
-          <div class="provider">
-            <div>TBC</div>
-            <div class="provider-label">Legal Counsel</div>
-          </div>
-          <div class="provider">
-            <div>TBC</div>
-            <div class="provider-label">Prime Broker</div>
-          </div>
+        <p style="margin-top: 24px;">
+          <strong>Paul Higgins, Managing Partner</strong><br>
+          Paul has fifteen years of experience across value investing, private equity, and mergers and acquisitions. Since 2020, he has completed transactions with enterprise values exceeding €60 million. Prior to 2020, he participated in transactions exceeding €500 million across the United States, Europe, Asia, and Latin America. Paul began his career as an analyst at Wallace Capital Management, a $1 billion value-oriented hedge fund, subsequently working at Ernst & Young Corporate Finance and Accenture Global M&A. He gained institutional experience at Waterland Private Equity (€9 billion AUM). From 2021–2023, he served as Advisor to Stripe for the 2023 edition of Poor Charlie's Almanack, working alongside Peter Kaufman (CEO, Glenair).
+        </p>
+        <p style="font-size: 13px; color: #666; margin-top: 8px;">
+          BA Economics (University College Dublin) | ACA Qualified (Chartered Accountants Ireland) | Columbia Executive Value Investing Programme
+        </p>
+        
+        <p style="margin-top: 24px;">
+          <strong>Lewis Kilroe, Chief Operating Officer</strong><br>
+          Lewis has fifteen years of experience building institutional fund operations. As former COO of a $2 billion alternative investment firm, he built and scaled infrastructure across investor relations, regulatory compliance, risk management, and technology platforms. At Emergence Partners, Lewis oversees investor relations and reporting, regulatory compliance, service provider coordination, risk management frameworks, and technology infrastructure.
+        </p>
+        
+        <p style="margin-top: 24px;">
+          <strong>Adrian Beattie, Independent Chairman</strong><br>
+          Adrian has thirty years of financial services leadership, including senior executive roles at SS&C Technologies, where he specialized in global fund operations and institutional infrastructure. As Independent Chairman of the Investment Committee, Adrian challenges investment theses, ensures governance best practices, provides institutional perspective, and strengthens risk oversight.
+        </p>
+        
+        <div style="margin-top: 24px; padding-top: 24px; border-top: 1px solid #f0f0f0;">
+          <p>
+            <strong>Partnership</strong><br>
+            Ian and Paul co-managed family capital for over a decade using the public-private hybrid approach that forms the foundation of Emergence Partners. The partnership demonstrates commitment to operational involvement at portfolio companies to help accelerate value for decades.
+          </p>
         </div>
-        
-        <p>
-          <strong>Regulatory Oversight:</strong> Registered with the Cayman Islands Monetary Authority (CIMA #TBC).
-        </p>
-        <p>
-          <strong>Reporting & Transparency:</strong><br>
-          • Monthly performance estimates<br>
-          • Quarterly audited statements<br>
-          • Annual comprehensive report<br>
-          • Full transparency on holdings and attribution
-        </p>
-        <p>
-          <strong>Investor Communications:</strong> Direct access to founding partners for all investors. Regular market commentary and investment insights shared through our secure investor portal.
-        </p>
       </div>
     </div>
     
-<!-- Risk Management Framework -->
-<div class="expandable" id="risk">
-  <div class="expandable-header" onclick="toggleSection(this)">
-    <div class="expandable-title">
-      <span class="plus">+</span>
-      Risk Management Framework
-    </div>
-  </div>
-  <div class="expandable-content">
-    <p>
-      Our multi-layered risk management approach is designed to preserve capital while capturing asymmetric upside opportunities.
-    </p>
-    <p>
-      <strong>Market Risk Management:</strong><br>
-      • Daily monitoring<br>
-      • Stress testing across scenarios<br>
-      • Correlation analysis<br>
-      • Drawdown controls
-    </p>
-    <p>
-      <strong>Operational Risk:</strong><br>
-      • Segregated accounts<br>
-      • Dual approval for all transactions<br>
-      • Independent valuation by administrator
-    </p>
-    <p>
-      <strong>ESG Integration:</strong> ESG factors are systematically evaluated in every investment decision. We maintain a firm-wide exclusion policy for weapons, tobacco, and other harmful industries.
-    </p>
-    
-    <div class="risk-box">
-      <strong>Risk Factors:</strong> Investing involves substantial risk including possible loss of principal. Private investments are illiquid. Currency risk exists in international investments. Leverage may be employed. Past performance does not guarantee future results.
-    </div>
-  </div>
-</div>
-    
-<!-- Leadership Team -->
-<div class="expandable">
-  <div class="expandable-header" onclick="toggleSection(this)">
-    <div class="expandable-title">
-      <span class="plus">+</span>
-      Leadership Team
-    </div>
-  </div>
-  <div class="expandable-content">
-    <p>
-      <strong>Ian Higgins, Managing Partner</strong><br>
-      Ian has twenty years of experience navigating crises and building platforms, with £500 million in capital raised across two housing businesses. As Head of Special Situations at Irish Bank Resolution Corporation (2012-2016), Ian managed a €3 billion portfolio across 15 countries, leading substantial asset recovery efforts during Ireland's banking crisis. Since 2016, Ian has built housing platforms, raising £350 million for a UK proptech platform and securing €250 million as CEO of Residential Reversions Ltd. Ian currently holds advisory roles and board representation at portfolio companies and is based in UAE.
-    </p>
-    <p style="font-size: 13px; color: #666; margin-top: 8px;">
-      BA Business Studies (Griffith College Dublin) | Postgraduate Diplomas in Corporate Finance and Insolvency Practice with Distinction (Chartered Accountants Ireland) | QFA | CBI and FCA Regulated
-    </p>
-    
-    <p style="margin-top: 24px;">
-      <strong>Paul Higgins, Managing Partner</strong><br>
-      Paul has fifteen years of experience across value investing, private equity, and mergers and acquisitions. Since 2020, he has completed transactions with enterprise values exceeding €60 million. Prior to 2020, he participated in transactions exceeding €500 million across the United States, Europe, Asia, and Latin America. Paul began his career as an analyst at Wallace Capital Management, a $1 billion value-oriented hedge fund, subsequently working at Ernst & Young Corporate Finance and Accenture Global M&A. He gained institutional experience at Waterland Private Equity (€9 billion AUM). From 2021-2023, he served as Advisor to Stripe for the 2023 edition of Poor Charlie's Almanack, working alongside Peter Kaufman (CEO, Glenair).
-    </p>
-    <p style="font-size: 13px; color: #666; margin-top: 8px;">
-      BA Economics (University College Dublin) | ACA Qualified (Chartered Accountants Ireland) | Columbia Executive Value Investing Programme
-    </p>
-    
-    <p style="margin-top: 24px;">
-      <strong>Lewis Kilroe, Chief Operating Officer</strong><br>
-      Lewis has fifteen years of experience building institutional fund operations. As former COO of a $2 billion alternative investment firm, he built and scaled infrastructure across investor relations, regulatory compliance, risk management, and technology platforms. At Emergence Partners, Lewis oversees investor relations and reporting, regulatory compliance with CIMA, service provider coordination, risk management frameworks, and technology infrastructure.
-    </p>
-    
-    <p style="margin-top: 24px;">
-      <strong>Adrian Beattie, Independent Chairman</strong><br>
-      Adrian has thirty years of financial services leadership, including senior executive roles at SS&C Technologies, where he specialized in global fund operations and institutional infrastructure. As Independent Chairman of the Investment Committee, Adrian challenges investment theses, ensures governance best practices, provides institutional perspective, and strengthens risk oversight.
-    </p>
-    
-    <div style="margin-top: 24px; padding-top: 24px; border-top: 1px solid #f0f0f0;">
-      <p>
-        <strong>Partnership</strong><br>
-        Ian and Paul co-managed family capital for over a decade using the public-private hybrid approach that forms the foundation of Emergence Partners. The partnership demonstrates commitment to operational involvement at portfolio companies to ehlp accelerate value for decades.
-      </p>
-    </div>
-  </div>
-</div>
-    
-    <!-- Thought Leadership & Insights -->
+    <!-- 8. Thought Leadership & Insights — LOW RISK: Keep -->
     <div class="expandable">
       <div class="expandable-header" onclick="toggleSection(this)">
         <div class="expandable-title">
@@ -1000,6 +640,15 @@
               <input type="email" placeholder="institutional email" class="newsletter-input">
               <button class="newsletter-button">Subscribe</button>
             </div>
+            <div style="margin-top: 8px;">
+              <label style="font-size: 11px; color: #999; display: flex; align-items: flex-start; gap: 6px; cursor: pointer;">
+                <input type="checkbox" style="margin-top: 2px; accent-color: #1a1a1a;" required>
+                I consent to receiving investment insights and updates from Emergence Partners. See our <a href="#" style="color: #666; font-size: 11px;">Privacy Policy</a>.
+              </label>
+            </div>
+            <p style="font-size: 11px; color: #999; margin-top: 8px; margin-bottom: 0;">
+              Subscribing to our updates does not constitute an expression of intent to invest and does not establish an advisory or client relationship with Emergence Partners.
+            </p>
           </div>
           
           <div class="insight-channel">
@@ -1044,7 +693,7 @@
       </div>
     </div>
     
-    <!-- ESG Policy -->
+    <!-- 9. ESG Policy — LOW RISK: Keep -->
     <div class="expandable">
       <div class="expandable-header" onclick="toggleSection(this)">
         <div class="expandable-title">
@@ -1088,9 +737,8 @@
     </div>
     
     <div class="quote">
-      "The big money is not in the buying and selling, but in the owning and holding of businesses that have durable competitive advantages and that are run by able and owner-oriented people."<br><br>
-      <strong>Charlie Munger</strong><br><br>
-      This quote captures our entire philosophy. We're in the owning business, not the trading business.
+      "The big money is not in the buying and selling, but in the owning and holding of businesses that have durable competitive advantages and that are run by able and owner-oriented people."
+      <span class="attribution">— Charlie Munger</span>
     </div>
     
     <footer>
@@ -1098,19 +746,54 @@
         <p>
           For institutional investors and family offices<br>
           <a href="mailto:info@emergence.partners">info@emergence.partners</a><br>
-          <a href="tel:+97142941234">+971 56 173 1915</a>
+          <a href="tel:+971561731915">+971 56 173 1915</a>
         </p>
-      </div>
-      
-      <div class="social-links">
-        <a href="#">LinkedIn</a>
-        <a href="#">Twitter</a>
-        <a href="#">Podcast</a>
       </div>
       
       <p style="margin-top: 20px; font-size: 12px; color: #999; text-align: center;">
         Cayman Islands • Dubai • London • Dublin • New York
       </p>
+      
+      <!-- Regulatory Disclaimers — expanded to absorb useful content from removed sections -->
+      <div style="margin-top: 40px; padding-top: 24px; border-top: 1px solid #eee; font-size: 11px; color: #999; line-height: 1.7;">
+        
+        <p style="margin-bottom: 12px;">
+          The information on this website is for informational purposes only and does not constitute an offer to sell, or a solicitation of an offer to purchase, interests in any fund or investment vehicle managed by Emergence Partners or its affiliates. No such offer or solicitation will be made prior to the delivery of a definitive Private Placement Memorandum and other relevant offering documentation. An investment in any fund managed by Emergence Partners may only be made pursuant to the terms of such offering documentation and is subject to the terms and conditions contained therein.
+        </p>
+        
+        <p style="margin-bottom: 12px;">
+          Investment in the Fund is available exclusively to persons who qualify as accredited investors, qualified purchasers, or professional investors as defined under the applicable laws of the jurisdiction in which they are resident.
+        </p>
+        
+        <p style="margin-bottom: 12px;">
+          This website and the information contained herein are not intended for distribution to, or use by, any person or entity in any jurisdiction or country where such distribution or use would be contrary to law or regulation, or which would subject Emergence Partners or any of its affiliates to any registration requirement within such jurisdiction or country.
+        </p>
+        
+        <p style="margin-bottom: 12px;">
+          In the United Arab Emirates, this website is not intended as a financial promotion and does not constitute an offer of securities in the UAE. EP Services FZco is a free zone entity registered in IFZA and does not hold a financial services licence from the DFSA, FSRA, SCA, or any other UAE regulatory authority.
+        </p>
+        
+        <p style="margin-bottom: 12px;">
+          Nothing on this website constitutes tax advice. Prospective investors should consult their own tax, legal, and financial advisers regarding the tax consequences of investing in the Fund, including the implications of the Fund's domicile, structure, and the investor's own tax residence.
+        </p>
+        
+        <p style="margin-bottom: 12px;">
+          The Fund is structured as a Cayman Islands-registered entity with institutional-grade governance and infrastructure. Fund terms, fee structures, and complete investment details are set out in the Private Placement Memorandum (PPM), which is made available exclusively to qualifying investors upon request.
+        </p>
+        
+        <p style="margin-bottom: 12px; text-transform: uppercase; font-size: 10px;">
+          THE REGISTRATION OF A FUND BY THE CAYMAN ISLANDS MONETARY AUTHORITY DOES NOT CONSTITUTE ANY GUARANTEE OR ASSURANCE BY THE AUTHORITY TO ANY INVESTOR AS TO THE PERFORMANCE OR CREDITWORTHINESS OF THE FUND. FURTHERMORE, IN REGISTERING A FUND, THE AUTHORITY SHALL NOT BE LIABLE FOR ANY LOSSES OR DEFAULT OF THE FUND OR FOR THE CORRECTNESS OF ANY OPINIONS OR STATEMENTS EXPRESSED IN ANY MATERIAL USED TO SOLICIT THE PURCHASE OF INVESTMENT INTERESTS IN A FUND.
+        </p>
+        
+        <p style="margin-bottom: 12px;">
+          This website is operated by [ENTITY NAME — Lewis to confirm]. Registered Office: [ADDRESS]. Company/Registration Number: [NUMBER]. Jurisdiction of Incorporation: [JURISDICTION].
+        </p>
+        
+        <p style="margin-top: 16px;">
+          <a href="#" style="color: #999; font-size: 11px;">Privacy Policy</a> | <a href="#" style="color: #999; font-size: 11px;">Cookie Policy</a>
+        </p>
+        
+      </div>
     </footer>
   </div>
   
@@ -1120,13 +803,12 @@
       expandable.classList.toggle('active');
       
       // Close other sections
-      document.querySelectorAll('.expandable').forEach(section => {
-        if (section !== expandable && section.classList.contains('active')) {
-          section.classList.remove('active');
+      document.querySelectorAll('.expandable').forEach(other => {
+        if (other !== expandable) {
+          other.classList.remove('active');
         }
       });
     }
   </script>
 </body>
 </html>
-```
