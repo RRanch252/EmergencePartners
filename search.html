@@ -450,28 +450,57 @@
     }
     
     /* Responsive */
+    /* ─── MOBILE OPTIMISATION ─── */
+    
+    /* Prevent iOS auto-zoom on inputs */
+    @media screen and (max-width: 768px) {
+      input, select, textarea {
+        font-size: 16px !important;
+      }
+    }
+    
     @media (max-width: 768px) {
       .container {
-        padding: 60px 20px;
+        padding: 48px 16px;
       }
       
       header {
-        margin-bottom: 40px;
+        margin-bottom: 32px;
       }
       
+      .logo {
+        font-size: 12px;
+      }
+      
+      .subtitle {
+        font-size: 14px;
+      }
+      
+      /* Search box */
       .search-box {
         font-size: 16px;
-        padding: 18px 50px 18px 20px;
+        padding: 16px 48px 16px 16px;
+        border-radius: 10px;
       }
       
+      /* Quick actions: 2 columns with proper touch targets */
       .quick-actions {
         grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
+        gap: 10px;
       }
       
       .quick-action {
-        font-size: 12px;
-        padding: 10px 8px;
+        font-size: 13px;
+        padding: 12px 8px;
+        min-height: 48px;
+        border-radius: 16px;
+      }
+      
+      /* Results */
+      .result-item {
+        padding-left: 16px;
+        margin-bottom: 40px;
+        padding-bottom: 40px;
       }
       
       .result-item h3 {
@@ -479,11 +508,41 @@
       }
       
       .result-item p {
-        font-size: 15px;
+        font-size: 14px;
+        line-height: 1.7;
       }
       
+      .search-query-display {
+        font-size: 13px;
+        padding: 10px 14px;
+        margin-bottom: 24px;
+      }
+      
+      /* Hide keyboard hint on mobile */
       .keyboard-hint {
         display: none;
+      }
+      
+      /* Footer */
+      footer {
+        padding: 40px 16px 32px;
+      }
+    }
+    
+    /* Small phones */
+    @media (max-width: 375px) {
+      .container {
+        padding: 40px 14px;
+      }
+      
+      .quick-actions {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+      }
+      
+      .quick-action {
+        font-size: 12px;
+        padding: 10px 6px;
       }
     }
   </style>
@@ -498,7 +557,7 @@
     <header>
       <div class="logo">EMERGENCE PARTNERS</div>
       <div class="subtitle">Finding emergent value in complex systems</div>
-      <a href="index_v2.html" class="back-link">← Back to main site</a>
+      <a href="index.html" class="back-link">← Back to main site</a>
     </header>
     
     <div class="search-container">
@@ -928,6 +987,43 @@ For further information about Emergence Partners, including fund documentation, 
     updateRecentSearches();
   </script>
   
+  <!-- Mobile styles for gate and cookie banner -->
+  <style>
+    @media (max-width: 768px) {
+      #jurisdictionGate > div {
+        padding: 40px 20px 60px !important;
+      }
+      #jurisdictionGate p,
+      #jurisdictionGate div {
+        font-size: 14px !important;
+      }
+      #jurisdictionGate select {
+        font-size: 16px !important;
+        padding: 14px 16px !important;
+        min-height: 48px !important;
+      }
+      #jurisdictionGate button {
+        padding: 16px 24px !important;
+        font-size: 15px !important;
+        min-height: 48px !important;
+      }
+      #cookieConsent > div {
+        flex-direction: column !important;
+        text-align: center !important;
+        gap: 16px !important;
+      }
+      #cookieConsent button {
+        min-height: 44px !important;
+        padding: 12px 20px !important;
+      }
+    }
+    @media (max-width: 375px) {
+      #jurisdictionGate > div {
+        padding: 32px 16px 48px !important;
+      }
+    }
+  </style>
+
   <!-- Jurisdiction Gate Overlay -->
   <div id="jurisdictionGate" style="
     position: fixed; top: 0; left: 0; right: 0; bottom: 0;
