@@ -10,7 +10,7 @@
 
 | File | Purpose |
 |------|---------|
-| `index_v2.html` | Main site — investment philosophy, strategy, risk management, team, insights, ESG |
+| `index.html` | Main site — investment philosophy, strategy, risk management, team, insights, ESG |
 | `search.html` | Search page — knowledge base with quick actions |
 | `privacy.html` | Privacy Policy (GDPR Article 13/14) — **requires Lewis sign-off before publish** |
 | `cookies.html` | Cookie Policy — **requires Paul to confirm analytics setup** |
